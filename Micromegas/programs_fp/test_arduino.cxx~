@@ -1,0 +1,211 @@
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <termios.h>
+#include <unistd.h>
+#include <cstring>
+#include <cstdio>
+
+#include <iostream>
+
+#define error_message(F,E) printf(F, E)
+
+static int xet_interface_attribs (int fd, int speed, int chsz, char parity, int nstopb)
+ {
+
+        struct termios tty;
+        memset (&tty, 0, sizeof tty);
+        if (tcgetattr (fd, &tty) != 0)
+        {
+                error_message ("error %d from tcgetattr", errno);
+                return -1;
+        }
+
+        cfsetospeed (&tty, speed);
+        cfsetispeed (&tty, speed);
+
+        tty.c_cflag = (tty.c_cflag & ~CSIZE) | chsz;
+        // disable IGNBRK for mismatched speed tests; otherwise receive break
+        // as \000 chars
+        tty.c_iflag &= ~IGNBRK;         // ignore break signal
+        tty.c_lflag = 0;                // no signaling chars, no echo,
+        // no canonical processing
+        tty.c_oflag = 0;                // no remapping, no delays
+        tty.c_cc[VMIN]  = 0;            // read doesn't block
+        tty.c_cc[VTIME] = 5;            // 0.5 seconds read timeout
+
+        tty.c_iflag &= ~(IXON | IXOFF | IXANY); // shut off xon/xoff ctrl
+        tty.c_iflag |= IXON | IXOFF | IXANY; // enable xon/xoff ctrl
+
+        tty.c_cflag |= (CLOCAL | CREAD);// ignore modem controls,
+        // enable reading
+        tty.c_cflag &= ~(PARENB | PARODD);      // shut off parity
+        switch (parity)
+         {
+          case 'O':
+            tty.c_cflag |= (PARENB | PARODD);
+            break;
+          case 'E':
+            tty.c_cflag |= PARENB;
+            tty.c_cflag &= ~PARODD;
+            break;
+          case 'N':
+          default:
+            tty.c_cflag &= ~(PARENB | PARODD);      // shut off parity
+            break;
+         }
+        (nstopb == 2) ?  tty.c_cflag |= CSTOPB : tty.c_cflag &= ~CSTOPB;
+        tty.c_cflag &= ~CRTSCTS;
+
+        if (tcsetattr (fd, TCSANOW, &tty) != 0)
+        {
+                error_message ("error %d from tcsetattr", errno);
+                return -1;
+        }
+        return 0;
+ }
+
+static int set_interface_attribs (int fd, int speed, int chsz, char parity, int nstopb)
+ {
+/* Set up the control structure */
+ struct termios toptions;
+ 
+ /* Get currently set options for the tty */
+ tcgetattr(fd, &toptions);
+ 
+/* Set custom options */
+ 
+/* 9600 baud */
+ cfsetispeed(&toptions, B9600);
+ cfsetospeed(&toptions, B9600);
+ /* 8 bits, no parity, no stop bits */
+ toptions.c_cflag &= ~PARENB;
+ toptions.c_cflag &= ~CSTOPB;
+ toptions.c_cflag &= ~CSIZE;
+ toptions.c_cflag |= CS8;
+ /* no hardware flow control */
+ toptions.c_cflag &= ~CRTSCTS;
+ /* enable receiver, ignore status lines */
+ toptions.c_cflag |= CREAD | CLOCAL;
+ /* disable input/output flow control, disable restart chars */
+ toptions.c_iflag &= ~(IXON | IXOFF | IXANY);
+ /* disable canonical input, disable echo,
+ *  disable visually erase chars,
+ *   disable terminal-generated signals */
+ toptions.c_lflag &= ~(ICANON | ECHO | ECHOE | ISIG);
+ /* disable output processing */
+ toptions.c_oflag &= ~OPOST;
+ 
+/* wait for 18 characters to come in before read returns */
+/* WARNING! THIS CAUSES THE read() TO BLOCK UNTIL ALL */
+/* CHARACTERS HAVE COME IN! */
+ toptions.c_cc[VMIN] = 19;
+ /* no minimum time to wait before read returns */
+ toptions.c_cc[VTIME] = 0;
+ 
+
+/* commit the options */
+ tcsetattr(fd, TCSANOW, &toptions);
+ 
+/* Wait for the Arduino to reset */
+ usleep(1000*1000);
+ /* Flush anything already in the serial buffer */
+ tcflush(fd, TCIFLUSH);
+
+ usleep(1000*1000);
+ }
+
+int m_fd(0);
+FILE* m_fp(0);
+
+ int fd;
+ 
+void openTTY()
+ {
+/* Open the file descriptor in non-blocking mode */
+  int fd = open ("/dev/ttyACM1", O_RDWR | O_NOCTTY );
+  if (fd < 0)
+   {
+    printf ("error %d opening /dev/ttyACM1: %s", errno, strerror (errno));
+    throw fd;
+   }
+  m_fd = fd;
+  m_fp = fdopen(fd, "r");
+  set_interface_attribs (fd, B9600, CS8, 'N', 1);    // 9600 baud, 8-bit chars, NO parity, 1 stop bit
+ }
+
+void closeTTY()
+ {
+  if (m_fp) fclose(m_fp);
+  if (m_fd) close(m_fd);
+ }
+ 
+int ndigital = 4;
+int dchan[4] = { 0, 1, 2, 3 };
+
+enum class arduinoDIO { INPUT=1, OUTPUT=0 };
+
+arduinoDIO dway[4] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
+                  arduinoDIO::INPUT, arduinoDIO::INPUT };
+
+int writeLine( char* line, size_t sz )
+ {
+std::cout << "writeLine (" << line << ", " << sz << ')' << std::endl;
+  return write (m_fd, line, sz);
+ }
+
+int getLine( char* line, size_t sz )
+ {
+ /*  
+  std::cout << "getLine max " << sz << std::endl;
+  int n(0), m(0);
+  do
+   {
+    m = read (m_fd, line, sz-n);  // read up to 100 characters if ready to read
+    n += m;
+   }
+  while ((n < sz) && ((n == 0) || (m != 0)));
+  std::cout << "getLine got " << n << " CHAR -->" << std::endl;
+  for (int i=0; i<n; i++) std::cout << line[i];
+  std::cout << std::endl << " <-- getLine got " << n << std::endl;
+  std::cout << "getLine got " << n << " INT -->" << std::endl;
+  for (int i=0; i<n; i++) std::cout << int(line[i]);
+  std::cout << std::endl << " <-- getLine got " << n << std::endl;
+ */
+  int n(0);
+  if (0) do
+   {
+  n = fscanf(m_fp, "%s", line);
+  std::cout << " @@@ getLine got " << n << std::endl;
+  std::cout << " *** getLine got " << line << std::endl;
+
+  } while (getc(m_fp) != '\n');
+
+  if (1)
+   {
+    n = read(m_fd, line, 19);
+  std::cout << " @@@ getLine got " << n << std::endl;
+  std::cout << " *** getLine got " << line << std::endl;
+   }
+  return n;
+ }
+
+int main (int argc, char** argv)
+ {
+
+  openTTY();
+
+  usleep(10000);
+  char message[64];
+  sprintf(message, "abcd\r\n");
+  writeLine( message, strlen(message));
+  usleep(10000);
+  char answer[1000];
+  getLine( answer, 1000);
+  
+  std::cout << std::endl << " arduino said [" << answer << ']' << std::endl;
+
+  closeTTY();
+
+  return 0;
+ }

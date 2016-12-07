@@ -1,0 +1,60 @@
+CFLAGS := -g -fPIC -std=c++0x
+CFLAGS := -g -fPIC -std=gnu++11
+LFLAGS := -pthread
+SRC := .
+OBJ := ../obj/prog
+OBJCore := ../obj/iface
+LIB := ../lib
+BIN := ../bin
+INC := ../include
+
+all : $(LIB)/libpipe.so $(BIN)/ambient $(BIN)/pressmon $(BIN)/map_XY $(BIN)/map_rettangolo $(BIN)/map_trap $(BIN)/map_diag $(BIN)/trap_XYS $(BIN)/move_one $(BIN)/go2zero $(BIN)/zero_motor $(BIN)/remove_mutex
+	@chmod go-w *
+
+$(INC)/%.h : %.h
+	@mkdir -p $(INC)
+	@cp -p $^ $(INC)/
+
+clean :
+	rm -f  $(OBJ)/*.o $(BIN)/remove_mutex $(BIN)/ambient $(BIN)/pressmon $(BIN)/map_XY $(BIN)/map_rettangolo $(BIN)/map_trap $(BIN)/map_diag  $(BIN)/trap_XYS $(BIN)/go2zero $(BIN)/move_one $(BIN)/zero_motor 
+
+$(BIN)/remove_mutex : $(OBJ)/remove_mutex.o
+	g++ $(CFLAGS) $(LFLAGS) -o $@ $^
+
+$(BIN)/ambient : $(OBJ)/ambient.o
+	g++ $(CFLAGS) $(LFLAGS) -o $@ $^
+
+$(BIN)/pressmon : $(OBJ)/pressmon.o
+	g++ $(CFLAGS) $(LFLAGS) -o $@ $^ -L$(LIB) -lRS232 -lpipe 
+
+$(BIN)/map_XY : $(OBJ)/map_XY.o
+	g++ $(CFLAGS) $(LFLAGS) -o $@ $^ -L$(LIB) -lRS232 -lpipe 
+
+$(BIN)/map_rettangolo : $(OBJ)/map_rettangolo.o
+	g++ $(CFLAGS) $(LFLAGS) -o $@ $^ -L$(LIB) -lRS232 -lpipe 
+
+$(BIN)/map_trap : $(OBJ)/map_trap.o
+	g++ $(CFLAGS) $(LFLAGS) -o $@ $^ -L$(LIB) -lRS232 -lpipe 
+
+$(BIN)/map_diag : $(OBJ)/map_diag.o
+	g++ $(CFLAGS) $(LFLAGS) -o $@ $^ -L$(LIB) -lRS232 -lpipe 
+
+$(BIN)/trap_XYS : $(OBJ)/trap_XYS.o
+	g++ $(CFLAGS) $(LFLAGS) -o $@ $^ -L$(LIB) -lRS232 -lpipe
+
+$(BIN)/move_one : $(OBJ)/move_one.o
+	g++ $(CFLAGS) $(LFLAGS) -o $@ $^ -L$(LIB) -lRS232 -lpipe
+
+$(BIN)/go2zero : $(OBJ)/go2zero.o
+	g++ $(CFLAGS) $(LFLAGS) -o $@ $^ -L$(LIB) -lRS232 -lpipe
+
+$(BIN)/zero_motor : $(OBJ)/zero_motor.o
+	g++ $(CFLAGS) $(LFLAGS) -o $@ $^ -L$(LIB) -lRS232 -lpipe
+
+$(OBJ)/%.o : %.cxx
+	@mkdir -p $(OBJ) $(LIB) $(BIN)
+	g++ $(CFLAGS) -I$(INC) -c -o $@ $^
+
+% : %.cxx
+	g++ -std=c++0x -o $@ $^
+

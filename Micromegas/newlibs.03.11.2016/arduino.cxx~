@@ -1,0 +1,149 @@
+
+#include <unistd.h>
+#include <sched.h>
+#include <cstdlib>
+#include <iostream>
+
+#include "arduino.h"
+
+int getLine( int fd, char* line, size_t sz )
+ {
+std::cout << " getLine starting for file descriptor " << fd << std::endl;
+  int n = read (fd, line, 1);  // read up to 100 characters if ready to read
+std::cout << " AAAA got " << n << " bytes out of " << sz << std::endl;
+for (int i=0; i<n; i++) std::cout << '[' << i << ']' << " = " << int(line[i]);
+std::cout << std::endl;
+  while ((line[n-1] != 10) && (n < sz))
+   {
+    int m = read (fd, line+n, sz-n);
+    n += m;
+std::cout << " BBBB got " << n << " bytes out of " << sz << std::endl;
+for (int i=0; i<n; i++) std::cout << '[' << i << ']' << " = " << int(line[i]);
+   }
+  line[n-1] = '\0';
+  if (line[n-2] == 13) line[n-2] = '\0';
+std::cout << " CCCC line " << line << std::endl;
+  return n;
+ }
+
+int getInt( int fd )
+ {
+  char buf[10];
+  int n = read (fd, buf, 10);  // read up to 100 characters if ready to read
+  while (buf[n-1] != 10)
+   {
+    int m = read (fd, buf+n, 10);
+    n += m;
+   }
+  buf[n-1] = '\0';
+  if (buf[n-2] == 13) buf[n-2] = '\0';
+  if (buf[0] == 'Z') buf[0] = ' ';
+  return atoi( buf );
+ }
+
+bool getBool( int fd )
+ {
+  char buf[10];
+  int n = read (fd, buf, 10);  // read up to 100 characters if ready to read
+  while (buf[n-1] != 10)
+   {
+    int m = read (fd, buf+n, 10);
+    n += m;
+   }
+  buf[n-1] = '\0';
+  if (buf[n-2] == 13) buf[n-2] = '\0';
+  if (buf[0] == 'Z') buf[0] = ' ';
+  int i = atoi( buf );
+  return (i!=0);
+ }
+
+void arduino::fflush()
+ {
+  char buf[10000];
+
+  int n;
+  do
+   {
+     n = read (m_fd, buf, 10000);  // read up to 10000 characters if ready to read
+   }
+  while (n == 10000);
+  return;
+ }
+
+int arduino::writeLine( char* line, size_t sz )
+ {
+  return write (m_fd, line, sz);
+ }
+
+int arduino::getLine( char* line, size_t sz )
+ {
+  return ::getLine( m_fd, line, sz );
+ }
+
+void arduino::digitalSetup( int nchans, int* chans, arduinoDIO* way )
+ {
+  char c = 'a';  // was 1
+  write (m_fd, &c, 1);
+  sched_yield();
+  c = nchans;
+  write ( m_fd, &c, 1);
+  sched_yield();
+  for ( int i=0; i<nchans; i++)
+    {
+      c = chans[i];
+      write ( m_fd, &c, 1);
+      sched_yield();
+      c = (way[i] == arduinoDIO::INPUT);
+      write ( m_fd, &c, 1);
+      sched_yield();
+    }
+ }
+
+int arduino::analogInput( int chan )
+ {
+  char c = 'b'; // was 0xA1
+  write (m_fd, &c, 1);
+  sched_yield();
+  return getInt(m_fd);
+ }
+
+bool arduino::digitalInput( int chan )
+ {
+  char c = 'e'; // was 0xD1;
+  write (m_fd, &c, 1);
+  sched_yield();
+  c = chan;
+  write (m_fd, &c, 1);
+  sched_yield();
+  return getBool(m_fd);
+ }
+
+void arduino::digitalOutput( int chan, bool val )
+ {
+  char c = 'c'; // was 0xD0;
+  write (m_fd, &c, 1);
+  sched_yield();
+  c = chan;
+  write (m_fd, &c, 1);
+  sched_yield();
+  c = val;
+  write (m_fd, &c, 1);
+  sched_yield();
+ }
+
+void arduino::pulseOutput( int chan )
+ {
+  std::cout << " file descriptor for arduino is " << m_fd << std::endl;
+  std::cout << " sending a pulse out of chan " << chan << std::endl;
+  char c[2];
+  c[0] = 'd';
+  c[1] = chan;
+  // char c = 'd'; // was 0xD7;
+  // write (m_fd, &c, 1);
+  // sched_yield();
+  // c = chan;
+  // write (m_fd, &c, 1);
+  write (m_fd, c, 2);
+  sched_yield();
+ }
+

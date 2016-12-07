@@ -1,0 +1,193 @@
+thread 140009423886080 started
+start reading pipe /tmp/atlas/mapXYpipe
+beginning
+arduino created
+reading file
+XXXXX name temp_up_sb mod 1 chan 0 RFS 5500 RZS 0 EFS 50 EZS 0 unit C descr ambient
+XXXXX name temp_dw_sb mod 1 chan 1 RFS 5500 RZS 0 EFS 50 EZS 0 unit C descr ambient
+XXXXX name press_line3_cb mod 1 chan 2 RFS 10000 RZS 0 EFS -1 EZS 0 unit bar descr suckers
+XXXXX name press_line4_cb mod 1 chan 3 RFS 10000 RZS 0 EFS -1 EZS 0 unit bar descr suckers
+XXXXX name press_amb mod 1 chan 4 RFS 5000 RZS 0 EFS 1.1 EZS 0.8 unit bar descr ambient
+XXXXX name temp_dw_tb mod 1 chan 5 RFS 5500 RZS 0 EFS 50 EZS 0 unit C descr ambient
+XXXXX name temp_up_tb mod 1 chan 6 RFS 5500 RZS 0 EFS 50 EZS 0 unit C descr ambient
+XXXXX name temp_p1 mod 1 chan 7 RFS 5500 RZS 0 EFS 50 EZS 0 unit C descr ambient
+XXXXX name temp_p2 mod 1 chan 8 RFS 5500 RZS 0 EFS 50 EZS 0 unit C descr ambient
+XXXXX name temp_p3 mod 1 chan 9 RFS 5500 RZS 0 EFS 50 EZS 0 unit C descr ambient
+XXXXX name temp_amb_pc mod 1 chan 10 RFS 10000 RZS 0 EFS 50 EZS 0 unit C descr ambient
+XXXXX name rh_amb_pc mod 1 chan 11 RFS 10000 RZS 0 EFS 100 EZS 0 unit %RH descr ambient
+XXXXX name press_diff mod 1 chan 12 RFS 8000 RZS 1600 EFS 62.3 EZS 0 unit Pa descr ambient
+XXXXX name temp_amb_door mod 1 chan 13 RFS 10000 RZS 0 EFS 50 EZS 0 unit C descr ambient
+XXXXX name rh_amb_door mod 1 chan 14 RFS 10000 RZS 0 EFS 100 EZS 0 unit %RH descr ambient
+XXXXX name laser mod 1 chan 15 RFS 10000 RZS 0 EFS 10000 EZS 0 unit um descr laser
+ dx(mm) dy(mm) ds(um) 450 330 3000
+ xdim ydim ntotx ntoty 1800 990 5 4 
+
+-----------------------------------------------------
+ motore [-m] 1
+ passi [-s] 11250
+ velocità [-v] 20
+ accelerazione [-r] 31
+ direzione [-d] 1
+ funzione [-f] 0
+ stringa1 m231-1112502031+0
+ stringa2 m232-1112502031-0
+
+-----------------------------------------------------
+ motore [-m] 2
+ passi [-s] 8250
+ velocità [-v] 20
+ accelerazione [-r] 31
+ direzione [-d] 0
+ funzione [-f] 0
+ stringa m233-2082502031-0
+
+-----------------------------------------------------
+ motore [-m] 6
+ passi [-s] 600
+ velocità [-v] 10
+ accelerazione [-r] 31
+ direzione [-d] 0
+ funzione [-f] 0
+ stringa1 m234-6006001031-0
+ stringa2 m235-6006001031+0
+-----------------------------------------------------
+2016126
+starting next command g235
+
+ 0 	 448.580000 	 0 	 -169.110000 	 -114.000000 	 0.088300 	 20.685369 	 20.419034  
+starting next command g234
+
+starting next command g231
+
+starting next command g235
+
+ 450 	 898.860000 	 0 	 -169.110000 	 -114.000000 	 -0.081600 	 20.685369 	 20.419034  
+starting next command g234
+
+starting next command g231
+
+starting next command g235
+
+ 900 	 1349.570000 	 0 	 -169.110000 	 -114.000000 	 -0.014100 	 20.685369 	 20.419034  
+starting next command g234
+
+starting next command g231
+
+starting next command g235
+
+ 1350 	 1800.035000 	 0 	 -169.110000 	 -114.000000 	 -0.018000 	 20.685369 	 20.419034  
+starting next command g234
+
+starting next command g231
+
+starting next command g235
+
+ 1800 	 2250.555000 	 0 	 -169.110000 	 -114.000000 	 -0.150000 	 20.685369 	 20.419034  
+starting next command g234
+
+starting next command g233
+
+starting next command g235
+
+ 1800 	 2250.560000 	 330 	 -499.610000 	 -114.000000 	 -0.105500 	 20.685369 	 20.419034  
+starting next command g234
+
+starting next command g232
+
+starting next command g235
+
+ 1350 	 1801.800000 	 330 	 -499.610000 	 -114.000000 	 -0.065500 	 20.774148 	 20.419034  
+starting next command g234
+
+starting next command g232
+
+starting next command g235
+
+ 900 	 1351.325000 	 330 	 -499.610000 	 -114.000000 	 -0.058000 	 20.774148 	 20.507812  
+starting next command g234
+
+starting next command g232
+
+starting next command g235
+
+ 450 	 900.685000 	 330 	 -499.610000 	 -114.000000 	 -0.351600 	 20.685369 	 20.507812  
+starting next command g234
+
+starting next command g232
+
+starting next command g235
+
+ 0 	 450.265000 	 330 	 -499.610000 	 -114.000000 	 -0.258000 	 20.685369 	 20.419034  
+starting next command g234
+
+starting next command g233
+
+starting next command g235
+
+ 0 	 450.265000 	 660 	 -829.950000 	 -114.005000 	 -0.178000 	 20.685369 	 20.419034  
+starting next command g234
+
+starting next command g231
+
+starting next command g235
+
+ 450 	 898.950000 	 660 	 -829.950000 	 -114.005000 	 -0.300900 	 20.596591 	 20.507812  
+starting next command g234
+
+starting next command g231
+
+starting next command g235
+
+ 900 	 1349.575000 	 660 	 -829.950000 	 -114.005000 	 -0.250000 	 20.685369 	 20.330256  
+starting next command g234
+
+starting next command g231
+
+starting next command g235
+
+ 1350 	 1800.080000 	 660 	 -829.950000 	 -114.005000 	 -0.270000 	 20.685369 	 20.419034  
+starting next command g234
+
+starting next command g231
+
+starting next command g235
+
+ 1800 	 2250.610000 	 660 	 -829.950000 	 -114.005000 	 -0.279100 	 20.596591 	 20.419034  
+starting next command g234
+
+starting next command g233
+
+starting next command g235
+
+ 1800 	 2250.610000 	 990 	 -1160.415000 	 -114.000000 	 -0.505500 	 20.685369 	 20.507812  
+starting next command g234
+
+starting next command g232
+
+starting next command g235
+
+ 1350 	 1801.830000 	 990 	 -1160.415000 	 -114.000000 	 -0.441600 	 20.774148 	 20.507812  
+starting next command g234
+
+starting next command g232
+
+starting next command g235
+
+ 900 	 1351.365000 	 990 	 -1160.415000 	 -114.000000 	 -0.218000 	 20.685369 	 20.507812  
+starting next command g234
+
+starting next command g232
+
+starting next command g235
+
+ 450 	 900.735000 	 990 	 -1160.415000 	 -114.000000 	 -0.384100 	 20.596591 	 20.419034  
+starting next command g234
+
+starting next command g232
+
+starting next command g235
+
+ 0 	 450.315000 	 990 	 -1160.415000 	 -114.000000 	 -0.319100 	 20.596591 	 20.507812  
+starting next command g234
+
+thread 140009423886080 closed

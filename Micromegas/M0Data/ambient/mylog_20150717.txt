@@ -1,0 +1,49 @@
+date at starting 20150717 
+date at starting 20150717; date now 20150717 
+in strcmp case true... byebye 
+ date at starting 20150717 
+date at starting 20150717; date now 20150717 
+in strcmp case true... byebye 
+ date at starting 20150717 
+date at starting 20150717; date now 20150717 
+in strcmp case true... byebye 
+ date at starting 20150717 
+date at starting 20150717; date now 20150717 
+in strcmp case true... byebye 
+ date at starting 20150717 
+date at starting 20150717; date now 20150717 
+in strcmp case true... byebye 
+ date at starting 20150717 
+date at starting 20150717; date now 20150717 
+in strcmp case true... byebye 
+ date at starting 20150717 
+date at starting 20150717; date now 20150717 
+in strcmp case true... byebye 
+ date at starting 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150717; date now 20150717 
+date at starting 20150718; date now 20150717 
+in strcmp case true... byebye 
+ 

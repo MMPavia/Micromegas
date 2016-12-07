@@ -1,0 +1,4 @@
+# [name] [mod] [chan] [Raw FS] [Raw ZS] [Eng FS] [Eng ZS] [Units] [descr]
+# temp_amb_door  4 0  10000 0    50   0   C   ambient
+# rh_amb_door    4 1  10000 0    100  0   %RH ambient
+laser          4 2  10000 0    10000  0   um  laser

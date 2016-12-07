@@ -1,0 +1,30 @@
+TECNICALITA'
+============
+
+- driver di Labview
+- stop esterno per interrompere i programmi
+- semaforizzazione
+- scrittura univoca di file di output
+- log files ( di tutte le operazioni fatte, con timestamp)
+- path e variabili globali
+- controllo di motori che si muovano, altrimenti errore
+- librerie anche per altri devices
+- organizzare directory del codice
+- cernbox
+
+C++
+======
+- acquisizione contaparticelle
+- mappatura a trapezio ricalcando i punti della mappatura piastre
+- lettura nuovo laser, quando ci sara'
+
+LABView
+=========
+
+- interfaccia ad ambient
+- interfaccia per scan PCB (su tavolo e su stiffback)
+- analisi online dei pannelli? 
+- interfaccia per incollaggio con posizionamento al punto di incollaggio, attesa per sistemazione cartuccia, cambio cartuccia a meta' incollaggio (??), emergenze, sia su stiffback che su tavolo
+- interfaccia di operazioni manuali (reminder) 
+- countdown di incollaggio
+- interfaccia per misura di pannello finito

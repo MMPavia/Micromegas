@@ -1,0 +1,30 @@
+
+
+Calcoli per la colla 22 giugno 2015:
+
+
+  Area totale = 2200x(1238+400)/2 = 1 801 800 mm^2
+
+  Colla utilizzabile da 2 cartucce: 164 mm
+
+  Corsa totale = Area tot / 33 mm = 54 600 mm
+
+  mm di colla utilizzata su 1 m di percorso = 164/54.6 = 3 mm
+
+  
+
+  Divido trapezio in due trapezi con stessa area e quindi stessa quantita` di colla:
+
+
+  (area tot)/2 = (2 b minore + 2db)*h/2     db = tan(10.5)*h
+  
+  900 900 = (400h + 0.18h^2)
+
+  h = 1376 mm     db = 247.7 mm
+
+
+
+  Primo trapezio: base maggiore = 1238 mm , altezza = 824 mm , colla riscalata da 1 m alla base maggiore = 3.7 mm , numero di giri = 25
+
+  Secondo trapezio: base maggiore = 895 mm , altezza = 1376 mm , colla riscalata da 1 m alla base maggiore = 2.7 mm , numero di giri = 43
+

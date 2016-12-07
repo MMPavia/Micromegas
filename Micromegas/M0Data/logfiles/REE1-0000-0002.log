@@ -1,0 +1,41 @@
+Wed 24 Aug 2016 02:29:11 PM CEST	START NEW PANEL:
+ Eta Panel added
+
+Wed 24 Aug 2016 02:29:30 PM CEST	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts and interconnections checked
+PCBs positioned in ref plates
+
+Wed 24 Aug 2016 02:32:21 PM CEST	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts and interconnections checked
+PCBs positioned in ref plates
+PCBs associated to frame: 
+BSE1-0-16 BSE2-0-15 BSE3-0-14 BSE4-0-13 BSE5-0-12 1-64
+Wed 24 Aug 2016 02:32:54 PM CEST	 PCB ALIGNMENT Table: 
+10 reference pins positioned
+Vacuum turned on for blocking
+PCB vacuum checked
+Calling Rasnik.vi
+Done with Rasmask reading
+Reference pins removed
+PCB gaps closed
+ading
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+
+Wed 24 Aug 2016 04:29:41 PM CEST	 DRY RUN Empty: 
+cooling bars positioned
+6 external frames positioned
+4 internal frames positioned
+honeycomb positioned
+stiffback alignment pins mounted
+cleanliness checked
+stiffback rotated
+stiffback moved
+stiffback lowered
+stiffback released
+weights positioned

@@ -1,0 +1,12 @@
+CFLAGS := -g -fPIC -std=c++0x
+CFLAGS := -g -fPIC -std=gnu++11
+LFLAGS := -pthread
+SRC := .
+
+
+all:
+	g++ $(CFLAGS) rs232_test.cxx particlecounter.cxx ParticleCounterReader.cxx -o ParticleCounter
+
+
+clean:
+	rm ParticleCounter

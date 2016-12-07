@@ -1,0 +1,32 @@
+CFLAGS := -g -fPIC -std=c++0x
+CFLAGS := -g -fPIC -std=gnu++11
+LFLAGS := -pthread
+SRC := .
+OBJ := ../obj/iface
+LIB := ../lib
+BIN := ../bin
+INC := ../include
+
+MYHEADERS := myrs232.h gauge.h motors.h optline.h fp_rs232.h fp_mod.h fp_ai_100.h fp_di_XXX.h fp_do_401.h
+INST_HEADERS := $(patsubst %.h, $(INC)/%.h, $(MYHEADERS))
+
+all : $(INST_HEADERS) $(LIB)/libRS232.so 
+	@chmod go-w *
+
+$(INC)/%.h : %.h
+	@mkdir -p $(INC)
+	@cp -p $^ $(INC)/
+
+clean :
+	rm -f $(INST_HEADERS) $(OBJ)/*.o $(LIB)/libRS232.so 
+
+$(LIB)/libRS232.so : $(OBJ)/myrs232.o $(OBJ)/gauge.o $(OBJ)/motors.o $(OBJ)/optline.o $(OBJ)/fp_mod.o $(OBJ)/fp_ai_100.o $(OBJ)/fp_di_XXX.o $(OBJ)/fp_do_401.o
+	g++ $(CFLAGS) -shared -o $@ $^ -lc
+
+$(OBJ)/%.o : %.cxx
+	@mkdir -p $(OBJ) $(LIB) $(BIN)
+	g++ $(CFLAGS) -I$(INC) -c -o $@ $^
+
+% : %.cxx
+	g++ -std=c++0x -o $@ $^
+

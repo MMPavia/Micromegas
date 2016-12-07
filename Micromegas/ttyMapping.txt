@@ -1,0 +1,8 @@
+/dev/ttyACM0 -> arduino console
+/dev/ttyUSB0 -> arduino
+/dev/ttyUSB1 -> motori
+/dev/ttyUSB2 -> tastatore
+/dev/ttyUSB3 -> optical line
+/dev/ttyUSB4 -> particle counter
+/dev/ttyUSB5 -> picoammeter / electrometer
+/dev/ttyUSB6 -> picoammeter / electrometer

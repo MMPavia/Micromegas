@@ -1,0 +1,18 @@
+
+
+Calcoli per la colla 23 Luglio:
+
+
+  Area totale = 2200x(1218+390)/2 = 1 768 800 mm^2
+
+  Colla utilizzabile da 2 cartucce: 184 mm
+
+  Corsa totale = Area tot / 33 mm = 54 600 mm
+
+  mm di colla utilizzata su 1 m di percorso = 184/54.6 = 3.4 mm
+
+
+
+  Primo trapezio: base maggiore = 1218 mm , altezza = 834 mm , colla riscalata da 1 m alla base maggiore = 4.1  mm , numero di giri = 27
+
+  Secondo trapezio: base maggiore = 893  mm , altezza = 1366 mm , colla riscalata da 1 m alla base maggiore = 3.0 mm , numero di giri = 40

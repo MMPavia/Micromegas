@@ -8,7 +8,8 @@ class optline : rs232
   public:
 	optline( std::string tty ) : rs232( rs232type::OPTLINE, tty ) {}
 	~optline() {}
-	char* readlineXYZ();
+	std::vector<float>  readlineXYZ();
+	//char* readlineXYZ();
 	double readlineX();
 	double readlineY();
 	double readlineZ();

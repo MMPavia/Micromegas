@@ -52,7 +52,7 @@ int main (int argc, char** argv)
   do
    {
 
-    std::cout << "triggering " << std::endl;
+    /*std::cout << "triggering " << std::endl;
     myboard->digitalOutput(dchan[0], true);
     std::cout << "set DIGITAL channel: [" << dchan[0] << "] true" << std::endl;
     usleep(10000);
@@ -60,10 +60,13 @@ int main (int argc, char** argv)
     myboard->digitalOutput(dchan[0], false);
     std::cout << "set DIGITAL channel: [" << dchan[0] << "] false" << std::endl;
     usleep(10000);
-
+    */
     std::cout << "reading " << std::endl;
+    int rawcounts = myboard->analogInput(laser);
+    double mvolts = myboard->getVal(laser);
     double vlaser = myboard->getPhyVal(laser);
     std::cout << "laser value " << vlaser << std::endl;
+    std::cout << "mvolts " << mvolts << std::endl;
     usleep(500000);
    }
   while(1);

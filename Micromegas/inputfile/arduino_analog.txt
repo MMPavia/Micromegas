@@ -14,4 +14,5 @@ rh_amb_pc      1 11  10000 0    100  0   %RH ambient
 press_diff     1 12  8000 1600  62.3 0   Pa  ambient
 temp_amb_door  1 13  10000 0    50   0   C   ambient
 rh_amb_door    1 14  10000 0    100  0   %RH ambient
-laser          1 15  1 0     0.002226  0  mm  laser
+laser          1 15  4921.88 4472.66     0   1  mm  laser
+# laser          1 15  10000 0     5000  -5000  um  laser

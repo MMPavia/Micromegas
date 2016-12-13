@@ -1,4 +1,3 @@
-
 #include <unistd.h>
 #include <cstdlib>
 #include <iostream>
@@ -7,18 +6,16 @@
 #include <sstream>
 std::string particlecounter::reading()
  {
-
-
   int i = write (m_fd, "A", 1);
   if (i<0)
 	throw "Error";
       
   usleep(100000);
-	char buf[100] = "";
-std::stringstream ss;
+  char buf[100] = "";
+  std::stringstream ss;
 
-while(1)
-{
+  while(1)
+  {
     char buffer[100];
     ssize_t length = read(m_fd, &buffer, sizeof(buffer));
     if (length == -1)
@@ -37,11 +34,10 @@ while(1)
         printf("%s", buffer);
 	ss << buffer;
     }
-}
+  }
 
 
   return ss.str();
-
 
 
 }

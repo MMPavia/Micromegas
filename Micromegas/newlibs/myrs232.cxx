@@ -103,6 +103,9 @@ rs232::rs232 ( rs232type type, std::string tty )
     case rs232type::PICOAM:
         set_interface_attribs (fd, B38400, CS8, 'N', 1);    // 38400 baud, 8-bit chars, NO parity, 1 stop bit
         break;
+    case rs232type::LASER:
+        set_interface_attribs (fd, B9600, CS8, 'N', 1);    // 115200 baud, 8-bit chars, NO parity, 1 stop bit
+        break;
    }
  }
 

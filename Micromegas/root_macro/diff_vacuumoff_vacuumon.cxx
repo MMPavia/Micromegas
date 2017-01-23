@@ -4,7 +4,7 @@
 //#include "AtlasUtils.C"
 
 //#define inpath "/home/atlas/Micromegas/M0Data/root_plot/"
-#define outpath "/home/atlas/Micromegas/M0Data/root_plot/dummy5/"
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/dummy5/"
 
 
 void diff_vacuumoff_vacuumon (string scanoff, string scanon, string side){

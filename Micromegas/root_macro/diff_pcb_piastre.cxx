@@ -3,7 +3,7 @@
 #include <vector>
 //#include "AtlasStyle.C"
 
-#define path "/home/atlas/Micromegas/M0Data/root_plot/"
+#define path "/home/atlas/Micromegas/M05Data/root_plot/"
 
 void diff_pcb_piastre (TString scan){
 

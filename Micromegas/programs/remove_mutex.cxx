@@ -1,11 +1,24 @@
 
+#include <iostream>
 #include <boost/interprocess/sync/named_mutex.hpp>
 
-using namespace boost::interprocess;
 #define ARDUINO_NAMED_MUTEX "arduino_named_mutex"
 
-int main (int argc, char** argv )
+using namespace boost::interprocess;
+
+static named_mutex arduino_mutex(open_or_create, ARDUINO_NAMED_MUTEX);
+
+int main()
  {
-  named_mutex::remove(ARDUINO_NAMED_MUTEX);
+  bool lk = arduino_mutex.try_lock();
+  std::cout << " mutex '" ARDUINO_NAMED_MUTEX "' is" << (lk ? " NOT " : " ") << "locked by somebody else" << std::endl;
+  std::cout << " mutex '" ARDUINO_NAMED_MUTEX "' is" << (lk ? " " : " NOT ") << "locked by me" << std::endl;
+  if (!lk)
+   {
+    bool removed = named_mutex::remove(ARDUINO_NAMED_MUTEX);
+    std::cout << " mutex '" ARDUINO_NAMED_MUTEX "' was" << (removed ? " " : " NOT ") << "removed " << std::endl;
+    if (!removed) std::cerr << "*** mutex '" ARDUINO_NAMED_MUTEX "' is still LOCKED ***" << std::endl;
+   } else arduino_mutex.unlock();
+
   return 0;
  }

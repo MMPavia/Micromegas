@@ -3,7 +3,7 @@
 #include <vector>
 
 
-#define path "/home/atlas/Micromegas/M0Data/root_plot/"
+#define path "/home/atlas/Micromegas/M05Data/root_plot/"
 
 void compare_reference (std::string scan1,std::string scan2, std::string title ){
 

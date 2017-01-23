@@ -27,7 +27,7 @@ void arduinoX::digitalSetup( int nchans, int* chans, arduinoDIO* way )
   mutex_lock my_lock;
 
   char* message = new char[2*nchans+2];
-  message[0] = 'a';
+  message[0] = char(arduinoCMD::DIGITAL_SETUP);
   for ( int i=0; i<nchans; i++)
     {
       message[2*i+1] = chans[i];
@@ -46,7 +46,7 @@ int arduinoX::analogInput( int chan )
   mutex_lock my_lock;
 
   char c[2];
-  c[0] = 'b';
+  c[0] = char(arduinoCMD::ANALOG_IN);
   c[1] = chan;
   int fd = open (ard_tty().c_str(), O_RDWR | O_NOCTTY | O_SYNC);
   ssize_t n = write ( fd, c, 2 );
@@ -61,7 +61,7 @@ bool arduinoX::digitalInput( int chan )
   mutex_lock my_lock;
 
   char c[2];
-  c[0] = 'e';
+  c[0] = char(arduinoCMD::DIGITAL_IN);
   c[1] = chan;
   int fd = open (ard_tty().c_str(), O_RDWR | O_NOCTTY | O_SYNC);
   ssize_t n = write ( fd, c, 2 );
@@ -76,11 +76,26 @@ void arduinoX::digitalOutput( int chan, bool val )
   mutex_lock my_lock;
 
   char c[3];
-  c[0] = 'c';
+  c[0] = char(arduinoCMD::DIGITAL_OUT);
   c[1] = chan;
   c[2] = val;
   int fd = open (ard_tty().c_str(), O_RDWR | O_NOCTTY | O_SYNC);
   ssize_t n = write ( fd, c, 3 );
+  close(fd);
+  sched_yield();
+ }
+
+void arduinoX::delayedPulse( int chan, int delay, int duration )
+ {
+  mutex_lock my_lock;
+
+  char c[4];
+  c[0] = char(arduinoCMD::DELAYED_PULSE);
+  c[1] = chan;
+  c[2] = delay;
+  c[3] = duration;
+  int fd = open (ard_tty().c_str(), O_RDWR | O_NOCTTY | O_SYNC);
+  ssize_t n = write ( fd, c, 4 );
   close(fd);
   sched_yield();
  }
@@ -90,7 +105,7 @@ void arduinoX::pulseOutput( int chan )
   mutex_lock my_lock;
 
   char c[2];
-  c[0] = 'd';
+  c[0] = char(arduinoCMD::PULSE_OUT);
   c[1] = chan;
   int fd = open (ard_tty().c_str(), O_RDWR | O_NOCTTY | O_SYNC);
   ssize_t n = write ( fd, c, 2 );
@@ -100,8 +115,11 @@ void arduinoX::pulseOutput( int chan )
 
 arduinoX::arduinoX( std::string tty ) : rs232ard( tty )
  {
+std::cout << " arduinoX::arduinoX " << tty << std::endl;
   mutex_lock my_lock;
+std::cout << " arduinoX::arduinoX locked " << std::endl;
   rs232ard_init();
+std::cout << " arduinoX::arduinoX rs232 setup " << std::endl;
   sched_yield();
  }
 

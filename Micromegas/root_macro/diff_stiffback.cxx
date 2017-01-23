@@ -3,7 +3,7 @@
 #include <vector>
 //#include "AtlasStyle.C"
 
-#define path "/home/atlas/Micromegas/M0Data/root_plot/stiffback/"
+#define path "/home/atlas/Micromegas/M05Data/root_plot/stiffback/"
 
 void diff_stiffback (string scan1, string scan2){
 

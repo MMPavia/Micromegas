@@ -4,8 +4,8 @@
 #include <math.h>
 //#include "AtlasStyle.C"
 
-#define inpath "/home/atlas/Micromegas/M0Data/mapping_plate_ref/"
-#define outpath "/home/atlas/Micromegas/M0Data/root_plot/referenceplates/"
+#define inpath "/home/atlas/Micromegas/M05Data/mapping_plate_ref/"
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/referenceplates/"
 
 
 void repeatibility_and_mean_plates (string scan1, string scan2, string scan3, string scan4, string scan5){

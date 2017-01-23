@@ -200,6 +200,10 @@ int main (int argc, char** argv)
     usleep(400000);
    }
 
+  // pulse the 4 digital outputs
+  myboard->delayedPulse(8,20,1);
+  std::cout << "Delayed pulse on DIGITAL channel: [" << dchan[4] << "]" << std::endl;
+
   arduinoX::cleanup();
   return 0;
  }

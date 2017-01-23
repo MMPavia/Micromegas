@@ -3,8 +3,8 @@
 #include <vector>
 //#include "AtlasStyle.C"
 
-#define inpath "/home/atlas/Micromegas/M0Data/pressure/"
-#define outpath "/home/atlas/Micromegas/M0Data/root_plot/pressure/"
+#define inpath "/home/atlas/Micromegas/M05Data/pressure/"
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/pressure/"
 
 void plot_press (string scan, float xmin, float xmax){
 

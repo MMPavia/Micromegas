@@ -3,8 +3,8 @@
 #include <vector>
 //#include "AtlasStyle.C"
 
-#define inpath "/home/atlas/Micromegas/M0Data/mapping/"
-#define outpath "/home/atlas/Micromegas/M0Data/root_plot/"
+#define inpath "/home/atlas/Micromegas/M05Data/mapping/"
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/"
 
 void planarity_plates (string scan){
 
@@ -25,12 +25,12 @@ void planarity_plates (string scan){
   scan.erase(scan.end()-4,scan.end());
 
   // histograms binning info
-  int nxbin=60;
-  int nybin=34;
-  float xmin = -40;
-  float xmax = 2280;
-  float ymin = -40;
-  float ymax =1320;
+  int nxbin=28;
+  int nybin=40;
+  float xmin = 191;
+  float xmax = 2422;
+  float ymax = 1258;
+  float ymin = 130;
 
   // create all the histograms
 
@@ -43,17 +43,17 @@ void planarity_plates (string scan){
 
 
   // optical line value distribution
-  TH1F *optline = new TH1F("optline_distrib","optline_distrib", 80, -0.1, 0.1 );   //linea ottica 
+  TH1F *optline = new TH1F("optline_distrib","optline_distrib", 80, 0.9, 1 );   //linea ottica 
   optline->GetXaxis()->SetTitle("mm");
   optline->GetYaxis()->SetTitle("counts");
 
   // indicator raw measurements
-  TH1F *z_raw = new TH1F("z_raw","z_raw", 80, -0.1, 0.1 );
+  TH1F *z_raw = new TH1F("z_raw","z_raw", 80, -0.3, 0.1);
   z_raw->GetXaxis()->SetTitle("mm");
   z_raw->GetYaxis()->SetTitle("counts");
 
   // z corrected value ( indicator - optical line ) 
-  TH1F *z_corr = new TH1F("z_corr","z_corr",  80, -0.1, 0.1 ); // z= diff tra tastatore e ottico
+  TH1F *z_corr = new TH1F("z_corr","z_corr",  80, -1.1, -0.85 ); // z= diff tra tastatore e ottico
   z_corr->GetXaxis()->SetTitle("mm");
   z_corr->GetYaxis()->SetTitle("counts");
 
@@ -66,7 +66,8 @@ void planarity_plates (string scan){
 
 
   //variables for reading the file
-  Float_t x,y, opt, laser, tesa, temp1, temp2, coord;
+  Float_t x,y, opt, laser, temp1, temp2, coord;
+  Float_t coord_old,coordmean,yold;
 
  // reading the file
   ifstream in(file1.str().c_str());
@@ -81,25 +82,27 @@ void planarity_plates (string scan){
   // looping on the file lines
   while (1) {
 
-    // actual reading
-    in >> x >> y >> opt >> laser >> tesa >> temp1 >> temp2;
-    if (!in.good()) break; // another sanity check //esco dal loop quando finisco le righe
+    in >> x >> y >> opt >> laser ;
+    // another sanity check //esco dal loop quando finisco le righe
+    if (!in.good()) break; 
 	
-    coord = tesa - opt; // definsco z
-    //cout << coord << " " << tesa << " " << opt << endl;    
+    coord = laser - opt; // definsco z
+    cout << x <<  " " << -y << " " << coord  << endl;  
 
     // filling the histos
     optline->Fill(opt); // metto in mu
-    z_raw->Fill(tesa);
+    z_raw->Fill(laser);
     z_corr->Fill(coord);
-    temperature1->Fill(temp1);
-    temperature2->Fill(temp2);
+//    temperature1->Fill(temp1);
+//    temperature2->Fill(temp2);
 
     // filling the 2d-map
-    tmap->Fill(x,y, coord*1000);
+    if(abs(y-yold)< 28) 
+    tmap->Fill(x,-y, coord*1000);
 
     // increase at each loop, counts the lines
     j++;
+    yold = y;
 
   } // end while
 

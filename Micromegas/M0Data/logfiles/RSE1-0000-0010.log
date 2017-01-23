@@ -1,0 +1,22 @@
+Mon 23 Jan 2017 12:16:34 PM CET	START NEW PANEL:
+ Stereo Panel added
+
+Mon 23 Jan 2017 12:16:51 PM CET	 PCB POSITIONING Stiffback: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts and interconnections checked
+PCBs positioned in ref plates
+PCBs associated to frame: 
+BSS1-0-3546 BSS2-0-4658 BSS3-0-8945 BSS4-0-6732 BSS5-0-1256 1-64
+Mon 23 Jan 2017 12:17:53 PM CET	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts and interconnections checked
+PCBs positioned in ref plates
+PCBs associated to frame: 
+BSS1-0- BSS2-0-8778 BSS3-0-7889 BSS4-0-3435 BSS5-0-8977 1-64
+Mon 23 Jan 2017 12:18:24 PM CET	 PCB ALIGNMENT Table: 
+Calling Rasnik.vi
+Done with Rasmask reading
+PCB gaps closed
+Reference pins removed

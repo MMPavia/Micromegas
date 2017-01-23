@@ -3,7 +3,7 @@
 #include <vector>
 
 
-#define path "/home/atlas/Micromegas/M0Data/root_plot/"
+#define path "/home/atlas/Micromegas/M05Data/root_plot/"
 
 void check_plates (std::string scan){
 

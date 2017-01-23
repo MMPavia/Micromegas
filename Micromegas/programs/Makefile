@@ -10,7 +10,7 @@ INC := ../include
 
 XXBINARIES := $(LIB)/libpipe.so $(BIN)/ambient $(BIN)/pressmon $(BIN)/map_XY $(BIN)/map_rettangolo $(BIN)/map_trap  $(BIN)/getlist  $(BIN)/map_diag $(BIN)/trap_XYS $(BIN)/move_one $(BIN)/go2zero $(BIN)/zero_motor $(BIN)/remove_mutex $(BIN)/try $(BIN)/test_keithley $(BIN)/test_keithley2 $(BIN)/test_picoam $(BIN)/test_optical $(BIN)/test_motors $(BIN)/test_gauge $(BIN)/test_particlecounter $(BIN)/test_arduino $(BIN)/test_arduinoX $(BIN)/glue_jig
 
-BINARIES := $(BIN)/ambient $(BIN)/map_XY $(BIN)/getlist $(BIN)/map_diag $(BIN)/map_rettangolo $(BIN)/map_trap $(BIN)/pressmon $(BIN)/trap_XYS $(BIN)/glue_jig  $(BIN)/test_mtx $(BIN)/test_arduinoX $(BIN)/test_keithley $(BIN)/test_keithley2 $(BIN)/test_picoam $(BIN)/test_optical $(BIN)/test_trigger $(BIN)/read_laser $(BIN)/go2zero $(BIN)/move_one $(BIN)/test_gauge $(BIN)/test_motors $(BIN)/test_particlecounter $(BIN)/zero_motor  $(BIN)/map_laser 
+BINARIES := $(BIN)/ambient $(BIN)/map_XY $(BIN)/getlist $(BIN)/map_diag $(BIN)/map_rettangolo $(BIN)/map_trap $(BIN)/pressmon $(BIN)/trap_XYS $(BIN)/glue_jig  $(BIN)/test_mtx $(BIN)/test_arduinoX $(BIN)/test_keithley $(BIN)/test_keithley2 $(BIN)/test_picoam $(BIN)/test_optical $(BIN)/test_trigger $(BIN)/read_laser $(BIN)/go2zero $(BIN)/move_one $(BIN)/test_gauge $(BIN)/test_motors $(BIN)/test_particlecounter $(BIN)/zero_motor  $(BIN)/map_laser $(BIN)/map_XY_laser $(BIN)/map_XY_laser_cont $(BIN)/remove_mutex $(BIN)/mutex_test $(BIN)/map_trap_laser $(BIN)/test_rs232laser
 
 OBJECTS := $(patsubst $(BIN)/%, $(OBJ)/%.o, $(BINARIES))
 

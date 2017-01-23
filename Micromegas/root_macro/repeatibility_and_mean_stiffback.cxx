@@ -4,8 +4,8 @@
 #include <math.h>
 //#include "AtlasStyle.C"
 
-#define inpath "/home/atlas/Micromegas/M0Data/mapping_stiffback/"
-#define outpath "/home/atlas/Micromegas/M0Data/root_plot/stiffback/"
+#define inpath "/home/atlas/Micromegas/M05Data/mapping_stiffback/"
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/stiffback/"
 
 void repeatibility_and_mean_stiffback (string scan1, string scan2, string scan3){
 

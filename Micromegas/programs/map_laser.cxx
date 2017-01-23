@@ -1,4 +1,4 @@
-
+//mapping using the blu laser
 #include <unistd.h>
 #include <stdio.h>
 #include <iostream>
@@ -18,7 +18,9 @@ arduinoDIO dway[4] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
 
 int main (int argc, char** argv)
  {
+std::cout << " qui sono AAA " << std::endl;
   arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
+std::cout << " qui sono BBB " << std::endl;
   usleep(1000000);
 
   // calibrating the channels
@@ -29,6 +31,8 @@ int main (int argc, char** argv)
   std::string line;
 
   std::fstream f("/home/atlas/Micromegas/inputfile/arduino_analog.txt", std::fstream::in);
+
+std::cout << " qui sono " << std::endl;
 
   while (getline(f,line)){
 
@@ -51,8 +55,8 @@ int main (int argc, char** argv)
   uint16_t laser(15);
   do
    {
-
-    /*std::cout << "triggering " << std::endl;
+	//remove the following lines to remove the external trigger
+    std::cout << "triggering " << std::endl;
     myboard->digitalOutput(dchan[0], true);
     std::cout << "set DIGITAL channel: [" << dchan[0] << "] true" << std::endl;
     usleep(10000);
@@ -60,12 +64,13 @@ int main (int argc, char** argv)
     myboard->digitalOutput(dchan[0], false);
     std::cout << "set DIGITAL channel: [" << dchan[0] << "] false" << std::endl;
     usleep(10000);
-    */
+    
     std::cout << "reading " << std::endl;
     int rawcounts = myboard->analogInput(laser);
     double mvolts = myboard->getVal(laser);
     double vlaser = myboard->getPhyVal(laser);
-    std::cout << "laser value " << vlaser << std::endl;
+    std::cout << "laser value (mm) " << vlaser << std::endl;
+    std::cout << "raw counts "<<rawcounts<<std::endl;
     std::cout << "mvolts " << mvolts << std::endl;
     usleep(500000);
    }

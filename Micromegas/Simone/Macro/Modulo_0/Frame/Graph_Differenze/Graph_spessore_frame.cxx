@@ -4,10 +4,10 @@
 
 
 
-#define inpath "/home/atlas/Micromegas/Simone/Input/Spessore_frame/"
-#define outpath "/home/atlas/Micromegas/Simone/Output/Larghezza_frame/Spessore_frame_tutti/"
+#define inpath "/home/atlas/Micromegas/Simone/Macro/Modulo_0/Frame/Graph_Differenze/"
+#define outpath "/home/atlas/Micromegas/Simone/Macro/Modulo_0/Frame/Graph_Differenze/"
 
-void Graph_spessore_frame (TString scanI1, TString scanLH1, TString scanM){
+void Graph_spessore_frame (TString scanI1){
 
 	// style option
 	
@@ -99,7 +99,7 @@ void Graph_spessore_frame (TString scanI1, TString scanLH1, TString scanM){
 
 
 
-
+/*
 	//Lettura file Linear height
 
         ostringstream file3;
@@ -210,33 +210,11 @@ void Graph_spessore_frame (TString scanI1, TString scanLH1, TString scanM){
 
 	}
 
-
+*/
 
         //Creazione Graph
         TGraph *gr1 = new TGraph (12,x,Ione);
-        TGraph *gr2 = new TGraph (12,x,Itwo);
-        TGraph *gr3 = new TGraph (12,x,Ithree);
-        TGraph *gr4 = new TGraph (12,x,Lone);
-        TGraph *gr5 = new TGraph (12,x,Ltwo);
-        TGraph *gr6 = new TGraph (12,x,Lthree);
-        TGraph *gr7 = new TGraph (12,x,Diff1);
-	TGraph *gr8 = new TGraph (12,x,Diff2);
-        TGraph *gr9 = new TGraph (12,x,Diff3);
-        TGraph *gr10 = new TGraph (12,x,mediaT);
-        TGraph *gr11 = new TGraph (12,x,mediaLH);
-	TGraph *gr21 = new TGraph (12,x,Mone);
-        TGraph *gr22 = new TGraph (12,x,Mtwo);
-        TGraph *gr23 = new TGraph (12,x,Mthree);
-        TGraph *gr24 = new TGraph (12,x,mediaM);
-        TGraph *Diff111 = new TGraph (12,x,Diff11);
-        TGraph *Diff121 = new TGraph (12,x,Diff12);
-        TGraph *Diff131 = new TGraph (12,x,Diff13);
-        TGraph *Diff211 = new TGraph (12,x,Diff21);
-        TGraph *Diff221 = new TGraph (12,x,Diff22);
-        TGraph *Diff231 = new TGraph (12,x,Diff23);
-        TGraph *DiffM11 = new TGraph (12,x,DiffM1);
-        TGraph *DiffM22 = new TGraph (12,x,DiffM2);
-        TGraph *DiffM33 = new TGraph (12,x,DiffM3);
+        TGraph *gr2= new TGraph (12,x,Ione);
 
 	// create a root file for the histograms; 
 	ostringstream rootfile;
@@ -251,10 +229,6 @@ void Graph_spessore_frame (TString scanI1, TString scanLH1, TString scanM){
 
 	 mg->Add(gr1); gr1->SetTitle("Tastatore 1");		  gr1->SetLineWidth(3); gr1->SetLineColor(kRed);
   	 mg->Add(gr2); gr2->SetTitle("Tastatore 2");		  gr2->SetLineWidth(3); gr2->SetLineColor(kBlue);
-         mg->Add(gr3); gr3->SetTitle("Tastatore 3");         	  gr3->SetLineWidth(3); gr3->SetLineColor(kGreen);
-         mg->Add(gr4); gr4->SetTitle("Linear height 1");          gr4->SetLineWidth(3); gr4->SetLineColor(kYellow);
-         mg->Add(gr5); gr5->SetTitle("Linear height 2");          gr5->SetLineWidth(3); gr5->SetLineColor(kMagenta);
-         mg->Add(gr6); gr6->SetTitle("Linear height 3");          gr6->SetLineWidth(3); gr6->SetLineColor(kBlack);
 
 	TCanvas *c1 = new TCanvas("c1","Graph Draw Options",200,10,600,400);
  	mg->Draw("AC*");
@@ -264,16 +238,12 @@ void Graph_spessore_frame (TString scanI1, TString scanLH1, TString scanM){
   	 leg->SetHeader("Spessore frame");
   	 leg->AddEntry(gr1,"Tastatore 1");
          leg->AddEntry(gr2,"Tastatore 2");
-         leg->AddEntry(gr3,"Tastatore 3");
-         leg->AddEntry(gr4,"Linear height 1");
-         leg->AddEntry(gr5,"Linear height 2");
-         leg->AddEntry(gr6,"Linear height 3");
   	 leg->Draw();
          c1->Print("/home/atlas/Micromegas/Simone/Output/Larghezza_frame/Spessore_frame_tutti/Andamento_spessore_frame_tast_LH.png");
 
 
 	//Creazione grafici differenze
-
+/*
          TMultiGraph *diff = new TMultiGraph();
          diff->Add(gr7); gr7->SetTitle("Tastatore 1");              gr7->SetLineWidth(3); gr7->SetLineColor(kRed);
          diff->Add(gr8); gr8->SetTitle("Tastatore 2");              gr8->SetLineWidth(3); gr8->SetLineColor(kBlue);
@@ -355,7 +325,7 @@ void Graph_spessore_frame (TString scanI1, TString scanLH1, TString scanM){
 	 c3->Print("/home/atlas/Micromegas/Simone/Output/Larghezza_frame/Spessore_frame_tutti/Andamento_larghezza_media_3_strumenti.png");
 
 
-
+*/
 	
 	//3yroot.Close();
 

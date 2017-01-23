@@ -4,13 +4,13 @@
 
 
 
-#define inpath "/home/atlas/Micromegas/Simone/Input/Frame_Micrometro/"
-#define outpath "/home/atlas/Micromegas/Simone/Output/"
+#define inpath "/home/atlas/Micromegas/Simone/Macro/Modulo_0/Frame/Micrometro/"
+#define outpath "/home/atlas/Micromegas/Simone/Macro/Modulo_0/Frame/Micrometro/"
 
 // Macro per la costruzione di grafici dei lati della frame
 
 
-void Graph (TString scan, TString scan1){
+void Graph (TString scan){
 
 	// style option
 	
@@ -54,25 +54,17 @@ void Graph (TString scan, TString scan1){
 
         
        		in >> s[j];
-       		x[j]=(nmis-1)*10;
+       		x[j]=nmis*10;
 
        		cout <<"x= " << x[j] << endl;
     		cout <<"s= " << s[j] << endl;
-		cout <<"nmis " << nmis << endl;
 
          
-                in >> date >> time; 
-                cout << "date " << date <<" time " << time << endl;
 		j++;
 		
 	} // end while
 
 
-                cout <<"x= " << x[1] << endl;
-                cout <<"s= " << s[1] << endl;
-                cout <<"nmis " << nmis << endl;
-                cout <<"x= " << x[j-1] << endl;
-                cout <<"s= " << s[j-1] << endl;
 
 
 
@@ -82,60 +74,12 @@ void Graph (TString scan, TString scan1){
 	// close the input file
 	in.close();
 
-
-        ostringstream file2;
-        file2 << inpath  << scan1 ;
-
-
-
-
-	//sanity check
-
-        ifstream in1(file2.str().c_str());
-
-         if (!in1 || in1.bad() )
-         {
-                cout << "file non letto" << endl;
-                return; // sanity check
-        }
-
-        cout << "starting reading file " << endl;
-        j=0;
-
-
-        while (1) {
-
-                in1 >> nmis;
-
-                if ( !in1.good() || in1.eof()) break;  // another sanity check
-
-
-
-
-                in1 >> t[j];
-                x[j]=(nmis-1)*10;
-
-                cout <<"x= " << x[j] << endl;
-                cout <<"s= " << t[j] << endl;
-                cout <<"nmis " << nmis << endl;
-
-
-                in1 >> date >> time;
-                cout << "date " << date <<" time " << time << endl;
-                j++;
-
-        }
-
-        in1.close();
-
-
-
-
+        cout << "file closed "<< endl;
 
         //Creazione Graph
-        TGraph *gr1 = new TGraph (12,x,s);
-        TGraph *gr2 = new TGraph (12,x,t);
+        TGraph *gr1 = new TGraph (j,x,s);
 
+        cout << "graph created"<< endl;
 
 	// create a root file for the histograms; 
 	ostringstream rootfile;
@@ -149,7 +93,6 @@ void Graph (TString scan, TString scan1){
 
 
 	 mg->Add(gr1); gr1->SetTitle("Lato 1")  ;		 gr1->SetLineWidth(3); gr1->SetLineColor(kRed);
-  	 mg->Add(gr2); gr2->SetTitle("Lato 2");		 gr2->SetLineWidth(3); gr2->SetLineColor(kBlue);
 
 
 
@@ -160,7 +103,7 @@ void Graph (TString scan, TString scan1){
 	 leg = new TLegend(0.1,0.7,0.48,0.9);
   	 leg->SetHeader("Larghezza frame");
   	 leg->AddEntry(gr1,"Lato 1");
-         leg->AddEntry(gr2,"Lato 2");
+//         leg->AddEntry(gr2,"Lato 2");
   	 leg->Draw();
 
 	

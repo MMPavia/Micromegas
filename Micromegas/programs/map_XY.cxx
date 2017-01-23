@@ -30,7 +30,7 @@ my_pipe p(pipe_name.c_str(), cmd);
 
 
 #define error_message(F,E) printf(F, E)
-#define path "/home/atlas/Micromegas/M0Data/mapping/"
+#define path "/home/atlas/Micromegas/M05Data/mapping/"
 
 using namespace std;
 

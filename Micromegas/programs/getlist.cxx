@@ -18,7 +18,7 @@
 
 
 #define error_message(F,E) printf(F, E)
-#define path "/home/atlas/Micromegas/M0Data/mapping/"
+#define path "/home/atlas/Micromegas/M05Data/mapping/"
 #define PI 3.14159265
 
 using namespace std;

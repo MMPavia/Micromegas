@@ -23,7 +23,7 @@
 #include "my_pipe.h"
 
 #define error_message(F,E) printf(F, E)
-#define path "/home/atlas/Micromegas/M0Data/mapping/"
+#define path "/home/atlas/Micromegas/M05Data/mapping/"
 #define PI 3.14159265
 
 std::string pipe_name("/tmp/atlas/maptrappipe");
@@ -39,7 +39,7 @@ arduinoDIO dway[4] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
 
 using namespace std;
 
-// parametri da utilizzare: ./map_trap -w 2160 1120 -x 80 20 -y 80 20 -t 3 10
+// parametri da utilizzare: ./map_trap -w xdim ydim  -s xstep  vx vy
 
 
 motors* motp(NULL);
@@ -52,13 +52,13 @@ void next ( const char* gx, arduinoX* myboard )
     uint16_t mstat(0);
     cout << "starting next command " << gx << endl;
    
-        mstat = 0;
-        for (int chan=38; chan<43; chan++){
-            mstati = myboard->digitalInput(chan);
-            mstat += mstati;
-        }
-        usleep(10000);
-    
+    mstat = 0;
+    for (int chan=38; chan<43; chan++){
+        mstati = myboard->digitalInput(chan);
+        mstat += mstati;
+    }
+    cout << "in next():   mstat " << mstat << endl;
+    usleep(10000);
     //while (mstat > 0);
     //usleep(2000000);
 }
@@ -86,8 +86,8 @@ void waitnext( struct timeval * T1, int msec )
 
 void misura( int64_t x, int64_t y,  optline* optl, arduinoX* myboard, uint16_t laser , uint16_t t_ch1, uint16_t t_ch2, FILE* logf )
 {
-  double t_tab = myboard->getPhyVal(t_ch1);
-  double t_amb = myboard->getPhyVal(t_ch2);
+    double t_tab = myboard->getPhyVal(t_ch1);
+    double t_amb = myboard->getPhyVal(t_ch2);
 
     gettimeofday(&T1, NULL);
     myboard->delayedPulse(dchan[0], 5, 20); // delay 5 ms, duration 20 ms
@@ -103,7 +103,7 @@ void misura( int64_t x, int64_t y,  optline* optl, arduinoX* myboard, uint16_t l
     fflush( logf );
     // in the print on screen temporarely left x-y info from steps
     // printf( "%f \t %f \t %f \t", dtime(&T1,&T2), dtime(&T2,&T3), dtime(&T3,&T4));
-    printf( " %d \t %f \t %d \t %f \t %f \t %f \t  \n", x, ola.at(0),  y, ola.at(1),  ola.at(2), vlaser, t_tab, t_amb  );
+    printf( " %f \t %f \t %f \t %f \t  \n", ola.at(0), ola.at(1),  ola.at(2), vlaser, t_tab, t_amb  );
     fflush( stdout );
 }
 
@@ -119,7 +119,6 @@ int main (int argc, char** argv)
 	uint64_t xmm(0), ymm(0);
 	uint64_t xsteps(0), ysteps1(0),ysteps2(0), dys(0) ;
 	uint64_t xspeed(5), yspeed(5);
-	bool xposdir(true), yposdir(true);
 	uint64_t xcoded(0), ycoded1(0), ycoded2(0);
 	int32_t xdim(0), ydim(0);
 	int32_t ntotx(0), ntoty(0);
@@ -174,8 +173,6 @@ int main (int argc, char** argv)
 
 	    -- argc; ++ argv;
 	    int64_t mm = strtol(*argv, NULL, 10);
-	    xposdir = (mm > 0);
-	    if (!xposdir) mm = -mm;
 	    xmm = uint64_t(mm);
 	    xsteps = xmm*25;
 
@@ -185,8 +182,14 @@ int main (int argc, char** argv)
 	    xcoded = ((xmot * 100000 + xsteps)*100 + xspeed)*100 + ramp;
 	    mask |= 1;
 	    
-	    ycoded1 = ((ymot * 100000 + ysteps1)*100 + xspeed)*100 + ramp;
+
+
+	    -- argc; ++ argv;
+	    yspeed = strtol(*argv, NULL, 10);
+	    
+	    ycoded1 = ((ymot * 100000 + ysteps1)*100 + yspeed)*100 + ramp;
 	    mask |= 2;
+
 
 
 	  }
@@ -199,7 +202,7 @@ int main (int argc, char** argv)
 	double ddy = 2*double(xmm)*tan(10.5*atan(1)/45);
 	dys = uint64_t(ddy*25+0.5);
 	if (ysteps1 > dys) ysteps2 = ysteps1 - dys;
-	ycoded2 = ((ymot * 100000 + ysteps2)*100 + xspeed)*100 + ramp;
+	ycoded2 = ((ymot * 100000 + ysteps2)*100 + yspeed)*100 + ramp;
 
 	cout << " dx(mm) dy(mm) ds(um) " << xmm << " " << ydim << " " << ddy   << endl;
 	if (xmm) ntotx = (xdim / xmm) + 1;
@@ -215,20 +218,15 @@ int main (int argc, char** argv)
 	stringstream mxcmd1, mycmd1, mscmd1;
 	stringstream mxcmd2, mycmd2, mscmd2;
 
-	mxcmd1 << mprog1_h << setw(10) << xcoded << (xposdir ? '+' : '-')
-	       << setw(1) << func << '\r' << endl;
-	mycmd1 << mprog1_h << setw(10) << ycoded1 << (yposdir ? '-' : '+')
-	       << setw(1) << func << '\r' << endl;
-	mxcmd2 << mprog2_h << setw(10) << xcoded << (xposdir ? '+' : '-')
-	       << setw(1) << func << '\r' << endl;
-	mycmd2 << mprog2_h << setw(10) << ycoded2 << (yposdir ? '+' : '-')
-	       << setw(1) << func << '\r' << endl;
+	mxcmd1 << mprog1_h << setw(10) << xcoded << "+"  << setw(1) << func << '\r' << endl;
+	mycmd1 << mprog1_h << setw(10) << ycoded1 << "-" << setw(1) << func << '\r' << endl;
+	mxcmd2 << mprog2_h << setw(10) << xcoded << "+"  << setw(1) << func << '\r' << endl;
+	mycmd2 << mprog2_h << setw(10) << ycoded2 << "+" << setw(1) << func << '\r' << endl;
  if (1) cout << "\n-----------------------------------------------------"
 	     << "\n motore [-m] " << xmot
 	     << "\n passi [-s] " << xsteps
 	     << "\n velocità [-v] " << xspeed
 	     << "\n accelerazione [-r] " << ramp
-	     << "\n direzione [-d] " << xposdir
 	     << "\n funzione [-f] " << func
 	     << "\n stringa1 " << mxcmd1.str()
 	     << " stringa2 " << mxcmd2.str();
@@ -238,7 +236,6 @@ int main (int argc, char** argv)
 	     << "\n passi2 [-s] " << ysteps2
 	     << "\n velocità [-v] " << yspeed
 	     << "\n accelerazione [-r] " << ramp
-	     << "\n direzione [-d] " << yposdir
 	     << "\n funzione [-f] " << func
 	     << "\n stringa1 " << mycmd1.str()
 	     << " stringa2 " << mycmd2.str();
@@ -307,6 +304,7 @@ int main (int argc, char** argv)
 	const char* ynxtprog = ycmd2str.c_str();
 	uint64_t ynxtsteps = ysteps2;
 	cout << " ycmd1 " << ycmd1str;
+	cout << " ycmd2 " << ycmd2str;
 
 
 	int64_t x(0);
@@ -349,6 +347,8 @@ int main (int argc, char** argv)
         struct timeval t0;
         int time_period_ms(1260);
 	int nloops = xdim/xmm;
+    	uint16_t mdigitali(0);
+    	uint16_t mdigital(0);
 
 	while (nloops --)
 	{
@@ -372,41 +372,54 @@ int main (int argc, char** argv)
                   *cmd = '\0';
                  }
 
-		motp->mot_write(progmv);
-		motp->mot_read();
-		cout << nloops << " progmv " << progmv;
+		//cout << nloops << " progmv " << progmv;
 		motp->mot_write(ynxtprog);
 		motp->mot_read();
-		cout << nloops << " ynxtprog " << ynxtprog;
+		//cout << nloops << " ynxtprog " << ynxtprog;
 		cout.flush();
 		ispos = not ispos;
+		cout << " ispos " << ispos << endl;
 		progmv = (ispos) ? gprog1.c_str() : gprog2.c_str();
 		ynxtprog = (ispos) ? ycmd2str.c_str() : ycmd1str.c_str();
+		cout << "dys " << dys << " ynxtsteps " << ynxtsteps << endl;
 		if (ynxtsteps > dys){
 		  char stemp[8];
 		  ynxtsteps -= dys; 
 		  sprintf(stemp, "%u", ymot*100000+ynxtsteps);
 		  memcpy((void*)(ynxtprog+5), stemp, 6);
+		  cout << ynxtprog << endl;
 		}
 		else{
 		  if (nloops > 1) nloops = 1;
 		}
+		
+		float yRead, yRead0, yMax;
+		yRead0 = myoptl.readlineY();
+		cout << "yRead prima  next() " <<  yRead0 <<  endl;
 		next(progmv, myboard);
 		
-		float yRead;
+		
+		yMax = (ispos) ? yRead0 - ynxtsteps/25 : yRead0 + ynxtsteps/25;
+		cout << yRead0 << " " << ynxtsteps << " passi  " << ynxtsteps/25 << " mm " << yMax << endl;  
 		do {
-		  yRead = myoptl.readlineY();
-		  cout << abs(yRead) << " " << ynxtsteps/25 << endl;
 		  gettimeofday(&t0,NULL);
 		  //continue reading the laser and opt line
 		  misura( x, y, &myoptl, myboard, laser, t_ch1, t_ch2, logf );
 		  waitnext(&t0, time_period_ms);
+		  yRead = myoptl.readlineY();
+		  cout << "yRead dopo misura() " <<  yRead <<  endl;
 		  // usleep(230000);//take measurements every 0.5s (* ROBERTO: 0.27 s are inside 'misura' *)		}
+		  for (int chan=38; chan<43; chan++){
+        		mdigitali = myboard->digitalInput(chan);
+        		mdigital += mdigitali;
+    		  }	
+		  cout << " mdigital " << mdigital<< endl;
+		  mdigital =0;
+		  mdigitali =0;
 		}
 		//as long as it is smaller than the max distance
-		while (abs(yRead)<(ynxtsteps/25));
-
-
+		while ((ispos) ? yRead >  yMax : yRead < yMax);
+		usleep(1000000);
 	}
 
  QuitNow:

@@ -4,8 +4,8 @@
 
 
 
-#define inpath "/home/atlas/Micromegas/M0Data/frameData/"
-#define outpath "/home/atlas/Micromegas/M0Data/root_plot/frame/"
+#define inpath "/home/atlas/Micromegas/M05Data/frameData/"
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/frame/"
 
 void LHFrame (TString scan){
 

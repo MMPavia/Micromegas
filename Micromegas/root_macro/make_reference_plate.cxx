@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 
-#define outpath "/home/atlas/Micromegas/M0Data/root_plot/" 
-#define inpath "/home/atlas/Micromegas/M0Data/mapping/reference_february/"
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/" 
+#define inpath "/home/atlas/Micromegas/M05Data/mapping/reference_february/"
 
 void make_reference_plate(std::string outputfilename, const char *ext=".txt"){
 

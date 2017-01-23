@@ -3,8 +3,8 @@
 #include <vector>
 //#include "AtlasUtils.C"
 
-#define inpath "/home/atlas/Micromegas/M0Data/root_plot/"
-#define outpath "/home/atlas/Micromegas/M0Data/root_plot/modulo0/"
+#define inpath "/home/atlas/Micromegas/M05Data/root_plot/"
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/modulo0/"
 
 
 void diff_pannello_piastre (string scan){

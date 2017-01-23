@@ -24,7 +24,7 @@
 #include "my_pipe.h"
 
 #define error_message(F,E) printf(F, E)
-#define path "/home/atlas/Micromegas/M0Data/pressure/"
+#define path "/home/atlas/Micromegas/M05Data/pressure/"
 
 std::string pipe_name("/tmp/atlas/pressmonpipe");
 

@@ -4,7 +4,7 @@
 //#include "AtlasStyle.C"
 
 #define inpath "/home/atlas/Desktop/LWDAQ/MM_Data/"
-#define outpath "/home/atlas/Micromegas/M0Data/root_plot/CCCD/"
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/CCCD/"
 
 void stiffback_repositioning (string scan){
 

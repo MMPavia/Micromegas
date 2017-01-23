@@ -1,5 +1,3 @@
 NewPanel
 PCBposStiff
-PCBalignStiff
-PCBalignTab
 PCBposTab

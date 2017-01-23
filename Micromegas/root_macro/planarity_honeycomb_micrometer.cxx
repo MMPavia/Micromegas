@@ -3,8 +3,8 @@
 #include <vector>
 //#include "AtlasStyle.C"
 
-#define inpath "/home/atlas/Micromegas/M0Data/honeycomb/"
-#define outpath "/home/atlas/Micromegas/M0Data/root_plot/honeycomb/"
+#define inpath "/home/atlas/Micromegas/M05Data/honeycomb/"
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/honeycomb/"
 
 void planarity_honeycomb_micrometer (string scan){
 

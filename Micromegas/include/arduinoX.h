@@ -5,7 +5,13 @@
 
 #include "rs232ard.h"
 
-enum class arduinoDIO { INPUT=1, OUTPUT=0 };
+enum class arduinoDIO { OUTPUT=0, INPUT=1 };
+
+enum class arduinoCMD
+ {
+  DIGITAL_SETUP='a', ANALOG_IN='b', DIGITAL_OUT='c',
+  PULSE_OUT='d', DIGITAL_IN='e', DELAYED_PULSE='f'
+ };
 
 double analogcalibration[16] = { 1, 1, 1, 1, 3482.0/3455.0, 2206.0/2182.0, 2288.0/2267.0, 1, 1, 1, 4240.0/4201.0, 6310.0/6208.0, 4272.0/4246.0, 5928.0/5819.0, 6130.0/6024.0, 1 };
 
@@ -25,6 +31,7 @@ class arduinoX : rs232ard
 	int analogInput( int chan );
 	bool digitalInput( int chan );
 	void pulseOutput( int chan );
+	void delayedPulse( int chan, int delay, int duration );
 
 	void setPhysScale( uint16_t chan, double RFS, double RZS, double EFS, double EZS);
 

@@ -1,0 +1,16 @@
+mapping laser:
+
+ ./map_trap_laser_step -w 2070 1001 -x 90 20 -y 77 20  // pillar
+ ./map_diag_laser -l 2240 1 -s 80 20	  // frame sx
+ ./map_diag_laser -l -2240 0 -s 80 20	  // frame dx
+ ./map_diag_laser -l 2200 1 -s 110 20     // mask  sx
+ ./map_diag_laser -l -2200 0 -s 110 20    // mask dx
+ 
+
+mapping laser:
+
+ ./map_trap -w 2070 1001 -x 90 20 -y 77 20 -t 3 10 // pillar
+ ./map_diag -l 2240 1 -s 80 20 -t 3 10		// frame sx
+ ./map_diag -l -2240 0 -s 80 20 -t 3 10 	// frame dx
+ ./map_diag -l 2200 1 -s 110 20 -t 3 10 	// mask  sx
+ ./map_diag -l -2200 0 -s 110 20 -t 3 10	// mask dx

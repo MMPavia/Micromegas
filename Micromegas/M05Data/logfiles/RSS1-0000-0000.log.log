@@ -1,0 +1,75 @@
+Setup electronics for C-CCD reading
+
+Thu 16 Feb 2017 10:23:00 AM CET	 ADD FRAME: 
+External frames positioned
+Internal frames positioned
+Frames associated to PCBs: 
+INT1:  2INT2:  2INT3:  2INT4:  2EXT1:  1EXT2:  1EXT3  : 1EXT4:  1EXT5:  1EXT6:  1 
+Thu 16 Feb 2017 10:24:00 AM CET	 ADD HONEYCOMB: 
+Adding honeycomb part
+Honeycombs associated to PCBs: 
+HC1: 1HC2: 2HC3: 3HC4: 4HC5: 5 
+Thu 16 Feb 2017 10:24:40 AM CET	 ADD COOLING BARS: 
+External cooling bars added
+Cooling bars associated to PCBs: 
+COOL1: 1COOL2: 2 
+Thu 16 Feb 2017 10:24:56 AM CET	 DRY RUN: 
+stiffback alignment pins mounted
+cleanliness checked
+stiffback rotated
+stiffback moved
+stiffback lowered
+stiffback released
+weights positioned
+Micrometer Dry Run Completed
+
+Thu 16 Feb 2017 10:26:30 AM CET	 GLUING ON TABLE: 
+
+Thu 16 Feb 2017 10:29:32 AM CET	 DRY RUN: 
+stiffback alignment pins mounted
+cleanliness checked
+stiffback rotated
+stiffback moved
+stiffback lowered
+stiffback released
+weights positioned
+Micrometer Dry Run Completed
+ 16 Feb 2017 12:12:53 PM CET	 POSITION INTERNAL STRUCTURE: 
+External frames positioned
+Internal frames positioned
+Honeycomb sheets positioned
+Cooling bars positioned
+20 mass grounds screwed in
+
+Thu 16 Feb 2017 12:37:19 PM CET	 STIFFBACK GLUING: 
+Stiffback moved over ref plates
+Stiffback lowered on ref plates
+Stiffback released from movement arch
+Stiffback moved away from table
+Parchment covers positioned
+Dispenser mounted
+Gluing done
+Parchment protections removed
+Done
+Thu 16 Feb 2017 01:06:40 PM CET	 PANEL CLOSURE
+Stiffback moved outside the table
+Cleanliness of supports checked
+Stiffback rotated upside down
+Stiffback moved over the ref plates
+Stiffback lowered on ref plates
+Stiffback released from movement arch
+Movement arch moved outside the table
+Weights positioned on stiffback
+Micrometer Dry Run Completed
+Gauge machine Dry run completed
+Glue cured
+
+Fri 17 Feb 2017 09:24:51 AM CET	 STIFFBACK REMOVAL
+Vacuum removed
+Weights removed
+Stiffback connected to arch
+Stiffback lifted
+Stiffback moved away
+
+Fri 17 Feb 2017 09:25:00 AM CET	 QAQC VACUUM ON
+Vacuum switched on

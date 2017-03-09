@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <cstdlib>
 #include <cmath>
+#include <math.h>
 #include <cstdio>
 #include <cstring>
 #include <ctime>
@@ -21,6 +22,8 @@
 #include "motors.h"
 
 #include "my_pipe.h"
+
+
 
 #define error_message(F,E) printf(F, E)
 #define path "/home/atlas/Micromegas/M05Data/mapping/"
@@ -99,11 +102,11 @@ void misura( int64_t x, int64_t y,  optline* optl, arduinoX* myboard, uint16_t l
     double vlaser = myboard->getPhyVal(laser);
     gettimeofday(&T4, NULL);
 
-    fprintf( logf, "  %f \t %f \t %f \t %f \t \n", ola.at(0), ola.at(1), ola.at(2), vlaser, t_tab, t_amb  );
+    fprintf( logf, "  %f \t %f \t %f \t %f \t %f \t %f \n", ola.at(0), ola.at(1), ola.at(2), vlaser, t_tab, t_amb  );
     fflush( logf );
     // in the print on screen temporarely left x-y info from steps
     // printf( "%f \t %f \t %f \t", dtime(&T1,&T2), dtime(&T2,&T3), dtime(&T3,&T4));
-    printf( " %f \t %f \t %f \t %f \t  \n", ola.at(0), ola.at(1),  ola.at(2), vlaser, t_tab, t_amb  );
+    printf( "  %f \t %f \t %f \t %f \t %f \t %f \n", ola.at(0), ola.at(1),  ola.at(2), vlaser, t_tab, t_amb  );
     fflush( stdout );
 }
 
@@ -309,8 +312,8 @@ int main (int argc, char** argv)
 
 	int64_t x(0);
 	int64_t y(0);
-	uint16_t t_ch1(3);
-	uint16_t t_ch2(5);
+	uint16_t t_ch1(7);
+	uint16_t t_ch2(10);
         uint16_t laser(15);
 
 	time_t now = time(0);
@@ -340,7 +343,7 @@ int main (int argc, char** argv)
 
 	FILE* logf = fopen (outname.str().c_str(),"w+");
 	FILE* saveFileName = fopen (filename.str().c_str(),"w+");//Athina
-	fprintf( saveFileName, " %s", outname.str().c_str() );//Athina
+	fprintf( saveFileName, " %s \n", outname.str().c_str() );//Athina
 	fflush( saveFileName );//Athina
 	fclose(saveFileName );//Athina
 
@@ -419,7 +422,7 @@ int main (int argc, char** argv)
 		}
 		//as long as it is smaller than the max distance
 		while ((ispos) ? yRead >  yMax : yRead < yMax);
-		usleep(1000000);
+		usleep(500000);
 	}
 
  QuitNow:

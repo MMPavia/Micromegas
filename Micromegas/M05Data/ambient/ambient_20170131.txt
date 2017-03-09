@@ -1,0 +1,2 @@
+  time  	 temp_tab_dw  	 temp_tab_up  	 temp_pl1  	 temp_pl2  	 temp_pl3  	 temp_amb_pc  	 temp_amb_door  	 rh_amb_pc  	 rh_amb_door  	 press_amb  	 press_diff  
+ 12:19:02 	 20.912889 	  20.966586 	 20.862926  	 20.152699  	 20.507812  	 22.028795  	 22.036043  	 36.925011  	 34.383624  	 1.009633  	 39.324863   

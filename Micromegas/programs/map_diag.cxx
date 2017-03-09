@@ -22,6 +22,8 @@
 
 #include "my_pipe.h"
 
+#include "sighand.h"
+
 #define error_message(F,E) printf(F, E)
 #define path "/home/atlas/Micromegas/M05Data/mapping/"
 #define PI 3.14159265
@@ -61,7 +63,7 @@ void next ( const char* gx, arduinoX* myboard )
     usleep(2000000);
 }
  
-
+/*
 void misura( int64_t x, int64_t y, gauge* tast, optline* optl, arduinoX* myboard, uint16_t t_ch1, uint16_t t_ch2, FILE* logf )
 {
     double t_tab = myboard->getPhyVal(t_ch1);
@@ -73,6 +75,20 @@ void misura( int64_t x, int64_t y, gauge* tast, optline* optl, arduinoX* myboard
     printf( " %d \t %d \t %f \t %f \t %f \t %f  \n", x, y, ol, utast, t_tab, t_amb  );
     fflush( stdout );
 }
+*/
+
+void misura( int64_t x, int64_t y,  optline* optl, arduinoX* myboard, gauge* tast, uint16_t t_ch1, uint16_t t_ch2, FILE* logf )
+{
+    double t_tab = myboard->getPhyVal(t_ch1);
+    double t_amb = myboard->getPhyVal(t_ch2);
+    double  utast = tast->readval();
+    std:vector<float>  ola= optl->readlineXYZ();
+    fprintf( logf, "  %f \t %f \t %f \t %f \t %f \t %f \n", ola.at(0), ola.at(1), ola.at(2), utast, t_tab, t_amb  );
+    fflush( logf );
+    printf( "  %f \t %f \t %f \t %f \t %f \t %f \n", ola.at(0), ola.at(1),  ola.at(2), utast, t_tab, t_amb  );
+    fflush( stdout );
+}
+
 
 
 
@@ -94,7 +110,7 @@ int main (int argc, char** argv)
 
         motp = new motors("/dev/ttyUSB1");
 
-    arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
+        arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
 	gauge tast("/dev/ttyUSB2");
 	optline myoptl("/dev/ttyUSB3");
 
@@ -333,11 +349,12 @@ int main (int argc, char** argv)
        	   }
 
 	   next( gzdw.c_str(), myboard );
-       misura( x, y, &tast, &myoptl, myboard, t_ch1, t_ch2, logf );
+           //misura( x, y, &tast, &myoptl, myboard, t_ch1, t_ch2, logf );
+	   misura( x, y, &myoptl, myboard,  &tast, t_ch1, t_ch2, logf );
 	   next( gzup.c_str(), myboard );
 	
-	   cout << "step " << ns << " di " << nsteps << endl;
-	   if(ns == nsteps-1) continue; 
+	   cout << "step " << ns+1 << " di " << nsteps << endl;
+	   if(ns+1 == nsteps) continue; 
 
 	   if(ldir && edge) {
 		cout << "gsxpc " << " " << x << " " << y <<endl;
@@ -372,7 +389,7 @@ QuitNow:
 
 	delete motp;
 
-    arduinoX::cleanup();
+        arduinoX::cleanup();
 
 
 	return 0;

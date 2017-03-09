@@ -1,0 +1,554 @@
+#include <stdio.h>
+#include <string>
+#include <vector>
+
+#define inpath ""
+
+void Macro_frame(string scan1, string scan2="", string scan3="", string title="")
+{
+
+    double minbin = 9;
+    double maxbin = 11;
+    ostringstream rootfile;
+    rootfile  << title <<".root";
+    TFile* myroot = new TFile(rootfile.str().c_str(), "RECREATE");
+    
+    gStyle->SetPalette(1);
+    gStyle->SetOptStat(111111);
+    gStyle->SetPaintTextFormat(".0f");
+    gStyle->SetPadRightMargin(0.15);    // serve per mettere margine per non tagliare asse Z
+    gStyle->SetNumberContours(100);
+    
+    // file containing the data
+    ostringstream file1;
+    file1 << inpath  << scan1 ;
+    ostringstream file2;
+    file2 << inpath  << scan2 ;
+    ostringstream file3;
+    file3 << inpath  << scan3 ;
+   
+    ifstream in1(file1.str().c_str());
+    cout<<"in1: "<<file1.str().c_str()<<endl;
+    ifstream in2(file2.str().c_str());
+    ifstream in3(file3.str().c_str());
+    
+    std::vector < std::vector<std::vector <double > >> pos_X_ALL_UP;
+    std::vector < std::vector<std::vector <double > >> pos_Y_ALL_UP;
+    std::vector < std::vector<std::vector <double > >> pos_opt_ALL_UP;
+    std::vector < std::vector<std::vector <double > >> pos_tast_ALL_UP;
+    
+    std::vector < std::vector<std::vector <double > >> pos_X_ALL_DOWN;
+    std::vector < std::vector<std::vector <double > >> pos_Y_ALL_DOWN;
+    std::vector < std::vector<std::vector <double > >> pos_opt_ALL_DOWN;
+    std::vector < std::vector<std::vector <double > >> pos_tast_ALL_DOWN;
+    
+    std::vector < std::vector<std::vector <double > >> pos_X_ALL_REFERENCE;
+    std::vector < std::vector<std::vector <double > >> pos_Y_ALL_REFERENCE;
+    std::vector < std::vector<std::vector <double > >> pos_opt_ALL_REFERENCE;
+    std::vector < std::vector<std::vector <double > >> pos_tast_ALL_REFERENCE;
+    // UP FILE
+    {
+ 
+        std::vector<std::vector <double > > pos_X_single_frame_UP;
+        std::vector<std::vector <double > > pos_Y_single_frame_UP;
+        std::vector<std::vector <double > > pos_tast_single_frame_UP;
+        std::vector<std::vector <double > > pos_opt_single_frame_UP;
+        std::vector <double> temp1;
+        std::vector <double> temp2;
+        std::vector <double> temp3;
+        std::vector <double> temp4;
+        bool cond = true;
+        
+	while(cond) {
+            double pos_X, pos_Y, tast_val, opt_val, date, time;
+            in1 >> pos_X >> pos_Y  >> opt_val >> tast_val >> date >> time;
+            cout << pos_X << " " <<pos_Y  << " " <<opt_val << " " << tast_val << " " << date << " " << time<< endl; 
+	    cout<<"in1 good? "<<in1.good()<<" in1 end of file? "<<in1.eof()<<endl;
+            if ( !in1.good() || in1.eof()) cond=false;
+            if (( temp2.size() == 0 || pos_Y==temp2.back()) && !in1.eof())
+	    {
+		cout<<"in loop1"<<endl;
+                temp1.push_back(pos_X);
+                temp2.push_back(pos_Y);
+                temp3.push_back(tast_val);
+                temp4.push_back(opt_val);
+            }
+            else{
+              if( pos_X_single_frame_UP.size()==1 || pos_X_single_frame_UP.size()==0 )
+		{
+		  //cout<<"in loop2"<<endl;
+		    static int test = 0;
+		    test+=1;
+		    cout<<"loop no. "<<test<<endl;
+                    pos_X_single_frame_UP.push_back(temp1);
+                    pos_Y_single_frame_UP.push_back(temp2);
+                    pos_tast_single_frame_UP.push_back(temp3);
+                    pos_opt_single_frame_UP.push_back(temp4);
+                    temp1.clear();
+                    temp2.clear();
+                    temp3.clear();
+                    temp4.clear();
+                   
+		    temp1.push_back(pos_X);
+                    temp2.push_back(pos_Y);
+                    temp3.push_back(tast_val);
+                    temp4.push_back(opt_val);
+                    if(pos_X_single_frame_UP.size()==2)
+		      {
+                        pos_X_ALL_UP.push_back(pos_X_single_frame_UP);
+                        pos_Y_ALL_UP.push_back(pos_Y_single_frame_UP);
+                        pos_opt_ALL_UP.push_back(pos_opt_single_frame_UP);
+                        pos_tast_ALL_UP.push_back(pos_tast_single_frame_UP);
+                        pos_X_single_frame_UP.clear();
+                        pos_Y_single_frame_UP.clear();
+                        pos_tast_single_frame_UP.clear();
+                        pos_opt_single_frame_UP.clear();
+                    }
+                }
+            }
+        }
+    }
+    
+    //DOWN
+    
+    {
+        
+        
+        std::vector<std::vector <double > > pos_X_single_frame_DOWN;
+        std::vector<std::vector <double > > pos_Y_single_frame_DOWN;
+        std::vector<std::vector <double > > pos_tast_single_frame_DOWN;
+        std::vector<std::vector <double > > pos_opt_single_frame_DOWN;
+        
+        
+        std::vector <double> temp1;
+        std::vector <double> temp2;
+        std::vector <double> temp3;
+        std::vector <double> temp4;
+        
+        bool cond = true;
+        
+        while(cond) {
+            
+            
+            double pos_X, pos_Y, tast_val, opt_val, date, time;
+            
+            in2 >> pos_X >> pos_Y  >> opt_val >> tast_val >> date >> time;
+            cout << pos_X << " " <<pos_Y  << " " <<opt_val << " " << tast_val << " " << date << " " << time<< endl; 
+            
+            if ( !in2.good() || in2.eof()) cond=false;
+            if ( (temp2.size() == 0 || pos_Y==temp2.back()) && !in2.eof() ){
+                temp1.push_back(pos_X);
+                temp2.push_back(pos_Y);
+                temp3.push_back(tast_val);
+                temp4.push_back(opt_val);
+            }
+            else
+            {
+                if( pos_X_single_frame_DOWN.size()==1 || pos_X_single_frame_DOWN.size()==0 ){
+                    pos_X_single_frame_DOWN.push_back(temp1);
+                    pos_Y_single_frame_DOWN.push_back(temp2);
+                    pos_tast_single_frame_DOWN.push_back(temp3);
+                    pos_opt_single_frame_DOWN.push_back(temp4);
+                    
+                    temp1.clear();
+                    temp2.clear();
+                    temp3.clear();
+                    temp4.clear();
+                    temp1.push_back(pos_X);
+                    temp2.push_back(pos_Y);
+                    temp3.push_back(tast_val);
+                    temp4.push_back(opt_val);
+                    if(pos_X_single_frame_DOWN.size()==2){
+                        
+                        pos_X_ALL_DOWN.push_back(pos_X_single_frame_DOWN);
+                        pos_Y_ALL_DOWN.push_back(pos_Y_single_frame_DOWN);
+                        pos_opt_ALL_DOWN.push_back(pos_opt_single_frame_DOWN);
+                        pos_tast_ALL_DOWN.push_back(pos_tast_single_frame_DOWN);
+                        
+                        pos_X_single_frame_DOWN.clear();
+                        pos_Y_single_frame_DOWN.clear();
+                        pos_tast_single_frame_DOWN.clear();
+                        pos_opt_single_frame_DOWN.clear();
+                        
+                    }
+                    
+                }
+            }
+        }
+    }
+    //REFERENCE
+    
+    {
+        
+        
+        std::vector<std::vector <double > > pos_X_single_frame_REFERENCE;
+        std::vector<std::vector <double > > pos_Y_single_frame_REFERENCE;
+        std::vector<std::vector <double > > pos_tast_single_frame_REFERENCE;
+        std::vector<std::vector <double > > pos_opt_single_frame_REFERENCE;
+        
+        
+        std::vector <double> temp1;
+        std::vector <double> temp2;
+        std::vector <double> temp3;
+        std::vector <double> temp4;
+        
+        bool cond=true;
+        
+        while(cond) {
+            
+            
+            double pos_X, pos_Y, tast_val, opt_val, date, time;
+            
+            in3 >> pos_X >> pos_Y  >> opt_val >> tast_val >> date >> time;
+
+            
+            if ( !in3.good() || in3.eof()) cond=false;
+            
+            if ( (temp2.size() == 0 || pos_Y==temp2.back()) &&  !in3.eof()){
+                
+                
+                temp1.push_back(pos_X);
+                temp2.push_back(pos_Y);
+                temp3.push_back(tast_val);
+                temp4.push_back(opt_val);
+                
+                //                std::cout << tast_val << std::endl;
+                
+            }
+            
+            else
+                
+            {
+                
+                
+                
+                if( pos_X_single_frame_REFERENCE.size()==1 || pos_X_single_frame_REFERENCE.size()==0 ){
+                    
+                    
+                    
+                    pos_X_single_frame_REFERENCE.push_back(temp1);
+                    pos_Y_single_frame_REFERENCE.push_back(temp2);
+                    pos_tast_single_frame_REFERENCE.push_back(temp3);
+                    pos_opt_single_frame_REFERENCE.push_back(temp4);
+                    
+                    temp1.clear();
+                    temp2.clear();
+                    temp3.clear();
+                    temp4.clear();
+                    
+                    
+                    
+                    temp1.push_back(pos_X);
+                    temp2.push_back(pos_Y);
+                    temp3.push_back(tast_val);
+                    temp4.push_back(opt_val);
+                    
+                    
+                    
+                    if(pos_X_single_frame_REFERENCE.size()==2){
+                        
+                        pos_X_ALL_REFERENCE.push_back(pos_X_single_frame_REFERENCE);
+                        pos_Y_ALL_REFERENCE.push_back(pos_Y_single_frame_REFERENCE);
+                        pos_opt_ALL_REFERENCE.push_back(pos_opt_single_frame_REFERENCE);
+                        pos_tast_ALL_REFERENCE.push_back(pos_tast_single_frame_REFERENCE);
+                        
+                        pos_X_single_frame_REFERENCE.clear();
+                        pos_Y_single_frame_REFERENCE.clear();
+                        pos_tast_single_frame_REFERENCE.clear();
+                        pos_opt_single_frame_REFERENCE.clear();
+                        
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    // -------------------------- LET's CALCULATE!!!!!!-------------- //
+    TH1F *frame4 = new TH1F("ThicknessUPAverageALL","ThicknessUPAverageALL", 200 , minbin, maxbin );
+    TH1F *frame7 = new TH1F("ThicknessDOWNAverageALL","ThicknessDOWNAverageALL", 200 , minbin, maxbin );
+    TH1F *frame8 = new TH1F("ThicknessALL","ThicknessALL", 200 , minbin, maxbin );
+    TH1F *frame5 = new TH1F("BendingALL","BendingALL", 200 , -1, 1 );
+    TH1F *frame6 = new TH1F("TorsionALL","TorsionALL", 200 , -1, 1 );
+    
+    cout<<"pos_X_ALL_UP.size(): "<<pos_X_ALL_UP.size()<<endl;
+
+    for( int frame = 0; frame <pos_X_ALL_UP.size(); frame++){
+        
+	std::reverse(pos_X_ALL_UP[frame][1].begin(),pos_X_ALL_UP[frame][1].end());
+        std::reverse(pos_Y_ALL_UP[frame][1].begin(),pos_Y_ALL_UP[frame][1].end());
+        std::reverse(pos_opt_ALL_UP[frame][1].begin(),pos_opt_ALL_UP[frame][1].end());
+        std::reverse(pos_tast_ALL_UP[frame][1].begin(),pos_tast_ALL_UP[frame][1].end());
+        
+        std::cout << "Meas Point " << frame << "\t" << std::endl;
+        std::cout << "passata1" << std::endl;
+        for (int k=0; k<pos_X_ALL_UP[frame][0].size(); k++) {
+            std::cout << pos_tast_ALL_UP[frame][0][k] << std::endl;
+        }
+        std::cout << "passata2" << std::endl;
+        for (int k=0; k<pos_X_ALL_UP[frame][1].size(); k++) {
+            std::cout << pos_tast_ALL_UP[frame][1][k] << std::endl;
+        }
+
+        std::reverse(pos_X_ALL_DOWN[frame][1].begin(),pos_X_ALL_DOWN[frame][1].end());
+        std::reverse(pos_Y_ALL_DOWN[frame][1].begin(),pos_Y_ALL_DOWN[frame][1].end());
+        std::reverse(pos_opt_ALL_DOWN[frame][1].begin(),pos_opt_ALL_DOWN[frame][1].end());
+        std::reverse(pos_tast_ALL_DOWN[frame][1].begin(),pos_tast_ALL_DOWN[frame][1].end());
+        
+	std::reverse(pos_X_ALL_REFERENCE[frame][1].begin(),pos_X_ALL_REFERENCE[frame][1].end());
+        std::reverse(pos_Y_ALL_REFERENCE[frame][1].begin(),pos_Y_ALL_REFERENCE[frame][1].end());
+        std::reverse(pos_opt_ALL_REFERENCE[frame][1].begin(),pos_opt_ALL_REFERENCE[frame][1].end());
+        std::reverse(pos_tast_ALL_REFERENCE[frame][1].begin(),pos_tast_ALL_REFERENCE[frame][1].end());
+        std::stringstream ss;
+        ss << frame;
+ 
+       TDirectory *cdtof = myroot->mkdir(ss.str().c_str());
+        cdtof->cd();
+        std::vector <double > mean_reference;
+        for (int point=0; point<pos_X_ALL_REFERENCE[frame][0].size() ; point++) {
+            double alt0_ref = abs(pos_opt_ALL_REFERENCE[frame][0][point]-pos_tast_ALL_REFERENCE[frame][0][point]);
+            double alt1_ref = abs(pos_opt_ALL_REFERENCE[frame][1][point]-pos_tast_ALL_REFERENCE[frame][1][point]);
+            mean_reference.push_back((alt0_ref+ alt1_ref)/2);
+        }
+	
+        TH2F *tmap1= new TH2F("MAP_UP","MAP_UP", pos_opt_ALL_REFERENCE[frame].size(), 0, pos_opt_ALL_REFERENCE[frame].size(), pos_opt_ALL_REFERENCE[frame][1].size(), 0, pos_opt_ALL_REFERENCE[frame][1].size() );
+        tmap1->SetTitleOffset(2);
+        tmap1->GetXaxis()->SetTitle("AU");
+//        tmap1->GetZaxis()->SetRangeUser(4.50,5.70);
+        tmap1->GetYaxis()->SetTitle("AU");
+        tmap1->GetZaxis()->SetTitle("Z (#mum)");
+        
+	TH2F *tmap2= new TH2F("MAP_DOWN","MAP_DOWN", pos_opt_ALL_REFERENCE[frame].size(), 0, pos_opt_ALL_REFERENCE[frame].size(), pos_opt_ALL_REFERENCE[frame][1].size(), 0, pos_opt_ALL_REFERENCE[frame][1].size() );
+        tmap2->SetTitleOffset(2);
+        tmap2->GetXaxis()->SetTitle("AU");
+//        tmap1->GetZaxis()->SetRangeUser(4.50,5.70);
+        tmap2->GetYaxis()->SetTitle("AU");
+        tmap2->GetZaxis()->SetTitle("Z (#mum)");
+        
+	TH2F *tmap3= new TH2F("ThicknessAverage","TicknessAverage", 1, 0, 1, pos_opt_ALL_REFERENCE[frame][1].size(), 0, pos_opt_ALL_REFERENCE[frame][1].size() );
+        tmap3->SetTitleOffset(2);
+        tmap3->GetXaxis()->SetTitle("AU");
+//        tmap3->GetZaxis()->SetRangeUser(4.50,5.700);
+        tmap3->GetYaxis()->SetTitle("AU");
+        tmap3->GetZaxis()->SetTitle("Z (#mum)");
+        
+       
+        TH1F *frame1 = new TH1F("ThicknessUP","ThicknessUP", 200 , minbin, maxbin );
+        TH1F *frame2 = new TH1F("ThicknessDOWN","ThicknessDOWN", 200 , minbin, maxbin );
+        TH1F *frame9 = new TH1F("ThicknessALL","ThicknessALL", 200 , minbin, maxbin );
+        TH1F *frame3 = new TH1F("ThicknessUPAverage","ThicknessUPAverage", 200 , minbin, maxbin );
+       
+        for (int point=0; point<pos_X_ALL_REFERENCE[frame][0].size() ; point++) {
+            
+            double alt0_ref = abs(pos_opt_ALL_REFERENCE[frame][0][point]-pos_tast_ALL_REFERENCE[frame][0][point]);
+            double alt1_ref = abs(pos_opt_ALL_REFERENCE[frame][1][point]-pos_tast_ALL_REFERENCE[frame][1][point]);
+            
+            
+            double alt0_up = abs(pos_opt_ALL_UP[frame][0][point]-pos_tast_ALL_UP[frame][0][point]);
+            double alt1_up = abs(pos_opt_ALL_UP[frame][1][point]-pos_tast_ALL_UP[frame][1][point]);
+            
+            
+            double alt0_down = abs(pos_opt_ALL_DOWN[frame][0][point]-pos_tast_ALL_DOWN[frame][0][point]);
+            double alt1_down = abs(pos_opt_ALL_DOWN[frame][1][point]-pos_tast_ALL_DOWN[frame][1][point]);
+            
+            
+            
+            tmap1->Fill(1, point, alt0_up-alt0_ref);
+            tmap1->Fill(2, point, alt1_up-alt1_ref);
+            
+            std::cout << alt0_up-alt0_ref <<"\t" << alt1_up-alt1_ref << std::endl;
+
+            frame1->Fill(alt0_up-alt0_ref);
+            frame1->Fill(alt1_up-alt1_ref);
+            
+            
+            tmap2->Fill(1, point, alt0_down-alt0_ref);
+            tmap2->Fill(2, point, alt1_down-alt1_ref);
+            
+            frame2->Fill(alt0_down-alt0_ref);
+            frame2->Fill(alt1_down-alt1_ref);
+            
+            
+            tmap3->Fill(1, point, (alt0_up-alt0_ref+alt1_up-alt1_ref)/2);
+            
+            frame3->Fill((alt0_up-alt0_ref+alt1_up-alt1_ref)/2);
+            
+            
+            //record
+            frame4->Fill((alt0_up-alt0_ref+alt1_up-alt1_ref)/2);
+            
+            frame7->Fill((alt0_down-alt0_ref+alt1_down-alt1_ref)/2);
+            frame8->Fill((alt0_down-alt0_ref+alt1_up-alt1_ref)/2);
+            frame8->Fill((alt1_down-alt1_ref+alt0_up-alt0_ref)/2);
+            frame9->Fill((alt0_down-alt0_ref+alt1_up-alt1_ref)/2);
+            frame9->Fill((alt1_down-alt1_ref+alt0_up-alt0_ref)/2);
+
+        }
+
+        //CALCULATE TORSION
+        double up_0_0 = abs(pos_opt_ALL_UP[frame][0][0]-pos_tast_ALL_UP[frame][0][0])-abs(pos_opt_ALL_REFERENCE[frame][0][0]-pos_tast_ALL_REFERENCE[frame][0][0]);
+        
+        double up_0_last = abs(pos_opt_ALL_UP[frame][0].back()-pos_tast_ALL_UP[frame][0].back())-abs(pos_opt_ALL_REFERENCE[frame][0].back()-pos_tast_ALL_REFERENCE[frame][0].back());
+        
+        double up_1_0 = abs(pos_opt_ALL_UP[frame][1][0]-pos_tast_ALL_UP[frame][1][0])-abs(pos_opt_ALL_REFERENCE[frame][1][0]-pos_tast_ALL_REFERENCE[frame][1][0]);
+        
+        double up_1_last = abs(pos_opt_ALL_UP[frame][1].back()-pos_tast_ALL_UP[frame][1].back())-abs(pos_opt_ALL_REFERENCE[frame][1].back()-pos_tast_ALL_REFERENCE[frame][1].back());
+        
+        double torsion_up = (up_0_0+up_1_last)/2 - (up_0_last+up_1_0)/2;
+        
+	cout<<"for up_0_0: optical "<<pos_opt_ALL_UP[frame][0][0]<<" tast: "<<pos_tast_ALL_UP[frame][0][0]<<" optRef "<<pos_opt_ALL_REFERENCE[frame][0][0]<<" tastRef: "<<pos_tast_ALL_REFERENCE[frame][0][0]<<endl;
+	cout<<"for up_1_0: optical "<<pos_opt_ALL_UP[frame][1][0]<<" tast: "<<pos_tast_ALL_UP[frame][1][0]<<" optRef "<<pos_opt_ALL_REFERENCE[frame][1][0]<<" tastRef: "<<pos_tast_ALL_REFERENCE[frame][1][0]<<endl;
+
+	cout<<"up_0_0: "<<up_0_0<<" up_1_last: "<<up_1_last<<" up_0_last: "<<up_0_last<<" up_1_0: "<<up_1_0<<endl;
+	cout<<"torsion_up: "<<torsion_up<<" mean 1: "<<(up_0_0+up_1_last)/2<<" mean2: "<<(up_0_last+up_1_0)/2<<endl;
+        
+        double down_0_0 = abs(pos_opt_ALL_DOWN[frame][0][0]-pos_tast_ALL_DOWN[frame][0][0])-abs(pos_opt_ALL_REFERENCE[frame][0][0]-pos_tast_ALL_REFERENCE[frame][0][0]);
+        
+        double down_0_last = abs(pos_opt_ALL_DOWN[frame][0].back()-pos_tast_ALL_DOWN[frame][0].back())-abs(pos_opt_ALL_REFERENCE[frame][0].back()-pos_tast_ALL_REFERENCE[frame][0].back());
+        
+        double down_1_0 = abs(pos_opt_ALL_DOWN[frame][1][0]-pos_tast_ALL_DOWN[frame][1][0])-abs(pos_opt_ALL_REFERENCE[frame][1][0]-pos_tast_ALL_REFERENCE[frame][1][0]);
+        
+        double down_1_last = abs(pos_opt_ALL_DOWN[frame][1].back()-pos_tast_ALL_DOWN[frame][1].back())-abs(pos_opt_ALL_REFERENCE[frame][1].back()-pos_tast_ALL_REFERENCE[frame][1].back());
+        
+        double torsion_down = (down_0_0+down_1_last)/2 - (down_0_last+down_1_0)/2;
+        
+        
+        frame5->Fill(torsion_up);
+        
+        frame5->Fill(torsion_down);
+        
+        
+        
+        
+        
+        // Calculate bending
+        
+        std::vector <double> up_0_vec;
+        std::vector <double> up_1_vec;
+        std::vector <double> down_0_vec;
+        std::vector <double> down_1_vec;
+        
+        
+        for (int i=0; i<pos_opt_ALL_UP[frame][0].size();i++ ){
+        
+            up_0_vec.push_back(abs(pos_opt_ALL_UP[frame][0][i]-pos_tast_ALL_UP[frame][0][i])-abs(pos_opt_ALL_REFERENCE[frame][0][i]-pos_tast_ALL_REFERENCE[frame][0][i]));
+        
+        
+        }
+        
+        for (int i=0; i<pos_opt_ALL_UP[frame][1].size();i++ ){
+            
+            up_1_vec.push_back(abs(pos_opt_ALL_UP[frame][1][i]-pos_tast_ALL_UP[frame][1][i])-abs(pos_opt_ALL_REFERENCE[frame][1][i]-pos_tast_ALL_REFERENCE[frame][1][i]));
+            
+            
+        }
+
+        
+        
+        for (int i=0; i<pos_opt_ALL_DOWN[frame][0].size();i++ ){
+            
+            down_0_vec.push_back(abs(pos_opt_ALL_DOWN[frame][0][i]-pos_tast_ALL_DOWN[frame][0][i])-abs(pos_opt_ALL_REFERENCE[frame][0][i]-pos_tast_ALL_REFERENCE[frame][0][i]));
+            
+            
+        }
+        
+        for (int i=0; i<pos_opt_ALL_DOWN[frame][1].size();i++ ){
+            
+            down_1_vec.push_back(abs(pos_opt_ALL_DOWN[frame][1][i]-pos_tast_ALL_DOWN[frame][1][i])-abs(pos_opt_ALL_REFERENCE[frame][1][i]-pos_tast_ALL_REFERENCE[frame][1][i]));
+            
+            
+        }
+        double max_0_0 = *std::max_element(up_0_vec.begin(), up_0_vec.end());
+        double min_0_0 = *std::min_element(up_0_vec.begin(), up_0_vec.end());
+
+        double max_0_1 = *std::max_element(up_1_vec.begin(), up_1_vec.end());
+        double min_0_1 = *std::min_element(up_1_vec.begin(), up_1_vec.end());
+        
+        double max_1_0 = *std::max_element(down_0_vec.begin(), down_0_vec.end());
+        double min_1_0 = *std::min_element(down_0_vec.begin(), down_0_vec.end());
+
+        double max_1_1 = *std::max_element(down_1_vec.begin(), down_1_vec.end());
+        double min_1_1 = *std::min_element(down_1_vec.begin(), down_1_vec.end());
+        
+        
+        double max_up, min_up, max_down, min_down;
+        
+
+        if(max_0_0>max_0_1)
+            max_up=max_0_0;
+        else
+            max_up=max_0_1;
+        
+        if(max_1_0>max_1_1)
+            max_down=max_1_0;
+        else
+            max_down=max_1_1;
+        
+        if(min_0_0>min_0_1)
+            min_up=min_0_0;
+        else
+            min_up=min_0_1;
+        
+        if(min_1_0>min_1_1)
+            min_down=min_1_0;
+        else
+            min_down=min_1_1;
+        
+        
+        
+        // writing trees
+        
+        
+        
+        TTree *tr = new TTree("torsion","torsion");
+        float a1,a2,b1,b2,c1,c2;
+        
+        tr->Branch("Up",&a1,"a1/F");
+        tr->Branch("Down",&a2,"a2/F");
+        
+        TTree *tr1 = new TTree("bending","bending");
+        
+        tr1->Branch("Up",&b1,"b1/F");
+        tr1->Branch("Down",&b2,"b2/F");
+        
+        
+        a1=torsion_up;
+        a2 = torsion_down;
+        
+        b1 = max_up-min_up;
+        b2 = max_down - min_down;
+        
+        
+        
+        frame6->Fill(b1);
+        
+        frame6->Fill(b2);
+        
+        tr->Fill();
+        tr1->Fill();
+        
+        
+        tr->Write();
+        tr1->Write();
+        tmap1->Write();
+        tmap2->Write();
+        tmap3->Write();
+        
+        frame1->Write();
+        frame2->Write();
+        frame3->Write();
+        frame9->Write();
+        cdtof->cd("..");
+
+    } //each frame
+
+    frame4->Write();
+    frame5->Write();
+    frame6->Write();
+    frame7->Write();
+    frame8->Write();
+    myroot->Close();
+
+    return;
+
+}

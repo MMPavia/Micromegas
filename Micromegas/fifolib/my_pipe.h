@@ -12,5 +12,6 @@ class my_pipe
   private:
    pthread_t m_tid;
    std::string m_pname;
+   void* m_argv[2];
  };
 

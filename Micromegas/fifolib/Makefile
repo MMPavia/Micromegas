@@ -8,8 +8,8 @@ LIB := ../lib
 BIN := ../bin
 INC := ../include
 
-SOURCES := $(SRC)/pipe_cnt.cxx $(SRC)/pipe_srv.cxx
-LIBSOURCES := $(SRC)/my_pipe.cxx  
+SOURCES := $(SRC)/pipe_cnt.cxx $(SRC)/pipe_srv.cxx $(SRC)/testpipe.cxx
+LIBSOURCES := $(SRC)/my_pipe.cxx
 
 MYBINS := $(patsubst $(SRC)/%.cxx, $(BIN)/%, $(SOURCES))
 MYLIB := $(LIB)/libpipe.so
@@ -31,10 +31,7 @@ $(INC)/%.h : %.h
 clean :
 	rm -f $(INST_HEADERS) $(MYOBJS) $(MYLIBOBJS) $(MYBINS) $(MYLIB)
 
-$(BIN)/pipe_cnt : $(OBJ)/pipe_cnt.o
-	g++ $(CFLAGS) $(LFLAGS) -o $@ $^ -L$(LIB) -lpipe
-
-$(BIN)/pipe_srv : $(OBJ)/pipe_srv.o
+$(BIN)/% : $(OBJ)/%.o
 	g++ $(CFLAGS) $(LFLAGS) -o $@ $^ -L$(LIB) -lpipe
 
 $(OBJ)/%.o : $(SRC)/%.cxx

@@ -4,7 +4,7 @@
 //#include "AtlasStyle.C"
 
 #define inpath "/home/atlas/Micromegas/M05Data/mapping/"
-#define outpath "/home/atlas/Micromegas/M05Data/root_plot/modulo0/"
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/modulo05/"
 
 void planarity_pannello (string scan){
 
@@ -25,12 +25,12 @@ void planarity_pannello (string scan){
   scan.erase(scan.end()-4,scan.end());
 
   // histograms binning info
-  int nxbin=60;
-  int nybin=34;
-  float xmin = -40;
-  float xmax = 2280;
-  float ymin = -40;
-  float ymax =1320;
+  int nxbin=24;
+  int nybin=30;
+  float xmin = 253/10;
+  float xmax = 2414/10;
+  float ymin = 162;
+  float ymax =1239;
 
   // create all the histograms
 
@@ -93,11 +93,11 @@ void planarity_pannello (string scan){
   while (1) {
 
     // actual reading
-    in >> x >> y >> opt >> laser >> tesa >> temp1 >> temp2;
+    in >> x >> y >> opt >>  tesa >> temp1 >> temp2;
     if (!in.good()) break; // another sanity check //esco dal loop quando finisco le righe
 
     coord = tesa - opt; // definsco z
-    //cout << coord << " " << tesa << " " << opt << endl;
+    cout << coord << " " << tesa << " " << opt << endl;
 
     // filling the histos
     optline->Fill(opt); // metto in mu
@@ -105,21 +105,26 @@ void planarity_pannello (string scan){
     z_corr->Fill(coord);
     temperature1->Fill(temp1);
     temperature2->Fill(temp2);
-
 /*
     // filling the 2d-map
-    tmap->Fill(x,y, coord);
-    tmap2->Fill(x,y, (coord-11)*1000);
-    map_diff->Fill(x,y,1); 
-
+    tmap->Fill(x/10,-y, coord);
+    tmap2->Fill(x/10,-y, (coord-11)*1000);
+    map_diff->Fill(x/10,-y,1); 
+    cout << x/10 << " " << -y << " " << coord << endl ;
 */
+    tmap->Fill(x/10,-y-3, coord);
+    tmap2->Fill(x/10,-y-3, (coord-11)*1000);
+    map_diff->Fill(x/10,-y-3,1); 
+    cout << x/10 << " " << -y-3 << " " << coord << endl ;
 
+/*
     // modifica per via di pin di allineamento
     tmap->Fill(x+80,y+40, coord);
     tmap2->Fill(x+80,y+40, (coord-11)*1000);
     map_diff->Fill(x+80,y+40,1); 
 
 
+*/
     // increase at each loop, counts the lines
     j++;
 
@@ -137,17 +142,17 @@ void planarity_pannello (string scan){
  
 	double Z = tmap->GetBinContent(j,i);
 
-	if (Z<-200) {
+//	if (Z<-200) {
 
-		double b = tmap->GetBinContent(j,i-2);
+//		double b = tmap->GetBinContent(j,i-2);
 	//	double c = tmap->GetBinContent(j+1,i-1);
 	//	double d = tmap->GetBinContent(j+1,i);
 	//	double e = tmap->GetBinContent(j+1,i+1);
-		double f = tmap->GetBinContent(j,i+2);
-		double mean = (b+f)/2;
-		tmap->SetBinContent(j,i,mean);
+//		double f = tmap->GetBinContent(j,i+2);
+//		double mean = (b+f)/2;
+//		tmap->SetBinContent(j,i,mean);
 
-	};
+//	};
 
       }
    }

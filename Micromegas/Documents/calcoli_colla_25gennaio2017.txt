@@ -1,0 +1,42 @@
+
+
+  Area totale = 2200x(1240+422)/2 = 1 828200 mm^2
+
+  Colla utilizzabile da 2 cartucce: 164 mm
+
+  Corsa totale = Area tot / 33 mm = 55400 mm
+
+  mm di colla utilizzata su 1 m di percorso = 164/54.7 = 2.96 mm
+
+  
+
+  Divido trapezio in due trapezi con stessa area e quindi stessa quantita` di colla:
+
+
+  (area tot)/2 = (2 b minore + 2db)*h/2     db = tan(10.5)*h
+  
+  914 100 = (422h + 0.18h^2)
+
+  h = 1368 mm     db = 253.5 mm
+
+
+
+  Primo trapezio: base maggiore = 1240 mm , altezza = 832 mm , colla riscalata da 1 m alla base maggiore = 3.72 mm , numero di giri = 25
+
+  Secondo trapezio: base maggiore = 932 mm , altezza = 1388 mm , colla riscalata da 1 m alla base maggiore = 2.8 mm , numero di giri = 42
+
+
+/home/atlas/Micromegas/bin/move_one y -177
+
+ frame 3 (prima meta' di incollaggio) 
+-n 25 -x 33 60 -y -1240 20 -s -4.17 17 
+
+to modify in n +27
+
+ frame 7 (seconda meta' di incollaggio)
+-n 42 -x 33 60 -y 932 20 -s -3.13 17
+
+
+
+
+

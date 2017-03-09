@@ -1,0 +1,44 @@
+
+
+*************************************** Breve descrizione dei programmi ***********************************
+
+planarity_plates.cxx
+ Input: file di mappature delle pistre. Crea un root file che contiene le mappe della coordinta z,
+ le distribuzioni della z e le distribuzioni della temperatura. Rimuove i punti in cui il comparatore
+ finisce in una cava.
+
+planarity_honeycomb.cxx
+ Analogo a planarity_plates.cxx per la mappatura dell'honeycomb.
+
+planarity_pannello.cxx
+ Analogo a planarity_plates.cxx	per la mappatura del pannello.
+
+planarity_pcb.cxx
+ Analogo a planarity_plates.cxx	per la mappatura del pcb.
+
+diff_pannello_piastre.cxx
+ Input: root file della misura del pannello, creato con planarity. Sottrae la mappa delle piastre.
+
+diff_pcb_piastre.cxx
+ Analogo a diff_pannello_piastre.cxx per i pcb.
+
+diff_stiffback.cxx
+ Input: due file .txt di mappatura dello stiffback. Crea root file con differenza delle mappe.
+
+repeatibility_and_mean_plates.cxx
+ Input: 5 file .txt di mappatura delle piastre. Calcola la media delle misure, la ripetibilità
+ come massima escursione e la ripetibilità come deviazione standard.
+
+repeatibility_and_mean_stiffback.cxx
+ Input:	3 file .txt di mappatura dello stiffback.Calcola la media delle misure, la ripetibilità
+ come massima escursione e la ripetibilità come	deviazione standard.
+
+check_plates.cxx
+ Programma di controllo per le piastre. Input: root file creato con planarity. Calcola differenza
+ tra la nuova misura e quelle precedenti usate come riferimento.
+
+LHFrame.cxx
+ Programma per analisi misura altezza delle piastre. Input: file di misure fatte con il Linear
+ Height. Output: istogramma con la media.
+
+***********************************************************************************************************

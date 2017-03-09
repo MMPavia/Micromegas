@@ -28,7 +28,7 @@ void* from_pipe( void* argv )
    {
     usleep(100);
    }
-  printf ("start reading pipe %s\n", name);
+  std::cout << "start reading pipe " << name << std::endl;
   while(1)
    {
     m_fp = fopen(name, "r");
@@ -44,11 +44,9 @@ void* from_pipe( void* argv )
 
 my_pipe::my_pipe( const char* name, char* cmd )
  {
-  m_pname = name;
-  void* argv[2];
-  argv[0] = const_cast<char*>(name);
-  argv[1] = cmd;
-  int rc = pthread_create(&m_tid, NULL, from_pipe, argv);
+  m_argv[0] = const_cast<char*>(name);
+  m_argv[1] = const_cast<char*>(cmd);
+  int rc = pthread_create(&m_tid, NULL, from_pipe, m_argv);
   if (rc != 0)
    {
     printf ("pthread_create error %d\n", rc);

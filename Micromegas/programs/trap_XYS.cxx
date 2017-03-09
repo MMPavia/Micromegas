@@ -15,6 +15,7 @@
 #include <iomanip>
 
 #include "arduinoX.h"
+#include "optline3D.h"
 
 #include "motors.h"
 
@@ -67,9 +68,9 @@ int main (int argc, char** argv)
 	uint32_t nloops(0);
 
 
-    arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
+	arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
 	motp = new motors("/dev/ttyUSB1");
-
+        optline  optl("/dev/ttyUSB3");
 
         float length(0);
 
@@ -307,6 +308,9 @@ int main (int argc, char** argv)
 	uint64_t snxtsteps = ssteps2;
 	cout << " ycmd1 " << ycmd1str;
 	cout << " scmd1 " << scmd1str;
+
+	std:vector<float>  ola; 
+
 while (nloops --)
  {
 
@@ -360,6 +364,8 @@ while (nloops --)
 	  if (nloops > 1) nloops = 1;
 	}
         next(progmv, myboard);
+        ola = optl.readlineXYZ();
+	cout << " x " << ola.at(0) << " y " << ola.at(1) << endl;
 	//uint16_t mstat(0);
 	//usleep(10000);
 	//do

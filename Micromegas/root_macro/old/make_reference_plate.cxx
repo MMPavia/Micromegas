@@ -1,0 +1,314 @@
+
+#include <stdio.h>
+#include <string>
+#include <vector>
+
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/" 
+#define inpath "/home/atlas/Micromegas/M05Data/mapping/reference_february/"
+
+void make_reference_plate(std::string outputfilename, const char *ext=".txt"){
+
+    gROOT->LoadMacro("AtlasUtils.C");   // myText
+    SetAtlasStyle();
+    gStyle->SetPalette(1);
+    gStyle->SetOptStat(111111);
+    gStyle->SetPaintTextFormat(".0f");
+    gStyle->SetOptTitle(0);
+    gStyle->SetPadRightMargin(0.15);    // serve per mettere margine per non tagliare asse Z
+    gStyle->SetNumberContours(100);
+    
+    // histograms binning info
+    int nxbin=60;
+    int nybin=34;
+    float xmin = -40;
+    float xmax = 2280;
+    float ymin = -40;
+    float ymax =1320;
+    
+    
+    TH2F *mean_map= new TH2F("mean_map","mean_map", nxbin, xmin, xmax, nybin, ymin, ymax );
+    mean_map->GetXaxis()->SetTitle("X (mm)");
+    mean_map->GetYaxis()->SetTitle("Y (mm)");
+    mean_map->GetZaxis()->SetTitle("Z (#mum)");
+    
+    TH1F *average_distr= new TH1F("average_distr","average_distr",  40, -40, 40 ); // z= diff tra tastatore e ottico
+    average_distr->GetXaxis()->SetTitle("#mum");
+    average_distr->GetYaxis()->SetTitle("counts");
+    
+    TH2F *stdev_map= new TH2F("stdev_map","stdev_map", nxbin, xmin, xmax, nybin, ymin, ymax );
+    stdev_map->GetXaxis()->SetTitle("X (mm)");
+    stdev_map->GetYaxis()->SetTitle("Y (mm)");
+    stdev_map->GetZaxis()->SetTitle("Z (#mum)");
+    
+    TH1F *stdev_distr= new TH1F("stdev_distr","stdev_distr",  80, -40, 40 ); // z= diff tra tastatore e ottico
+    stdev_distr->GetXaxis()->SetTitle("#mum");
+    stdev_distr->GetYaxis()->SetTitle("counts");
+    
+    
+    TH2F *maxmin_map= new TH2F("maxmin_map","maxmin_map", nxbin, xmin, xmax, nybin, ymin, ymax );
+    maxmin_map->GetXaxis()->SetTitle("X (mm)");
+    maxmin_map->GetYaxis()->SetTitle("Y (mm)");
+    maxmin_map->GetZaxis()->SetTitle("Z (#mum)");
+    
+    TH1F *maxmin_distr= new TH1F("maxmin_distr","maxmin_distr",  80, -40, 40 ); // z= diff tra tastatore e ottico
+    maxmin_distr->GetXaxis()->SetTitle("#mum");
+    maxmin_distr->GetYaxis()->SetTitle("counts");
+    
+    std::stringstream outputfile;
+    outputfile << outpath << outputfilename;
+    TFile myroot(outputfile.str().c_str(), "RECREATE");
+
+    
+
+
+
+    
+    vector<std::string> files_name;
+    vector< vector <float >> pos_X, pos_Y, Z;
+
+    pos_X.resize(files_name.size());
+    
+    std::string path = inpath;
+    TSystemDirectory* dir= new TSystemDirectory(path.c_str(), path.c_str());
+
+    TList *files = dir->GetListOfFiles(); //TList of files in that pwd path
+    if (files) {
+        
+        TSystemFile *file;
+        TString fname;
+        TIter next(files);
+        while ((file=(TSystemFile*)next())) {
+            fname = file->GetName();
+            if (!file->IsDirectory() && fname.EndsWith(ext)) {
+                cout << fname.Data() << endl;
+                files_name.push_back(fname.Data()); //creating a vector of file names
+                
+            }
+        }
+    }
+    
+    pos_X.resize(files_name.size());
+    pos_Y.resize(files_name.size());    
+    Z.resize(files_name.size());
+    
+    
+    for (int fileg =0; fileg <files_name.size(); fileg++ )
+    {
+    
+    
+
+        
+        
+        // file containing the data
+        stringstream file1;
+        file1 << inpath  << files_name[fileg] ;  //compongo nome del file   file1 << path  << scan ;
+        std::string scan = files_name[fileg];
+        scan.erase(scan.end()-4,scan.end());
+        
+
+        
+        // create all the histograms
+        
+        
+        // name the histograms
+        std::stringstream title_map;
+        std::stringstream title_optline;
+        std::stringstream title_z_raw;
+        std::stringstream title_z_corr;
+        std::stringstream title_temperature1;
+        std::stringstream title_temperature2;
+        
+        
+        title_map << "map_" << scan;
+        title_optline << "optline_distrib_" << scan;
+        title_z_raw << "z_raw_" << scan;
+        title_z_corr << "z_corr_" << scan;
+        title_temperature1 << "temperature1_" << scan;
+        title_temperature2 << "temperature2_" << scan;
+        
+        
+        //  2d map of the table surface
+        TH2F *tmap= new TH2F(title_map.str().c_str(),title_map.str().c_str(), nxbin, xmin, xmax, nybin, ymin, ymax );
+        tmap->GetXaxis()->SetTitle("X (mm)");
+        tmap->GetYaxis()->SetTitle("Y (mm)");
+        tmap->GetZaxis()->SetTitle("Z (#mum)");
+        
+        
+        // optical line value distribution
+        TH1F *optline = new TH1F(title_optline.str().c_str(), title_optline.str().c_str(), 80, -0.1, 0.1 );   //linea ottica
+        optline->GetXaxis()->SetTitle("mm");
+        optline->GetYaxis()->SetTitle("counts");
+        
+        // indicator raw measurements
+        TH1F *z_raw = new TH1F(title_z_raw.str().c_str(),title_z_raw.str().c_str(), 80, -0.1, 0.1 );
+        z_raw->GetXaxis()->SetTitle("mm");
+        z_raw->GetYaxis()->SetTitle("counts");
+        
+        // z corrected value ( indicator - optical line )
+        TH1F *z_corr = new TH1F(title_z_corr.str().c_str(),title_z_corr.str().c_str(),  80, -0.1, 0.1 ); // z= diff tra tastatore e ottico
+        z_corr->GetXaxis()->SetTitle("mm");
+        z_corr->GetYaxis()->SetTitle("counts");
+        
+        // temperature distribution
+        TH1F *temperature1 = new TH1F (title_temperature1.str().c_str(),title_temperature1.str().c_str(), 40, 19., 23);
+        TH1F *temperature2 = new TH1F (title_temperature2.str().c_str(), title_temperature2.str().c_str(), 40, 19., 23);
+        
+        
+        
+        
+        //variables for reading the file
+        Float_t x,y, opt, laser, tesa, temp1, temp2, coord;
+        
+        // reading the file
+        std::cout << file1.str() << std::endl;
+        ifstream in(file1.str().c_str());
+        if (!in || in.bad()) return; // sanity check
+        
+        // use this variable to count the points
+        int j=0;
+        
+        
+        cout << "starting reading file " << endl;
+        
+        // looping on the file lines
+        while (1) {
+            
+            // actual reading
+            in >> x >> y >> opt >> laser >> tesa >> temp1 >> temp2;
+
+            if (!in.good()) break; // another sanity check //esco dal loop quando finisco le righe
+            
+            coord = tesa - opt; // definsco z
+            //cout << coord << " " << tesa << " " << opt << endl;
+            
+            // filling the histos
+            optline->Fill(opt); // metto in mu
+            z_raw->Fill(tesa);
+            z_corr->Fill(coord);
+            temperature1->Fill(temp1);
+            temperature2->Fill(temp2);
+            
+            // filling the 2d-map
+            tmap->Fill(x,y, coord*1000);
+            pos_X[fileg].push_back(x);
+            pos_Y[fileg].push_back(y);
+            Z[fileg].push_back(coord*1000);
+
+            // increase at each loop, counts the lines
+            j++;
+            
+        } // end while
+        
+        
+        
+        // controllo per buchi
+        Int_t binx = tmap->GetNbinsX();
+        Int_t biny = tmap->GetNbinsY();
+        
+        for (int i=1; i<=biny; i++){
+            for (int j=1; j<=binx; j++){
+                
+                double Z = tmap->GetBinContent(j,i);
+                
+                if (Z<-200) {
+                    
+                    double b = tmap->GetBinContent(j,i-2);
+                    //	double c = tmap->GetBinContent(j+1,i-1);
+                    //	double d = tmap->GetBinContent(j+1,i);
+                    //	double e = tmap->GetBinContent(j+1,i+1);
+                    double f = tmap->GetBinContent(j,i+2);
+                    double mean = (b+f)/2;
+                    tmap->SetBinContent(j,i,mean);
+                    
+                }
+                
+            }
+        }
+        
+        // close the input file
+        in.close();
+        
+        // raw values: average and differences wrt to the average
+        Float_t value = z_corr->GetMean();
+        Float_t sigma = z_corr->GetRMS();
+        
+
+        // create a canvas for each plot and drawing with different options
+//        tmap->Draw("colz1,text45");
+        tmap->SetStats(kFALSE);
+   
+        tmap->Write();
+        
+        optline->Write();
+
+        z_raw->Write();
+        
+        z_corr->Write();
+        
+        temperature1->Write();
+     
+        temperature2->Write();
+        
+
+        
+
+
+    }
+
+
+    for (int iterator_point = 0; iterator_point< pos_X.begin()->size(); iterator_point++){
+       
+        std::vector<float> point_vec;
+        
+        for (int iterator = 0; iterator< files_name.size(); iterator++){
+
+	
+            point_vec.push_back(Z[iterator][iterator_point]);
+
+
+        }
+
+        double sum = std::accumulate(point_vec.begin(), point_vec.end(), 0.0);
+        double mean = sum / point_vec.size();
+        double sq_sum = std::inner_product(point_vec.begin(), point_vec.end(), point_vec.begin(), 0.0);
+        double stdev = std::sqrt(sq_sum / point_vec.size() - mean * mean);
+
+        mean_map->Fill(pos_X[0][iterator_point],pos_Y[0][iterator_point],mean);
+        stdev_map->Fill(pos_X[0][iterator_point],pos_Y[0][iterator_point],stdev);
+
+        average_distr->Fill(mean);
+        stdev_distr->Fill(stdev);
+        
+        
+        float min_max = ((*std::max_element(point_vec.begin(),point_vec.end()))-(*std::min_element(point_vec.begin(),point_vec.end())));
+        
+        maxmin_map->Fill(pos_X[0][iterator_point],pos_Y[0][iterator_point],min_max);
+        maxmin_distr->Fill(min_max);
+        
+        
+        point_vec.clear();
+
+    }
+	
+    mean_map->Write();
+    stdev_map->Write();
+    average_distr->Write();
+    stdev_distr->Write();
+    maxmin_map->Write();
+    maxmin_distr->Write();
+    
+    
+//    mean->Draw();
+//    stdev_map->Draw();
+//    average_distr->Draw();
+//    stdev_distr->Draw();
+//    maxmin_map->Draw();
+//    maxmin_distr->Draw();
+    
+    
+    
+    
+    myroot.Close();
+
+
+}

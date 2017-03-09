@@ -61,15 +61,15 @@ void next ( const char* gx, arduinoX* myboard )
 }
  
 
-void misura( int64_t x, int64_t y, gauge* tast, optline* optl, arduinoX* myboard, uint16_t t_ch1, uint16_t t_ch2, FILE* logf )
+void misura( int64_t x, int64_t y,  optline* optl, arduinoX* myboard, gauge* tast, uint16_t t_ch1, uint16_t t_ch2, FILE* logf )
 {
     double t_tab = myboard->getPhyVal(t_ch1);
     double t_amb = myboard->getPhyVal(t_ch2);
     double  utast = tast->readval();
-    double ol = optl->readlineZ();
-    fprintf( logf, " %d \t %d \t %f \t %f \t %f \t %f  \n", x, y, ol, utast, t_tab, t_amb  );
+    std:vector<float>  ola= optl->readlineXYZ();
+    fprintf( logf, "  %f \t %f \t %f \t %f \t %f \t %f \n", ola.at(0), ola.at(1), ola.at(2), utast, t_tab, t_amb  );
     fflush( logf );
-    printf( " %d \t %d \t %f \t %f \t %f \t %f  \n", x, y, ol, utast, t_tab, t_amb  );
+    printf( "  %f \t %f \t %f \t %f \t %f \t %f \n", ola.at(0), ola.at(1),  ola.at(2), utast, t_tab, t_amb  );
     fflush( stdout );
 }
 
@@ -94,7 +94,7 @@ int main (int argc, char** argv)
 
         motp = new motors("/dev/ttyUSB1");
 
-    arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
+        arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
 	gauge tast("/dev/ttyUSB2");
 	optline myoptl("/dev/ttyUSB3");
 
@@ -443,17 +443,17 @@ int main (int argc, char** argv)
                   *cmd = '\0';
                  }
 
-			//actual measurement: move down on the z axis, measure, move up again
-		   //next( gzdw.c_str(), dimot );
-            misura( x, y, &tast, &myoptl, myboard, t_ch1, t_ch2, logf );
-		   //next( gzup.c_str(), dimot );
+		//actual measurement: move down on the z axis, measure, move up again
+		next( gzdw.c_str(), myboard );
+                //misura( x, y, &tast, &myoptl, myboard, t_ch1, t_ch2, logf );
+		misura( x, y, &myoptl, myboard,  &tast, t_ch1, t_ch2, logf );
+		next( gzup.c_str(), myboard );
 
-			//depending on where you are (number of steps defined above) you move to the right, left, forwards
-		   if(ny!=Nstepin-1){ 
-
-		        next( back ? gy2.c_str() : gy1.c_str(), myboard );  /// giusto
-		 	ystepout = ymm;
-		        y = y + (back ? ystepout : -ystepout);
+	        //depending on where you are (number of steps defined above) you move to the right, left, forwards
+		if(ny!=Nstepin-1){ 
+		    next( back ? gy2.c_str() : gy1.c_str(), myboard );  /// giusto
+		    ystepout = ymm;
+		    y = y + (back ? ystepout : -ystepout);
 	           }
         	   cout << ny << " done " << endl;         
 	

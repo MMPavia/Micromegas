@@ -85,7 +85,7 @@ void misura( int64_t x, int64_t y, optline* optl, arduinoX* myboard, uint16_t la
 	fprintf( logf, "  %f \t %f \t %f \t %f \t %f \t %f  \n", ola.at(0), ola.at(1), ola.at(2), vlaser, t_tab, t_amb  );
 	fflush( logf );
 	// in the print on screen temporarely left x-y info from steps
-	printf( " %d \t %f \t %d \t %f \t %f \t %f \t %f \t %f  \n", x, ola.at(0),  y, ola.at(1),  ola.at(2), vlaser, t_tab, t_amb  );
+	printf( " %f \t %f \t %f \t %f \t %f \t %f  \n", ola.at(0),  ola.at(1),  ola.at(2), vlaser, t_tab, t_amb  );
 	fflush( stdout );
  }
 

@@ -67,9 +67,9 @@ void misura( int64_t x, int64_t y, gauge* tast, optline* optl, arduinoX* myboard
 	double olx= optl->readlineX();
 	double oly = optl->readlineY();
 	double olz = optl->readlineZ();
-	fprintf( logf, " %d \t %f \t %d \t %f \t %f \t %f \t %f \t %f  \n", x, olx, y, oly, olz,  utast, t_tab, t_amb  );
+	fprintf( logf, " %f \t %f \t %f \t %f \t %f \t %f  \n", olx, oly, olz,  utast, t_tab, t_amb  );
 	fflush( logf );
-	printf( " %d \t %f \t %d \t %f \t %f \t %f \t %f \t %f  \n", x, olx,  y, oly,  olz, utast, t_tab, t_amb  );
+	printf( " %f \t %f \t %f \t %f \t %f \t %f  \n", olx,  oly,  olz, utast, t_tab, t_amb  );
 	fflush( stdout );
  }
 

@@ -1,0 +1,712 @@
+Thu 23 Mar 2017 11:38:59 AM CET	START NEW PANEL:
+ Eta Panel added
+
+Thu 23 Mar 2017 11:39:11 AM CET	 PCB POSITIONING Stiffback: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts and interconnections checked
+PCBs positioned in ref plates
+PCBs associated to frame: 
+BSE1-0-3 BSE2-0-3 BSE3-0-3 BSE4-0-3 BSE5-0-3 1-64
+Thu 23 Mar 2017 11:40:50 AM CET	 PCB POSITIONING Stiffback: 
+PTFE pins positioned
+Pin inserts and interconnections checked
+PCBs checked for defects
+PCBs positioned in ref plates
+PCBs associated to frame: 
+BSE1-0-3 BSE2-0-3 BSE3-0-3 BSE4-0-3 BSE5-0-3 1-64
+Thu 23 Mar 2017 11:41:07 AM CET	 PCB POSITIONING Stiffback: 
+PTFE pins positioned
+Pin inserts and interconnections checked
+PCBs positioned in ref plates
+PCBs checked for defects
+PCBs associated to frame: 
+BSE1-0-3 BSE2-0-3 BSE3-0-3 BSE4-0-3 BSE5-0-3 1-64
+Thu 23 Mar 2017 12:09:21 PM CET	 PCB POSITIONING Stiffback: 
+PTFE pins positioned
+Pin inserts and interconnections checked
+PCBs positioned in ref plates
+PCBs checked for defects
+PCBs associated to frame: 
+BSE1-0-3 BSE2-0-3 BSE3-0-3 BSE4-0-3 BSE5-0-3 1-64
+Thu 23 Mar 2017 12:11:58 PM CET	 PCB POSITIONING Stiffback: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts and interconnections checked
+PCBs positioned in ref plates
+PCBs associated to frame: 
+BSE1-0-3 BSE2-0-3 BSE3-0-3 BSE4-0-3 BSE5-0-3 1-64
+Thu 23 Mar 2017 12:12:14 PM CET	 PCB ALIGNMENT Stiffback: 
+10 reference pins positioned
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Vacuum turned on for blocking
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Calling pressmon.vi
+Closing gaps
+Done with pressure monitoring
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Calling readpress.vi
+Done with reading pressure
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Calling Rasnik.vi
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Done with Rasmask reading
+Closing gaps
+Reference pins removed
+Closing gaps
+Stiffback moved over table
+Stiffback lowered on table
+Arch released
+Arch moved away
+PCB tested
+
+Thu 23 Mar 2017 12:13:31 PM CET	 PCB ALIGNMENT Stiffback: 
+10 reference pins positioned
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Vacuum turned on for blocking
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Calling pressmon.vi
+Closing gaps
+Done with pressure monitoring
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Calling readpress.vi
+
+Thu 23 Mar 2017 01:45:50 PM CET	 PCB ALIGNMENT Stiffback: 
+10 reference pins positioned
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Vacuum turned on for blocking
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Calling pressmon.vi
+Closing gaps
+Done with pressure monitoring
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Calling readpress.vi
+Done with reading pressure
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Calling Rasnik.vi
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Closing gaps
+Done with Rasmask reading
+Closing gaps
+Reference pins removed
+Closing gaps
+Stiffback moved over table
+Stiffback lowered on table
+Arch released
+Arch moved away
+
+Thu 23 Mar 2017 02:01:48 PM CET	 STIFFBACK GLUING: 
+Stiffback moved over ref plates
+Stiffback lowered on ref plates
+Stiffback released from movement arch
+Stiffback moved away from table
+Parchment covers positioned
+Dispenser mounted
+Cartridge positioned
+
+Thu 23 Mar 2017 02:02:45 PM CET	 STIFFBACK GLUING: 
+Cartridge positioned
+Stiffback lowered on ref plates
+Stiffback released from movement arch
+Stiffback moved away from table
+Parchment covers positioned
+Dispenser mounted
+Stiffback moved over ref plates
+
+Thu 23 Mar 2017 02:26:36 PM CET	 STIFFBACK GLUING: 
+Cartridge positioned
+Stiffback moved over ref plates
+Stiffback released from movement arch
+Stiffback moved away from table
+Stiffback lowered on ref plates
+Parchment covers positioned
+Dispenser mounted
+Gluing done
+FEB pins glued
+Parchment protections removed
+Done
+
+Thu 23 Mar 2017 02:31:47 PM CET	 GLUING ON TABLE: 
+Internal parts removed
+Parchment positioned
+Dispenser mounted on cartridge
+Dispenser positioned in glue machine housing
+FEB pins glued
+Parchments removed
+Gluing done
+All done
+
+Thu 23 Mar 2017 02:32:27 PM CET	 GLUING ON TABLE: 

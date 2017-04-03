@@ -1,9 +1,7 @@
 NewPanel
-PCBposStiff
-PCBposStiff
-PCBposStiff
-PCBposStiff
-PCBposStiff
-PCBalignStiff
-stbackPCBglue
-tablePCBglue
+PCBposTab
+PCBposTab
+PCBposTab
+PCBposTab
+PCBposTab
+PCBposTab

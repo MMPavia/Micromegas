@@ -59,18 +59,19 @@ void next ( const char* gx, arduinoX* myboard )
     while (mstat > 0);
     usleep(2000000);
 }
- 
 
-void misura( int64_t x, int64_t y,  optline* optl, arduinoX* myboard, gauge* tast, uint16_t t_ch1, uint16_t t_ch2, FILE* logf )
+void misura( int64_t x, int64_t y,  optline* optl, arduinoX* myboard, gauge* tast, bool table, uint16_t t_ch1, uint16_t t_ch2, uint16_t t_ch3, FILE* logf )
 {
-    double t_tab = myboard->getPhyVal(t_ch1);
-    double t_amb = myboard->getPhyVal(t_ch2);
-    double  utast = tast->readval();
-    std:vector<float>  ola= optl->readlineXYZ();
-    fprintf( logf, "  %f \t %f \t %f \t %f \t %f \t %f \n", ola.at(0), ola.at(1), ola.at(2), utast, t_tab, t_amb  );
-    fflush( logf );
-    printf( "  %f \t %f \t %f \t %f \t %f \t %f \n", ola.at(0), ola.at(1),  ola.at(2), utast, t_tab, t_amb  );
-    fflush( stdout );
+  double t_tab = myboard->getPhyVal(t_ch1);//pressure stiffback
+  double t_amb = 9999999;
+  if (table) t_amb = myboard->getPhyVal(t_ch2);//temp down table
+  else t_amb = myboard->getPhyVal(t_ch3);//temp down stiffback
+  double  utast = tast->readval();
+ std:vector<float>  ola= optl->readlineXYZ();
+  fprintf( logf, "  %f \t %f \t %f \t %f \t %f \t %f \n", ola.at(0), ola.at(1), ola.at(2), utast, t_tab, t_amb  );
+  fflush( logf );
+  printf( "  %f \t %f \t %f \t %f \t %f \t %f \n", ola.at(0), ola.at(1),  ola.at(2), utast, t_tab, t_amb  );
+  fflush( stdout );
 }
 
 
@@ -124,6 +125,8 @@ int main (int argc, char** argv)
 	tcoded = tmot*100000*100*100;
 	ycoded = ymot*100000*100*100;
 	ycoded2 = ymot*100000*100*100;
+
+	bool table = true;
 
 	if (argc < 4)  return __LINE__;
 	-- argc; ++ argv;
@@ -190,7 +193,14 @@ int main (int argc, char** argv)
 	    tcoded = ((tmot * 100000 + tsteps)*100 + tspeed)*100 + ramp;
 	    mask |= 4;
 
-	  } else  return __LINE__;
+	  } else if ((strcasecmp(*argv,"i")==0) || (strcasecmp(*argv,"-i")==0)) {	// *** INIZIALIZZO T ****************
+	    if (argc < 3)  return __LINE__;
+
+	    -- argc; ++ argv;
+	    table = strtol(*argv, NULL, 10);
+	   
+	  }
+	  else  return __LINE__;
 	  ++ argv;
 	 }
 	while (-- argc);
@@ -381,8 +391,9 @@ int main (int argc, char** argv)
 	int64_t y(0);
 	bool back(true);
 	uint16_t laserch(2);
-	uint16_t t_ch1(3);
-	uint16_t t_ch2(5);
+	uint16_t t_ch1(3);//pressure stiffback
+	uint16_t t_ch2(5);//temp down table
+	uint16_t t_ch3(2);//pressure table
 
 	time_t now = time(0);
         tm *ltm = localtime(&now);
@@ -446,7 +457,7 @@ int main (int argc, char** argv)
 		//actual measurement: move down on the z axis, measure, move up again
 		next( gzdw.c_str(), myboard );
                 //misura( x, y, &tast, &myoptl, myboard, t_ch1, t_ch2, logf );
-		misura( x, y, &myoptl, myboard,  &tast, t_ch1, t_ch2, logf );
+		misura( x, y, &myoptl, myboard,  &tast, table, t_ch1, t_ch2, t_ch3, logf );
 		next( gzup.c_str(), myboard );
 
 	        //depending on where you are (number of steps defined above) you move to the right, left, forwards

@@ -27,7 +27,10 @@ volatile char buffer[1024] = {'\0'};
 char cmd[1024] = {0};
 my_pipe p(pipe_name.c_str(), cmd);
 
-
+int ndigital = 5;
+int dchan[5] = { 38, 39, 40, 41, 42 };
+arduinoDIO dway[5] = { arduinoDIO::INPUT, arduinoDIO::INPUT, arduinoDIO::INPUT,
+                       arduinoDIO::INPUT, arduinoDIO::INPUT };
 
 #define error_message(F,E) printf(F, E)
 #define path "/home/atlas/Micromegas/M05Data/mapping/"
@@ -49,8 +52,8 @@ void next ( const char* gx, arduinoX* myboard )
   do
    {
     mstat = 0;
-    for (int chan=38; chan<43; chan++){
-        mstati = myboard->digitalInput(chan);
+    for (int i=0; i<5; i++){
+        mstati = myboard->digitalInput(dchan[i]);
 	mstat += mstati;
     }   
     usleep(10000);
@@ -88,7 +91,9 @@ int main (int argc, char** argv)
 
 	cout << "beginning" << endl;
 	arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
-
+	usleep(100000);
+        myboard->digitalSetup( ndigital, dchan, dway );
+        usleep(100000);
 	cout << "arduino created" << endl;
 
         gauge tast("/dev/ttyUSB2");		// modificato, invertito 2 e 3

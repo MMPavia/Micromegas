@@ -35,7 +35,7 @@ char cmd[1024] = {'\0'};
 my_pipe p(pipe_name.c_str(), cmd);
 
 int ndigital = 1;
-int dchan[1] = { 8 };
+int dchan[1] = { 4 };
 arduinoDIO dway[4] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
                        arduinoDIO::OUTPUT, arduinoDIO::OUTPUT };
 
@@ -108,10 +108,14 @@ void misura( int64_t x, int64_t y, gauge* tast, optline* optl, arduinoX* myboard
 */
 
 
-void misura( int64_t x, int64_t y,  optline* optl, arduinoX* myboard, uint16_t laser , uint16_t t_ch1, uint16_t t_ch2, FILE* logf )
+void misura( int64_t x, int64_t y,  optline* optl, arduinoX* myboard, uint16_t laser, bool table , uint16_t t_ch1, uint16_t t_ch2, uint16_t t_ch3, FILE* logf )
 {
-    double t_tab = myboard->getPhyVal(t_ch1);
-    double t_amb = myboard->getPhyVal(t_ch2);
+
+  cout<<"table? "<<table<<endl;
+    double t_tab = 999999;
+    double t_amb = myboard->getPhyVal(t_ch2);//temperature plates
+    if (table) t_tab = myboard->getPhyVal(t_ch3);//pressure table
+    else t_tab = myboard->getPhyVal(t_ch1);//pressure stiffback
 
     gettimeofday(&T1, NULL);
     myboard->delayedPulse(dchan[0], 5, 20); // delay 5 ms, duration 20 ms
@@ -156,6 +160,10 @@ int main (int argc, char** argv)
         motp = new motors("/dev/ttyUSB1");
 
         arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
+        usleep(1000000);
+        myboard->digitalSetup( ndigital, dchan, dway );
+        usleep(100000);
+
 	gauge tast("/dev/ttyUSB2");
 	optline myoptl("/dev/ttyUSB3");
 
@@ -185,6 +193,8 @@ int main (int argc, char** argv)
 	tcoded = tmot*100000*100*100;
 	ycoded = ymot*100000*100*100;
 	ycoded2 = ymot*100000*100*100;
+
+	bool table = 1;
 
 	if (argc < 4)  return __LINE__;
 	-- argc; ++ argv;
@@ -234,6 +244,11 @@ int main (int argc, char** argv)
 	    mask |= 2;
 
 	  } 
+	  else if ((strcasecmp(*argv,"i")==0) || (strcasecmp(*argv,"-i")==0)) {	// *** INIZIALIZZO I ****************
+	    -- argc; ++ argv;
+	    int Tab = strtol(*argv, NULL, 10);
+	    table = (bool)Tab;
+	    }
 	  
 	/*  else if ((strcasecmp(*argv,"t")==0) || (strcasecmp(*argv,"-t")==0)) {	// *** INIZIALIZZO T ****************
 	    if (argc < 3)  return __LINE__;
@@ -451,8 +466,9 @@ int main (int argc, char** argv)
 	int64_t y(0);
 	bool back(true);
 	uint16_t laserch(2);
-	uint16_t t_ch1(3);
-	uint16_t t_ch2(5);
+	uint16_t t_ch1(3);//presssure sb
+	uint16_t t_ch2(8);//temp plates
+	uint16_t t_ch3(2);//pressure table
 	uint16_t laser(15);
 
 
@@ -519,7 +535,7 @@ int main (int argc, char** argv)
 		//actual measurement: move down on the z axis, measure, move up again
 		//next( gzdw.c_str(), dimot );
                 // misura( x, y, &tast, &myoptl, myboard, t_ch1, t_ch2, logf );
-		misura( x, y, &myoptl, myboard, laser, t_ch1, t_ch2, logf );
+		misura( x, y, &myoptl, myboard, laser, table, t_ch1, t_ch2, t_ch3, logf );
 		//next( gzup.c_str(), dimot );
 
 		//depending on where you are (number of steps defined above) you move to the right, left, forwards

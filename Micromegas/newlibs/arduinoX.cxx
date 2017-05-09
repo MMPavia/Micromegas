@@ -117,10 +117,11 @@ arduinoX::arduinoX( std::string tty ) : rs232ard( tty )
  {
 std::cout << " arduinoX::arduinoX " << tty << std::endl;
   mutex_lock my_lock;
-std::cout << " arduinoX::arduinoX locked " << std::endl;
+std::cout << " arduinoX::arduinoX is now locked by me " << std::endl;
   rs232ard_init();
 std::cout << " arduinoX::arduinoX rs232 setup " << std::endl;
   sched_yield();
+std::cout << " arduinoX::arduinoX releasing lock " << std::endl;
  }
 
 arduinoX* arduinoX::create( std::string tty )

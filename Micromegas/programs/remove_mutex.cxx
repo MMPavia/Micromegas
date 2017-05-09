@@ -13,12 +13,14 @@ int main()
   bool lk = arduino_mutex.try_lock();
   std::cout << " mutex '" ARDUINO_NAMED_MUTEX "' is" << (lk ? " NOT " : " ") << "locked by somebody else" << std::endl;
   std::cout << " mutex '" ARDUINO_NAMED_MUTEX "' is" << (lk ? " " : " NOT ") << "locked by me" << std::endl;
+  bool removed(true);
   if (!lk)
    {
-    bool removed = named_mutex::remove(ARDUINO_NAMED_MUTEX);
+    removed = named_mutex::remove(ARDUINO_NAMED_MUTEX);
     std::cout << " mutex '" ARDUINO_NAMED_MUTEX "' was" << (removed ? " " : " NOT ") << "removed " << std::endl;
     if (!removed) std::cerr << "*** mutex '" ARDUINO_NAMED_MUTEX "' is still LOCKED ***" << std::endl;
    } else arduino_mutex.unlock();
 
+  if (removed) std::cout << " NOW mutex '" ARDUINO_NAMED_MUTEX "' must be unlocked" << std::endl;
   return 0;
  }

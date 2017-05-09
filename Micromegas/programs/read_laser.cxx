@@ -8,11 +8,14 @@
 #include <cmath>
 #include "arduinoX.h"
 
+//batch start: pin 4 (first relay from top)
+//laser zero: pin 7 (second relay from top)
+
 int ndigital = 1;
 // int dchan[4] = { 4, 7, 8, 12 };
 	// channels 4, 7, 8, 12 are connected to 4 relays
 
-int dchan[1] = { 8 };
+int dchan[1] = {4};//8
 arduinoDIO dway[4] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
                   arduinoDIO::OUTPUT, arduinoDIO::OUTPUT };
 
@@ -20,6 +23,8 @@ int main (int argc, char** argv)
  {
   arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
   usleep(1000000);
+  myboard->digitalSetup( ndigital, dchan, dway );
+  usleep(100000);
 
   // calibrating the channels
   uint16_t mod(0);
@@ -40,14 +45,27 @@ int main (int argc, char** argv)
          << RFS << " RZS " << RZS << " EFS " << EFS << " EZS " << EZS
          << " unit " << unit << " descr " << descr << std::endl;
     myboard->setPhysScale( chan, RFS, RZS, EFS, EZS); ;  //fp_ai_100
+
   }
 
   // relevant channels to read 
   uint16_t laser(15);
   do
    {
+
+ // set 2 digital outputs
+     //myboard->digitalOutput(dchan[0], true);
+     //std::cout << "set DIGITAL channel: [" << dchan[0] << "] true" << std::endl;
+     //usleep(1000000);
+     //myboard->digitalOutput(dchan[0], false);
+     //std::cout << "set DIGITAL channel: [" << dchan[1] << "] true" << std::endl;
+     //usleep(1000000);
+
+     myboard->delayedPulse(dchan[0], 5, 20);
+     usleep(200000);//200ms
+
     double vlaser = myboard->getPhyVal(laser);
-    std::cout << "laser value " << vlaser << std::endl;
+    std::cout << "laser value now " << vlaser << std::endl;
     usleep(500000);
    }
   while(1);

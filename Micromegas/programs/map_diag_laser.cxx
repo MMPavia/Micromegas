@@ -32,7 +32,13 @@ std::string pipe_name("/tmp/atlas/mapdiagpipe");
 volatile char buffer[1024] = {'\0'};
 char cmd[1024] = {'\0'};
 my_pipe p(pipe_name.c_str(), cmd);
-int dchan[1] = { 8 };
+
+
+int ndigital = 6;
+int dchan[6] = { 4, 38, 39, 40, 41, 42 };
+arduinoDIO dway[6] = { arduinoDIO::OUTPUT, arduinoDIO::INPUT,
+                  arduinoDIO::INPUT, arduinoDIO::INPUT,
+                  arduinoDIO::INPUT, arduinoDIO::INPUT };
 
 using namespace std;
 
@@ -54,8 +60,8 @@ void next ( const char* gx, arduinoX* myboard )
     do
     {
         mstat = 0;
-        for (int chan=38; chan<43; chan++){
-            mstati = myboard->digitalInput(chan);
+        for (int i=1; i<6; i++){
+            mstati = myboard->digitalInput(dchan[i]);
             mstat += mstati;
         }
         usleep(10000);
@@ -65,12 +71,15 @@ void next ( const char* gx, arduinoX* myboard )
 }
  
 
-void misura( int64_t x, int64_t y, optline* optl, arduinoX* myboard, uint16_t laser, uint16_t t_ch1, uint16_t t_ch2, FILE* logf )
+void misura( int64_t x, int64_t y, optline* optl, arduinoX* myboard, uint16_t laser, bool table,  uint16_t t_ch1, uint16_t t_ch2, uint16_t t_ch3, FILE* logf )
 {
     cout << " in misura "<< endl; 
-    double t_tab = myboard->getPhyVal(t_ch1);
-    double t_amb = myboard->getPhyVal(t_ch2);
-   
+
+    cout<<"table? "<<table<<endl;
+    double t_tab = 999999;
+    double t_amb = myboard->getPhyVal(t_ch2);//temperature plates
+    if (table) t_tab = myboard->getPhyVal(t_ch3);//pressure table
+    else t_tab = myboard->getPhyVal(t_ch1);//pressure stiffback   
     
     myboard->delayedPulse(dchan[0], 5, 20); // delay 5 ms, duration 20 ms
     std:vector<float>  ola= optl->readlineXYZ();
@@ -103,7 +112,11 @@ int main (int argc, char** argv)
 
         motp = new motors("/dev/ttyUSB1");
 
-    arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
+	arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
+	usleep(100000);
+	myboard->digitalSetup( ndigital, dchan, dway );
+	usleep(100000);
+
 	optline myoptl("/dev/ttyUSB3");
 
 
@@ -114,18 +127,20 @@ int main (int argc, char** argv)
 	std::string name, unit, descr;
 	std::string line;
     
-    
-    std::fstream f("/home/atlas/Micromegas/inputfile/arduino_analog.txt", std::fstream::in);
-    while (getline(f,line))
-    {
-        stringstream s(line);
-        s >> name;
-        if (name == "#") continue;
-        s >> mod >> chan >> RFS >> RZS >> EFS >> EZS >> unit >> descr;
-        cout << "XXXXX name " << name << " mod " << mod << " chan " << chan << " RFS "
-        << RFS << " RZS " << RZS << " EFS " << EFS << " EZS " << EZS
-        << " unit " << unit << " descr " << descr << endl;
-        myboard->setPhysScale( chan, RFS, RZS, EFS, EZS);
+	bool table=true;
+
+
+	std::fstream f("/home/atlas/Micromegas/inputfile/arduino_analog.txt", std::fstream::in);
+	while (getline(f,line))
+	  {
+	    stringstream s(line);
+	    s >> name;
+	    if (name == "#") continue;
+	    s >> mod >> chan >> RFS >> RZS >> EFS >> EZS >> unit >> descr;
+	    cout << "XXXXX name " << name << " mod " << mod << " chan " << chan << " RFS "
+		 << RFS << " RZS " << RZS << " EFS " << EFS << " EZS " << EZS
+		 << " unit " << unit << " descr " << descr << endl;
+	    myboard->setPhysScale( chan, RFS, RZS, EFS, EZS);
     }
 
 
@@ -161,7 +176,11 @@ int main (int argc, char** argv)
 	    sspeed = strtol(*argv, NULL, 10);
 
 
-	  } 
+	  } else if ((strcasecmp(*argv,"i")==0) || (strcasecmp(*argv,"-i")==0)) {	// *** INIZIALIZZO I ****************
+	    -- argc; ++ argv;
+	    int Tab = strtol(*argv, NULL, 10);
+	    table = (bool)Tab;
+	  }
 	  /*
  	  else if ((strcasecmp(*argv,"t")==0) || (strcasecmp(*argv,"-t")==0)) {	// *** INIZIALIZZO T ****************
 	    if (argc < 3)  return __LINE__;
@@ -300,8 +319,10 @@ int main (int argc, char** argv)
 	int64_t y(0);
 	bool back(true);
 	uint16_t laser(15);
-	uint16_t t_ch1(7);
-	uint16_t t_ch2(10);
+
+	uint16_t t_ch1(3);//presssure sb
+	uint16_t t_ch2(8);//temp plates
+	uint16_t t_ch3(2);//pressure table
 
 	if(!ldir){
 	   x = lmm * cos(10.5*PI/180.0);
@@ -348,7 +369,7 @@ int main (int argc, char** argv)
        	   }
 
 	   //next( gzdw.c_str(), myboard );
-           misura( x, y, &myoptl, myboard, laser, t_ch1, t_ch2, logf );
+           misura( x, y, &myoptl, myboard, laser, table, t_ch1, t_ch2, t_ch3, logf );
 	   //next( gzup.c_str(), myboard );
 	
 	   if(ns+1 == nsteps) continue; 

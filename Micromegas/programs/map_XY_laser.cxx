@@ -27,10 +27,11 @@ volatile char buffer[1024] = {'\0'};
 char cmd[1024] = {0};
 my_pipe p(pipe_name.c_str(), cmd);
 
-int ndigital = 1;
-int dchan[1] = { 8 };
-arduinoDIO dway[4] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
-                       arduinoDIO::OUTPUT, arduinoDIO::OUTPUT };
+int ndigital = 6;
+int dchan[6] = { 4, 38, 39, 40, 41, 42 };
+arduinoDIO dway[6] = { arduinoDIO::OUTPUT, arduinoDIO::INPUT,
+                       arduinoDIO::INPUT, arduinoDIO::INPUT,
+                       arduinoDIO::INPUT, arduinoDIO::INPUT };
 
 #define error_message(F,E) printf(F, E)
 #define path "/home/atlas/Micromegas/M05Data/mapping/"
@@ -55,8 +56,8 @@ void next ( const char* gx, arduinoX* myboard )
   do
    {
     mstat = 0;
-    for (int chan=38; chan<43; chan++){
-        mstati = myboard->digitalInput(chan);
+    for (int i=1; i<6; i++){
+        mstati = myboard->digitalInput(dchan[i]);
 	mstat += mstati;
     }   
     usleep(10000);

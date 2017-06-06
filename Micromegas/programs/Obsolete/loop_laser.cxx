@@ -9,13 +9,13 @@
 #include "arduinoX.h"
 #include <sys/time.h>
 
-#define path "/home/atlas/Micromegas/M05Data/laser_test/"
+#define path "/home/atlas/Micromegas/ProdData/laser_test/"
 
 int ndigital = 1;
 // int dchan[4] = { 4, 7, 8, 12 };
 	// channels 4, 7, 8, 12 are connected to 4 relays
 
-int dchan[1] = { 4 };
+int dchan[1] = { 8 };
 arduinoDIO dway[4] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
                   arduinoDIO::OUTPUT, arduinoDIO::OUTPUT };
 

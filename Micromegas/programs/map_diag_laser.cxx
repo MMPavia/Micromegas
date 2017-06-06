@@ -24,7 +24,7 @@
 #include "sighand.h"
 
 #define error_message(F,E) printf(F, E)
-#define path "/home/atlas/Micromegas/M05Data/mapping/"
+#define path "/home/atlas/Micromegas/ProdData/mapping/"
 #define PI 3.14159265
 
 std::string pipe_name("/tmp/atlas/mapdiagpipe");
@@ -35,10 +35,10 @@ my_pipe p(pipe_name.c_str(), cmd);
 
 
 int ndigital = 6;
-int dchan[6] = { 4, 38, 39, 40, 41, 42 };
-arduinoDIO dway[6] = { arduinoDIO::OUTPUT, arduinoDIO::INPUT,
-                  arduinoDIO::INPUT, arduinoDIO::INPUT,
-                  arduinoDIO::INPUT, arduinoDIO::INPUT };
+//int dchan[6] = { 4, 38, 39, 40, 41, 42 };
+int dchan[2] = {53, 4};
+arduinoDIO dway[4] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
+                  arduinoDIO::OUTPUT, arduinoDIO::OUTPUT};
 
 using namespace std;
 
@@ -60,8 +60,12 @@ void next ( const char* gx, arduinoX* myboard )
     do
     {
         mstat = 0;
-        for (int i=1; i<6; i++){
-            mstati = myboard->digitalInput(dchan[i]);
+        //for (int i=1; i<6; i++){
+        //    mstati = myboard->digitalInput(dchan[i]);
+        //    mstat += mstati;
+        //}
+       for (int chan=38; chan<43; chan++){
+            mstati = myboard->digitalInput(chan);
             mstat += mstati;
         }
         usleep(10000);
@@ -119,6 +123,7 @@ int main (int argc, char** argv)
 
 	optline myoptl("/dev/ttyUSB3");
 
+	myboard->digitalOutput(dchan[1],1);
 
 
 	uint16_t mod(0);
@@ -406,6 +411,8 @@ QuitNow:
 
 
 	delete motp;
+
+	myboard->digitalOutput(dchan[1],0);
 
     arduinoX::cleanup();
 

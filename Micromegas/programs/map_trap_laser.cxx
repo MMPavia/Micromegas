@@ -26,7 +26,7 @@
 
 
 #define error_message(F,E) printf(F, E)
-#define path "/home/atlas/Micromegas/M05Data/mapping/"
+#define path "/home/atlas/Micromegas/ProdData/mapping/"
 #define PI 3.14159265
 
 std::string pipe_name("/tmp/atlas/maptrappipe");
@@ -36,7 +36,7 @@ char cmd[1024] = {'\0'};
 my_pipe p(pipe_name.c_str(), cmd);
 
 int ndigital = 1;
-int dchan[1] = { 8 };
+int dchan[2] = { 53, 4 };
 arduinoDIO dway[4] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
                        arduinoDIO::OUTPUT, arduinoDIO::OUTPUT };
 
@@ -151,6 +151,8 @@ int main (int argc, char** argv)
         << " unit " << unit << " descr " << descr << endl;
         myboard->setPhysScale( chan, RFS, RZS, EFS, EZS);
     }
+
+	myboard->digitalOutput(dchan[1],1);
 
 	xcoded = xmot*100000*100*100;
 	ycoded1 = ymot*100000*100*100;
@@ -428,6 +430,7 @@ int main (int argc, char** argv)
  QuitNow:
 	fclose(logf);
 	delete motp;
+	myboard->digitalOutput(dchan[1],0);
 	arduinoX::cleanup();
 	return 0;
  }

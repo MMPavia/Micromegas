@@ -31,12 +31,12 @@ char cmd[1024] = {0};
 my_pipe p(pipe_name.c_str(), cmd);
 
 int ndigital = 1;
-int dchan[1] = { 4 };
+int dchan[1] = { 8 };
 arduinoDIO dway[4] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
                        arduinoDIO::OUTPUT, arduinoDIO::OUTPUT };
 
 #define error_message(F,E) printf(F, E)
-#define path "/home/atlas/Micromegas/M05Data/mapping/"
+#define path "/home/atlas/Micromegas/ProdData/mapping/"
 
 using namespace std;
 

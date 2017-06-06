@@ -12,7 +12,7 @@ int ndigital = 1;
 // int dchan[4] = { 4, 7, 8, 12 };
 	// channels 4, 7, 8, 12 are connected to 4 relays
 
-int dchan[1] = { 4 };
+int dchan[1] = { 8 };
 arduinoDIO dway[4] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
                   arduinoDIO::OUTPUT, arduinoDIO::OUTPUT };
 

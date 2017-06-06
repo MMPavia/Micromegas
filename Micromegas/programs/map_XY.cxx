@@ -27,13 +27,13 @@ volatile char buffer[1024] = {'\0'};
 char cmd[1024] = {0};
 my_pipe p(pipe_name.c_str(), cmd);
 
-int ndigital = 5;
-int dchan[5] = { 38, 39, 40, 41, 42 };
-arduinoDIO dway[5] = { arduinoDIO::INPUT, arduinoDIO::INPUT, arduinoDIO::INPUT,
-                       arduinoDIO::INPUT, arduinoDIO::INPUT };
+int ndigital = 2;
+int dchan[2] = { 53, 4 };
+arduinoDIO dway[5] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
+                       arduinoDIO::OUTPUT, arduinoDIO::OUTPUT };
 
 #define error_message(F,E) printf(F, E)
-#define path "/home/atlas/Micromegas/M05Data/mapping/"
+#define path "/home/atlas/Micromegas/ProdData/mapping/"
 
 using namespace std;
 
@@ -52,10 +52,11 @@ void next ( const char* gx, arduinoX* myboard )
   do
    {
     mstat = 0;
-    for (int i=0; i<5; i++){
-        mstati = myboard->digitalInput(dchan[i]);
-	mstat += mstati;
-    }   
+    for (int chan=38; chan<43; chan++){
+            mstati = myboard->digitalInput(chan);
+            mstat += mstati;
+        }
+
     usleep(10000);
   }
   while (mstat > 0);
@@ -123,6 +124,8 @@ int main (int argc, char** argv)
 	  myboard->setPhysScale( chan, RFS, RZS, EFS, EZS);
 	 }
 	//fp_di_XXX* dimot = fp_di_XXX::create(5);
+
+	myboard->digitalOutput(dchan[1],1);
 
 	xcoded = xmot*100000*100*100;
 	tcoded = tmot*100000*100*100;
@@ -415,6 +418,8 @@ QuitNow:
 	//do_led->fp_discrete(2, false);
 
 	delete motp;
+
+	myboard->digitalOutput(dchan[1],0);
 
 	 arduinoX::cleanup();
 

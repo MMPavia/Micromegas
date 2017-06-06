@@ -15,7 +15,8 @@ int ndigital = 1;
 // int dchan[4] = { 4, 7, 8, 12 };
 	// channels 4, 7, 8, 12 are connected to 4 relays
 
-int dchan[1] = {4};//8
+//4 //pin for relee
+int dchan[2] = {53,4};//4
 arduinoDIO dway[4] = { arduinoDIO::OUTPUT, arduinoDIO::OUTPUT,
                   arduinoDIO::OUTPUT, arduinoDIO::OUTPUT };
 
@@ -48,6 +49,8 @@ int main (int argc, char** argv)
 
   }
 
+  myboard->digitalOutput(dchan[1], 1);
+
   // relevant channels to read 
   uint16_t laser(15);
   do
@@ -60,8 +63,8 @@ int main (int argc, char** argv)
      //myboard->digitalOutput(dchan[0], false);
      //std::cout << "set DIGITAL channel: [" << dchan[1] << "] true" << std::endl;
      //usleep(1000000);
-
      myboard->delayedPulse(dchan[0], 5, 20);
+// myboard->delayedPulse(dchan[0], 5, 5000000);
      usleep(200000);//200ms
 
     double vlaser = myboard->getPhyVal(laser);

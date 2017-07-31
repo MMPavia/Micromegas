@@ -11,7 +11,7 @@
 //batch start: pin 4 (first relay from top)
 //laser zero: pin 7 (second relay from top)
 
-int ndigital = 1;
+int ndigital = 2;
 // int dchan[4] = { 4, 7, 8, 12 };
 	// channels 4, 7, 8, 12 are connected to 4 relays
 
@@ -45,7 +45,7 @@ int main (int argc, char** argv)
     std::cout << "XXXXX name " << name << " mod " << mod << " chan " << chan << " RFS "
          << RFS << " RZS " << RZS << " EFS " << EFS << " EZS " << EZS
          << " unit " << unit << " descr " << descr << std::endl;
-    myboard->setPhysScale( chan, RFS, RZS, EFS, EZS); ;  //fp_ai_100make
+    myboard->setPhysScale( chan, RFS, RZS, EFS, EZS); ;  //fp_ai_100
 
   }
 

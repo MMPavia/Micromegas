@@ -13,6 +13,7 @@
 #include <iostream>
 #include <sstream>
 
+#include "arduinoX.h"
 #include "motors.h"
 
 #define error_message(F,E) printf(F, E)
@@ -25,12 +26,23 @@ using namespace std;
 
 motors* motp(NULL);
 
+int ndigital = 1;
+int dchan[5] = { 38, 39, 40, 41, 42};//4 for relee
+arduinoDIO dway[5] = { arduinoDIO::INPUT, arduinoDIO::INPUT,
+                       arduinoDIO::INPUT, arduinoDIO::INPUT, arduinoDIO::INPUT  };
+
 int32_t main (int argc, char** argv)
 {
 	bool reset_prog(false);
 	double mm(0);
 	uint64_t prog(0), mot(0), steps(0), speed(0), ramp(0), func(0);
 	bool dir(_POS_DIR_);
+
+	arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
+        usleep(1000000);
+        myboard->digitalSetup( ndigital, dchan, dway );
+        usleep(100000);
+
 
 	-- argc; ++ argv;
 	if (argc < 1) return __LINE__;
@@ -66,7 +78,7 @@ int32_t main (int argc, char** argv)
 	speed = (aspd<100) ? aspd : (mot<3) ? 5 : (mot==6) ? 10 : (mot==5) ? 30 : (mot==4) ? 60 : 0;
  */
 	// 2.9.16 changed velocity mot 5 to 15 from 30
-	speed = (mot<3) ? 10 : (mot==6) ? 15 : (mot==5) ? 15 : (mot==4) ? 90 : 0;
+	speed = (mot<3) ? 10 : (mot==6) ? 15 : (mot==5) ? 15 : (mot==4) ? 90 : 0; 
 
 	if ((speed > 99) || (speed == 0))
 	 {
@@ -107,7 +119,24 @@ int32_t main (int argc, char** argv)
 	motp->mot_write(xcmd.str().c_str());
 	motp->mot_read();
 	motp->mot_write(rcmd.str().c_str());
-	motp->mot_read();
+	motp->mot_read();    
+    
+	//controlla che la macchina e' in uso
+	uint16_t mstati(0);
+	uint16_t mstat(0);
+	
+
+	do
+	  {
+	    mstat = 0;
+	    for (int chan=38; chan<43; chan++){
+            mstati = myboard->digitalInput(chan);
+            mstat += mstati;
+	    }
+	    usleep(10000);
+	  }
+	while (mstat > 0);
+	usleep(2000000);
 
 	delete motp;
 

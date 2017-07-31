@@ -1,0 +1,46 @@
+Τρι 18 Ιούλ 2017 03:44:30 μμ CEST	START NEW PANEL:
+ Stereo Panel added
+
+Τρι 18 Ιούλ 2017 03:46:29 μμ CEST	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts and interconnections checked
+PCBs positioned in ref plates
+PCBs associated to frame: 
+20MNMBSS1000034 20MNMBSS2000033 20MNMBSS3000032 20MNMBSS4000031 20MNMBSS5000030 1-64
+Τρι 18 Ιούλ 2017 03:46:39 μμ CEST	 PCB ALIGNMENT Table: 
+10 reference pins positioned
+Closing gaps
+Vacuum turned on for blocking
+Calling pressmon.vi
+Done with pressure monitoring
+Calling readpress.vi
+Done with reading pressure
+Calling Rasnik.vi
+Reference pins removed
+Done with Rasmask reading
+PCB tested
+
+Τρι 18 Ιούλ 2017 03:48:54 μμ CEST	 PCB POSITIONING Stiffback: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts and interconnections checked
+PCBs positioned in ref plates
+PCBs associated to frame: 
+20MNMBSS100054 20MNMBSS200053 20MNMBSS300052 20MNMBSS400051 20MNMBSS500050 1-64
+Τρι 18 Ιούλ 2017 03:54:27 μμ CEST	 PCB ALIGNMENT Stiffback: 
+10 reference pins positioned
+Closing gaps
+Vacuum turned on for blocking
+Calling pressmon.vi
+Done with pressure monitoring
+Calling readpress.vi
+Done with reading pressure
+Calling Rasnik.vi
+Done with Rasmask reading
+Reference pins removed
+Stiffback lowered on table
+Arch released
+Stiffback moved over table
+Arch moved away
+PCB tested

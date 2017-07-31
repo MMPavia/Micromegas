@@ -13,6 +13,7 @@
 #include <iostream>
 #include <sstream>
 
+#include "arduinoX.h"
 #include "motors.h"
 
 #define error_message(F,E) printf(F, E)
@@ -20,6 +21,11 @@
 using namespace std;
 
 motors* motp(NULL); 
+
+int ndigital = 1;
+int dchan[5] = { 38, 39, 40, 41, 42};//4 for relee
+arduinoDIO dway[5] = { arduinoDIO::INPUT, arduinoDIO::INPUT,
+                       arduinoDIO::INPUT, arduinoDIO::INPUT, arduinoDIO::INPUT  };
   
 int main (int argc, char** argv)
 {
@@ -27,6 +33,11 @@ int main (int argc, char** argv)
 	double mm(0);
 	uint64_t prog(0), mot(0), steps(0), speed(0), ramp(0), func(0);
 	bool posdir(true);
+
+	arduinoX* myboard = arduinoX::create("/dev/ttyUSB0");
+        usleep(1000000);
+        myboard->digitalSetup( ndigital, dchan, dway );
+        usleep(100000);
 
 	-- argc; ++ argv;
 	if (argc < 2) return -1;
@@ -117,6 +128,23 @@ int main (int argc, char** argv)
 	motp->mot_write(rcmd.str().c_str());
 	motp->mot_read();
 	
+	//controlla che la macchina e' in uso
+	uint16_t mstati(0);
+	uint16_t mstat(0);
+	
+
+	do
+	  {
+	    mstat = 0;
+	    for (int chan=38; chan<43; chan++){
+            mstati = myboard->digitalInput(chan);
+            mstat += mstati;
+	    }
+	    usleep(10000);
+	  }
+	while (mstat > 0);
+	usleep(2000000);
+
 	delete motp;
 	
 	return 0;

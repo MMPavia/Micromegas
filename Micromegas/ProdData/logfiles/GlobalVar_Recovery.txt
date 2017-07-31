@@ -1,0 +1,5 @@
+NewPanel
+PCBposTab
+PCBalignTab
+PCBposStiff
+PCBalignStiff

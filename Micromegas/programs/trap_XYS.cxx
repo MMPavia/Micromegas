@@ -381,6 +381,21 @@ while (nloops --)
 QuitNow:
 
   delete motp;
+  uint16_t mstati(0);
+  uint16_t mstat(0);
+  do
+    {
+        mstat = 0;
+        for (int chan=38; chan<43; chan++){
+            mstati = myboard->digitalInput(chan);
+            mstat += mstati;
+        }
+        usleep(10000);
+    }
+    while (mstat > 0);
+    usleep(2000000);
+
+
 
   return 0;
  }

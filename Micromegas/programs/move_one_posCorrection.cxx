@@ -164,7 +164,7 @@ int main (int argc, char** argv)
 
 	double GoalValue = readVal + mm;
 
-	cout<<" mot: "<<mot<<" readVal: "<<readVal<<" mm: "<<mm<<endl;
+	cout<<" motor: "<<mot<<" optical line value before moving: "<<readVal<<" command value: "<<mm<<endl;
 	double diff = GoalValue-readVal;
 	cout<<"diff: "<<diff<<endl;
 	  do{
@@ -207,13 +207,13 @@ int main (int argc, char** argv)
 	    if (mot==1) readVal = ola.at(0);//X
 	    else if (mot==2) readVal = ola.at(1);//Y
 	    else if (mot==6) readVal = ola.at(2);//Z
-	    diff = mm-readVal;
-	    cout<<"readVal: "<<readVal<<" diff: "<<diff<<endl;
+	    diff = GoalValue-readVal;
+	    cout<<"opt.line value after first movement: "<<readVal<<" diff: "<<diff<<endl;
 	    
 	  }
-	  while(abs(GoalValue-readVal)>1 || abs(GoalValue-readVal)==1);//athina
+	  while(abs(GoalValue-readVal)>1 || abs(GoalValue-readVal)==1);//if the difference between the command value and optical line value is more than 1 mm, correct it
 	double newMove = mm-readVal;
-	cout<<" after adjust newMove " <<newMove<<endl;
+	cout<<" correction to be made " <<newMove<<endl;
 
 	
 	delete motp;

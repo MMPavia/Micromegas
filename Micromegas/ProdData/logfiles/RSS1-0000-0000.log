@@ -1,37 +1,39 @@
-Τρι 18 Ιούλ 2017 03:44:30 μμ CEST	START NEW PANEL:
+Wed 30 Aug 2017 11:03:37 AM CEST	START NEW PANEL:
  Stereo Panel added
 
-Τρι 18 Ιούλ 2017 03:46:29 μμ CEST	 PCB POSITIONING Table: 
+Wed 30 Aug 2017 11:03:46 AM CEST	 PCB POSITIONING Table: 
 PTFE pins positioned
 PCBs checked for defects
 Pin inserts and interconnections checked
 PCBs positioned in ref plates
 PCBs associated to frame: 
-20MNMBSS1000034 20MNMBSS2000033 20MNMBSS3000032 20MNMBSS4000031 20MNMBSS5000030 1-64
-Τρι 18 Ιούλ 2017 03:46:39 μμ CEST	 PCB ALIGNMENT Table: 
+20MNMBSS101 20MNMBSS202 20MNMBSS303 20MNMBSS404 20MNMBSS505 1-64
+
+Wed 30 Aug 2017 11:04:04 AM CEST	 PCB ALIGNMENT Table: 
 10 reference pins positioned
-Closing gaps
 Vacuum turned on for blocking
+Closing gaps
 Calling pressmon.vi
 Done with pressure monitoring
 Calling readpress.vi
 Done with reading pressure
 Calling Rasnik.vi
-Reference pins removed
 Done with Rasmask reading
+Reference pins removed
 PCB tested
 
-Τρι 18 Ιούλ 2017 03:48:54 μμ CEST	 PCB POSITIONING Stiffback: 
+Wed 30 Aug 2017 11:05:12 AM CEST	 PCB POSITIONING Stiffback: 
 PTFE pins positioned
 PCBs checked for defects
 Pin inserts and interconnections checked
 PCBs positioned in ref plates
 PCBs associated to frame: 
-20MNMBSS100054 20MNMBSS200053 20MNMBSS300052 20MNMBSS400051 20MNMBSS500050 1-64
-Τρι 18 Ιούλ 2017 03:54:27 μμ CEST	 PCB ALIGNMENT Stiffback: 
+20MNMBSS101 20MNMBSS202 20MNMBSS303 20MNMBSS404 20MNMBSS505 1-64
+
+Wed 30 Aug 2017 11:05:31 AM CEST	 PCB ALIGNMENT Stiffback: 
 10 reference pins positioned
-Closing gaps
 Vacuum turned on for blocking
+Closing gaps
 Calling pressmon.vi
 Done with pressure monitoring
 Calling readpress.vi
@@ -39,8 +41,124 @@ Done with reading pressure
 Calling Rasnik.vi
 Done with Rasmask reading
 Reference pins removed
-Stiffback lowered on table
-Arch released
 Stiffback moved over table
+Stiffback lowered on table
 Arch moved away
+Arch released
 PCB tested
+
+Wed 30 Aug 2017 11:06:55 AM CEST	 ADD FRAME: 
+External frames positioned
+Internal frames positioned
+Frames associated to PCBs: 
+INT1: 1 INT2: 1 INT3: 1 INT4: 1 EXT1: 1 EXT2: 1 EXT3 : 1 EXT4: 1 EXT5: 1 EXT6: 1 
+
+Wed 30 Aug 2017 11:07:32 AM CEST	 ADD HONEYCOMB: 
+Adding honeycomb part
+Honeycombs associated to PCBs: 
+HC5: 5 HC4: 4 HC3: 3  HC2: 2 HC1: 1
+
+Wed 30 Aug 2017 11:07:49 AM CEST	 ADD COOLING BARS: 
+External cooling bars added
+Cooling bars associated to PCBs: 
+COOL1: 1 COOL2: 2
+
+Wed 30 Aug 2017 11:08:00 AM CEST	 DRY RUN: 
+cleanliness checked
+stiffback rotated
+stiffback moved
+stiffback lowered
+stiffback released
+weights positioned
+Micrometer Dry Run Completed
+Gauge machine Dry run completed
+Stiffback removed from table
+
+Wed 30 Aug 2017 11:08:23 AM CEST	 GLUING ON TABLE: 
+Internal parts removed
+Parchment positioned
+Dispenser mounted on cartridge
+Dispenser positioned in glue machine housing
+FEB pins glued
+Parchments removed
+Gluing done
+All done
+
+Wed 30 Aug 2017 11:08:40 AM CEST	 POSITION INTERNAL STRUCTURE: 
+External frames positioned
+Internal frames positioned
+Honeycomb sheets positioned
+Grounds jumpers screwed in
+Polystyrol pieces placed
+Cooling bars positioned
+
+Wed 30 Aug 2017 11:08:49 AM CEST	 STIFFBACK GLUING: 
+Stiffback moved over ref plates
+Stiffback lowered on ref plates
+Stiffback released from movement arch
+Stiffback moved away from table
+Parchment covers positioned
+Dispenser mounted
+Cartridge positioned
+Gluing done
+FEB pins glued
+Parchment protections removed
+Done
+	Wed 30 Aug 2017 11:09:11 AM CEST	 PANEL CLOSURE
+Stiffback moved outside the table
+Cleanliness of supports checked
+Stiffback rotated upside down
+Stiffback moved over the ref plates
+Stiffback lowered on ref plates
+Stiffback released from movement arch
+Movement arch moved outside the table
+Weights positioned on stiffback
+Micrometer Dry Run Completed
+Gauge machine Dry run completed
+Glue cured
+
+Wed 30 Aug 2017 11:09:36 AM CEST	 STIFFBACK REMOVAL
+Vacuum removed
+Weights removed
+Stiffback connected to arch
+Stiffback lifted
+Stiffback moved away
+
+Wed 30 Aug 2017 11:09:46 AM CEST	 QAQC VACUUM ON
+Vacuum switched on
+QAQC vacuum on done
+
+Wed 30 Aug 2017 11:10:01 AM CEST	 GLUING ON PIN/INSERT: 
+Vacuum checked
+glue deposited on alignment pin grooves
+alignment pin positioned
+Vertical positioning tool placed
+Manually push down pins
+three screws tightened
+blocking plate positioned
+planarity checked
+second pin positioned
+electroerosion pin inserted in slotted insert
+glue deposited on slotted insert
+insert positioned in hole
+vertical positioning tool positioned
+Manually push down pins
+three screws tightened
+blocking plate screwed
+planarity checked
+Glue cured
+Vertical tools removed
+Electroerosion pin removed
+
+Wed 30 Aug 2017 11:10:28 AM CEST	 QAQC VACUUM OFF
+Vacuum switched off
+Tooling removed
+QAQC vacuum off done
+
+Wed 30 Aug 2017 11:10:41 AM CEST	 POSITION INTERNAL STRUCTURE: 
+External frames positioned
+Internal frames positioned
+Honeycomb sheets positioned
+20 mass grounds screwed in
+Cooling bars positioned
+Panel positioned on testing table

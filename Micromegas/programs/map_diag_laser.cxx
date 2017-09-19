@@ -133,6 +133,7 @@ int main (int argc, char** argv)
 	std::string line;
     
 	bool table=true;
+	int diag=9999;//for which diagonal is being measured
 
 
 	std::fstream f("/home/atlas/Micromegas/inputfile/arduino_analog.txt", std::fstream::in);
@@ -185,6 +186,11 @@ int main (int argc, char** argv)
 	    -- argc; ++ argv;
 	    int Tab = strtol(*argv, NULL, 10);
 	    table = (bool)Tab;
+
+	  } else if ((strcasecmp(*argv,"d")==0) || (strcasecmp(*argv,"-d")==0)) {	// *** INIZIALIZZO D (0:sx_int, 1: dx_int, 2:sx_ext, 3:dx_ext) ****************
+	    -- argc; ++ argv;
+	    int Diag = strtol(*argv, NULL, 10);
+	    diag = Diag;
 	  }
 	  /*
  	  else if ((strcasecmp(*argv,"t")==0) || (strcasecmp(*argv,"-t")==0)) {	// *** INIZIALIZZO T ****************
@@ -340,15 +346,28 @@ int main (int argc, char** argv)
 
         ostringstream outname;
         ostringstream date;
+	ostringstream filename; //Athina
         date << 1900+ ltm->tm_year;
         if (1+ltm->tm_mon < 10 ) date << "0" << 1+ltm->tm_mon << ltm->tm_mday ;
         else date << 1+ltm->tm_mon << ltm->tm_mday;
         cout << date.str() << endl;
         int32_t min = ltm->tm_min + ltm->tm_hour*60 + 10000; // aggiunto minuto
         outname << path << "mapping_trap_" << date.str() << min << ".txt";
+	string Diag="";
+	if (diag==0) Diag="SX_int";
+	else if (diag==1) Diag="DX_int";
+	else if (diag==2) Diag="SX_ext";
+	else if (diag==3) Diag="DX_ext";
+	string diagName = "map_diag_"+Diag+"_filename.txt";//Athina
+	filename << path << diagName;//Athina
 
-
+	
 	FILE* logf = fopen (outname.str().c_str(),"w+");
+
+	FILE* saveFileName = fopen (filename.str().c_str(),"w+");//Athina
+	fprintf( saveFileName, " %s \n", outname.str().c_str() );//Athina
+	fflush( saveFileName );//Athina
+	fclose(saveFileName );//Athina
 
 	for (uint32_t ns=0; ns < nsteps; ns++)
 	{

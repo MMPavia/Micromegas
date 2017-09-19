@@ -3,13 +3,17 @@
 #include <vector>
 //#include "AtlasStyle.C"
 
+//#define inpath "/home/atlas/Micromegas/ProdData/mapping/"
 #define inpath "/home/atlas/Micromegas/M05Data/mapping/"
-#define outpath "/home/atlas/Micromegas/M05Data/root_plot/modulo05/"
 
-void planarity_plates (bool plates, string scan){
+//#define outpath "/home/atlas/Micromegas/ProdData/root_plot/"
+#define outpath "/home/atlas/Desktop/Mari/"
+
+void planarity_plates (string scan){
+
 
   // style option
-  // gROOT->LoadMacro("AtlasUtils.C");   // myText
+   gROOT->LoadMacro("AtlasUtils.C");   // myText
    //SetAtlasStyle(); 
    gStyle->SetPalette(1);
    gStyle->SetOptStat(111111);
@@ -26,29 +30,26 @@ void planarity_plates (bool plates, string scan){
 
   // histograms binning info
   //int nxbin=28;
-  int nxbin=24;
-  int nybin=30;
-  float xmin = 253/10;
-  float xmax = 2414/10;
-  float ymax = 1239;
-  float ymin = 162;
-   
-   int ndistbin = 30;
-   float xdistmin = 11.4;
-   float xdistmax = 11.9;
 
-   if(!plates){
-        ndistbin = 50;
-        xdistmin = 700;
-        xdistmax = 900;
-   }
+   int nxbin=24;   // 
+   int nybin=30;   //
+   float xmin = 320/10;
+   float xmax = 2440/10;
+   float ymax = 1230;
+   float ymin = 200;
+   
+   int ndistbin = 100;
+   float xdistmin = -150;
+   float xdistmax = 150;
+
+
 
 
   // create all the histograms
 
 
   //  2d map of the table surface
-  TH2F *tmap= new TH2F("map","map", nxbin, xmin, xmax, nybin, ymin, ymax );
+  TH2F *tmap= new TH2F("tmap","tmap", nxbin, xmin, xmax, nybin, ymin, ymax );
   tmap->GetXaxis()->SetTitle("X (cm)");
   tmap->GetYaxis()->SetTitle("Y (mm)");
   tmap->GetZaxis()->SetTitle("Z (#mum)");
@@ -78,6 +79,7 @@ void planarity_plates (bool plates, string scan){
   cout << "histos created " << endl;
 
 
+  //variables for reading the file
   Float_t x,y, opt, laser, temp1, temp2, coord;
 
   // reading the file
@@ -126,6 +128,21 @@ void planarity_plates (bool plates, string scan){
       for (int i=1; i<=biny; i++){
  
 	double Z = tmap->GetBinContent(j,i);
+
+	//cout << "binx " << j << " biny " << i << " Z  " <<  Z << endl;  
+
+	//if (Z<-200) {
+
+	//	double b = tmap->GetBinContent(j,i-2);
+	//	double c = tmap->GetBinContent(j+1,i-1);
+	//	double d = tmap->GetBinContent(j+1,i);
+	//	double e = tmap->GetBinContent(j+1,i+1);
+	//	double f = tmap->GetBinContent(j,i+2);
+	//	double mean = (b+f)/2;
+	//	tmap->SetBinContent(j,i,mean);
+
+	//};
+
       }
      }
 
@@ -135,6 +152,7 @@ void planarity_plates (bool plates, string scan){
   // raw values: average and differences wrt to the average
   Float_t value = z_corr->GetMean();
   Float_t sigma = z_corr->GetRMS();
+
 
 
  // create a root file for the histograms; 
@@ -160,7 +178,6 @@ void planarity_plates (bool plates, string scan){
   tmap->SetMarkerSize(0.8);
   tmap->Draw("colz,text45");
   tmap->SetStats(kFALSE);
-  tmap->GetZaxis()->SetRangeUser(11.4, 11.780);
   tmap->Write();
   // c0->Print(Smap.str().c_str());
 

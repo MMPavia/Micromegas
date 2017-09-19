@@ -4,8 +4,8 @@
 //#include "AtlasStyle.C"
 
 //#define inpath "/home/atlas/Micromegas/M0Data/mapping_stiffback/"
-#define inpath "/home/atlas/Micromegas/M05Data/mapping/"
-#define outpath "/home/atlas/Micromegas/M05Data/root_plot/stiffback/"
+#define inpath "/home/atlas/Micromegas/ProdData/mapping/"
+#define outpath "/home/atlas/Micromegas/ProdData/root_plot/stiffback/"
 
 void planarity_stiffback (string scan){
 

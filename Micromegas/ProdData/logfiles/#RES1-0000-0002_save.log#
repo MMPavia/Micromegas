@@ -1,0 +1,42 @@
+Tue 12 Sep 2017 09:19:17 AM CEST	START NEW PANEL:
+Eta Panel added
+
+Tue 12 Sep 2017 09:20:08 AM CEST	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts and interconnections checked
+PCBs positioned in ref plates
+PCBs associated to the panel: 
+20MNMBSE10019 20MNMBSE20009 20MNMBSE30011 20MNMBSE40012 20MNMBSE50011 1-64
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Table/Results20170912092853.txt
+Mapping table:
+pillar: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091210581.txt
+int_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091210619.txt
+int_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091210623.txt
+ext_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091210626.txt
+ext_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091210628.txt
+
+
+Wed 13 Sep 2017 10:06:03 AM CEST	 PCB POSITIONING Stiffback: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts and interconnections checked
+PCBs positioned in ref plates
+PCBs associated to the panel: 
+20MNMBSE10028 20MNMBSE20014 20MNMBSE30003 20MNMBSE40011 20MNMBSE50009 1-64
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Stiffback/Results20170913101337.txt
+
+Mapping table:
+RES1-0000-0002.logpillar: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310733.txt
+int_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310849.txt
+int_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310852.txt
+ext_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310855.txt
+ext_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310858.txt
+

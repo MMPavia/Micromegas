@@ -2,14 +2,10 @@
 #include <string>
 #include <vector>
 #include <math.h>
-#include<iostream>
-#include<fstream>
 //#include "AtlasStyle.C"
 
-//#define inpath "/home/atlas/Micromegas/M05Data/mapping_plate_ref/"
-//#define outpath "/home/atlas/Micromegas/M05Data/root_plot/referenceplates/"
-#define inpath "/Users/mariacristinalopresti/Desktop/mm/gauge-laser/pcb_zone/"
-#define outpath "/Users/mariacristinalopresti/Desktop/mm/gauge-laser/pcb_zone/"
+#define inpath "/home/atlas/Micromegas/ProdData/mapping/"
+#define outpath "/home/atlas/Micromegas/ProdData/reference/"
 
 
 int count_lines(string scan1)
@@ -28,9 +24,10 @@ int count_lines(string scan1)
 }
 
 
-void repeatibility (int p, int q, string scan1, string scan2, string scan3){
+//p=0,1,2 -> reference,pannello,pcb
 
- string nomefile=scan1;
+void repeatability_and_mean (int p, string scan1, string scan2, string scan3){
+
 
   // style option
    gROOT->LoadMacro("AtlasUtils.C");   // myText
@@ -58,13 +55,14 @@ void repeatibility (int p, int q, string scan1, string scan2, string scan3){
    scan3.erase(scan3.end()-4,scan3.end());
    scan3.erase(scan3.begin(),scan3.begin()+13);
 
+  string nomefile=file1.str();
  
    int nxbin=24;   // 
    int nybin=30;   //
-   float xmin = 253/10;
-   float xmax = 2414/10;
-   float ymax = 1239;
-   float ymin = 162;
+   float xmin = 320/10;
+   float xmax = 2440/10;
+   float ymax = 1230;
+   float ymin = 200;
    
    TH2F *map_s1 = new TH2F("map_s1","map_s1", nxbin, xmin, xmax, nybin, ymin, ymax );
    map_s1->GetXaxis()->SetTitle("X (cm)");
@@ -86,15 +84,18 @@ void repeatibility (int p, int q, string scan1, string scan2, string scan3){
 
    float xdistmin, xdistmax;
    int ndistbin = 100;
-   if(p==0){                    //piastra reference
-   xdistmin = -60; 
-   xdistmax = 8; 
+   if(p==0){              //piastra reference
+   xdistmin = -150; 
+   xdistmax = 150; 
    }
-   else if (p==1){             //pannello 
+   if (p==1){             //pannello 
    xdistmin = 11000; 
    xdistmax = 11900;
    }
-   
+   if (p==2){
+   xdistmin = 650;        //z_pcb=770um
+   xdistmax = 850;
+   }
 
 
    TH1F *distz_s1 = new TH1F("distz_s1","distz_s1", ndistbin,xdistmin, xdistmax  ); 
@@ -117,6 +118,7 @@ void repeatibility (int p, int q, string scan1, string scan2, string scan3){
    mean_map->GetXaxis()->SetTitle("X (mm)");
    mean_map->GetYaxis()->SetTitle("Y (mm)");
    mean_map->GetZaxis()->SetTitle("Z (#mum)");
+
 
    TH1F *mean_distrib = new TH1F("Average_distrib","Average Distribution", ndistbin,xdistmin, xdistmax );
    mean_distrib->GetXaxis()->SetTitle("Z (#mum)");
@@ -150,19 +152,18 @@ void repeatibility (int p, int q, string scan1, string scan2, string scan3){
    std_distrib->GetXaxis()->SetTitle("Z (#mum)");
    std_distrib->SetFillColor(4);
 
-cout<<scan1<<endl;
    Float_t dd1, dd2, dd3, mean; 
    Float_t m1, m2, m3; 
-   Float_t d1, d2, d3, dd, mean2, max, min, dz; 
+   Float_t d1, d2, d3, dd, mean2, max, min, dz;
    Float_t dz1_mean, dz2_mean, dz3_mean, std;
-   //Int_t n = n; 
-  // Int_t n = 222; 
+   
    int n;
    n=count_lines(nomefile);
    cout<<"n="<<n<<"scan="<<nomefile<<endl;
+
    Float_t scan[7][266]={0};
    Float_t x,y, opt, laser, temp1, temp2, coord;
-
+   Double_t media,stdev,minimo,massimo;
 
 // leggo file e riempio array con coord
 
@@ -175,8 +176,8 @@ cout<<scan1<<endl;
 	   cout << x << " " << y << " " << opt << " "<< laser << " " <<  temp1 << " " << temp2 << " " << endl;
     }
     m1=m1/n; 
-    cout << " m1 " << m1 << endl; 
-
+    //    cout << " m1 " << m1 << endl; 
+    cout << "file2" << endl;
 
     ifstream in2(file2.str().c_str());
     for (int j=0; j<n; j++){
@@ -184,9 +185,12 @@ cout<<scan1<<endl;
            coord = (laser - opt);
             scan[1][j]=coord*1000;
 	    m2 += scan[1][j];
+	   cout << x << " " << y << " " << opt << " "<< laser << " " <<  temp1 << " " << temp2 << " " << endl;
+
     }
     m2=m2/n; 
-    cout << " m2 " << m2 << endl; 
+    //    cout << " m2 " << m2 << endl; 
+    cout << "file3" << endl;
 
     ifstream in3(file3.str().c_str());
     for (int j=0; j<n; j++){
@@ -194,40 +198,53 @@ cout<<scan1<<endl;
            coord = (laser - opt);
            scan[2][j]=coord*1000;
 	   m3 += scan[2][j];
+	   cout << x << " " << y << " " << opt << " "<< laser << " " <<  temp1 << " " << temp2 << " " << endl;
+
     }
     m3=m3/n; 
-    cout << " m3 " << m3 << endl; 
+    //    cout << " m3 " << m3 << endl; 
 
 // leggo file e riempio array con coord x e y
   ifstream in6 (file1.str().c_str());
   
-   if(q==1){                    //gauge -->  x_gauge=x_laser+40
-     for (int j=0; j<n; j++){
-             in6 >> x >> y >> opt >> laser >>  temp1 >> temp2; // !!!!!!!!!!!!
-             scan[5][j]=(x+40.0)/10;
-             scan[6][j]=-y;
-             cout << scan[5][j] << " " << scan[6][j] << endl;
-   }
-  }
-   else if (q==0){             //laser
      for (int j=0; j<n; j++){
              in6 >> x >> y >> opt >> laser >>  temp1 >> temp2; // !!!!!!!!!!!!
              scan[5][j]=x/10;
              scan[6][j]=-y;
-             //	     cout << scan[5][j] << " " << scan[6][j] << endl;
-
+             //cout << "x= " << scan[5][j] << "y=  " << scan[6][j] << endl;
    } 
-  }
-
+/*
+// tolgo i buchi
+   for (int i=0; i<=4; i++){
+      for (int j=0; j<=n; j++){
+          if(scan[i][j] < -10 || scan[i][j] > 120 ) {
+	    //	     cout << " scan "<< i << " point " << j << " value " << scan[i][j] << endl;
+	     if(scan[i][j+1] < -10 ||scan[i][j+1] > 120 || scan[i][j+1] ==0){
+		if(scan[i][j-1] < -10 ||scan[i][j-1] > 120 || scan[i][j-1] ==0) 
+			scan[i][j]=(scan[i][j+2]+scan[i][j-2])/2;
+		else scan[i][j]=scan[i][j-1];
+	     }
+	     if(scan[i][j-1] < -10 ||scan[i][j-1] > 120 || scan[i][j-1] ==0){
+		if(scan[i][j+1] < -10 ||scan[i][j+1] > 120 || scan[i][j+1] ==0) 
+			scan[i][j]=(scan[i][j+2]+scan[i][j-2])/2;
+		else scan[i][j]=scan[i][j+1];
+	     }      
+	     else scan[i][j]=(scan[i][j-1]+scan[i][j+1])/2;
+	     //   cout << "scan[i][j-1] " << scan[i][j-1] << " scan[i][j+1] " << scan[i][j+1] 
+	     //		 << " new value " << scan[i][j] << endl; 
+	  }
+      }
+   }
+*/
 
 // leggo array e calcolo media e std di ogni punto
    for (int j=0; j<n; j++){
       d1 = scan[0][j];
       d2 = scan[1][j];
       d3 = scan[2][j];
-      cout << d1 << " " << d2 << " " << d3 << endl; 
+      //      cout << d1 << " " << d2 << " " << d3 << endl; 
       mean2 = (d1+d2+d3)/3;
-      cout << "mean " << mean2 << endl;
+      //     cout << "mean " << mean2 << endl;
 
       map_s1->Fill(scan[5][j],scan[6][j], d1);
       map_s2->Fill(scan[5][j],scan[6][j], d2);
@@ -248,6 +265,12 @@ cout<<scan1<<endl;
       std_map->Fill(scan[5][j],scan[6][j],std);
    }
 
+   media = mean_distrib->GetMean();
+   stdev = mean_distrib->GetRMS();
+   minimo =  mean_distrib->GetMinimum();
+   massimo =  mean_distrib->GetMaximum();
+
+   cout << " media= " << media << " stdev= " << stdev << " min= " << minimo << " max= " << massimo << endl;
 
 // leggo array e calcolo rep come dz
 
@@ -263,14 +286,32 @@ cout<<scan1<<endl;
       }
     dz=max-min;
     dz_distrib->Fill(dz);
-    cout<<"dz="<<dz<<endl;
+    //    cout<<"dz="<<dz<<endl;
     hdz->Fill(scan[5][j],scan[6][j],dz);
    }
 
 
  // create a root file for the histograms;
   ostringstream rootfile;
-  rootfile  << outpath <<"mean_and_rep_plates.root";
+  
+  if(p==0){
+    //    rootfile  << outpath <<"mean_and_rep_plates_laser_ref_tab.root";
+    //rootfile  << outpath <<"mean_and_rep_plates_laser_ref_stif_new.root";
+    rootfile  << outpath <<"mean_and_rep_plates_laser_ref_tab_new.root";
+
+  }
+  if(p==1){
+           rootfile  << outpath <<"mean_and_rep_plates_panel.root";
+  }
+  
+
+  //create a txt data file;
+  ofstream Data;
+  ostringstream txtfile;
+  txtfile << outpath <<"/summary_" << scan1 << ".txt"; 
+
+
+
   TFile myroot(rootfile.str().c_str(), "RECREATE");
   cout << "Root output file: " << endl << rootfile.str() << endl;
 
@@ -360,9 +401,8 @@ cout<<scan1<<endl;
    std_distrib->Draw(); 
    std_distrib->Write();
    c26->Print(Std_distrib.str().c_str());
-
-
-  myroot.Close();
+   
+   myroot.Close();
 
    return; 
 }

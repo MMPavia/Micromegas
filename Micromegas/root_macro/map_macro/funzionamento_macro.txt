@@ -1,0 +1,55 @@
+Pillar_zone
+
+---> repeatability_and_mean.cxx
+     macro che calcola media e ripetibilità su tre scan
+     vuole in input:
+     -un parametro:
+     	  p = 0,1,2 -> reference, pannello, pcb
+     -i tre scan.txt
+
+---> diff_panel_ref.cxx
+     macro che calcola la differenza z pannello e z reference,
+     ha nel codice il root file prodotto dalla macro "repeatability_and_mean.cxx"
+     vuole in input:
+     -scan.txt
+
+---> diff_pcb_ref.cxx
+     macro che calcola la differenza z pcb e z reference,
+     ha nel codice il root file prodotto dalla macro "repeatability_and_mean.cxx"
+     vuole in input:
+     -scan.txt
+
+---> planarity_plates.cxx
+     macro che mostra la mappa della planarita' di uno scan sulla pcb area e la distribuzione delle z
+     vuole in input:
+     -scan.txt
+
+
+diag
+
+---> repeatability_and_mean_diag.cxx
+     macro che calcola media e ripetibilità su tre scan
+     vuole in input:
+     -un parametro:
+	  p = 1,2,3,4 -> int sx, int dx, ext sx, ext dx
+     -i tre scan.txt
+
+---> diff_panel_ref_diag.cxx
+     macro che calcola la differenza z pannello e z reference sulle diagonali,
+     ha nel codice i root file prodotti dalla macro "repeatability_and_mean_diag.cxx",
+     utilizza due root file alla volta relativi o alle diagonali interne o a quelle esterne.
+     vuole in input:
+     -un parametro:
+     	 p = 1,2 -> int, ext
+     -due scan.txt:
+     	  in ordine diag int/ext sx, int/ext dx
+
+---> diff_pcb_ref_diag.cxx
+     macro che calcola la differenza z pcb e z reference sulle diagonali,
+     ha nel codice i root file prodotti dalla macro "repeatability_and_mean_diag.cxx",
+     utilizza due root file alla volta relativi o alle diagonali interne o a quelle esterne.
+     vuole in input:
+     -un parametro:
+     	 p = 1,2 -> int, ext
+     -due scan.txt:
+     	  in ordine diag int/ext sx, int/ext dx

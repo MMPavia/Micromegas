@@ -386,6 +386,7 @@ if (1) cout << "-----------------------------------------------------"
         tm *ltm = localtime(&now);
 
         ostringstream outname;
+	ostringstream filename;//Athina
         ostringstream date;
         date << 1900+ ltm->tm_year;
         if (1+ltm->tm_mon < 10 ) date << "0" << 1+ltm->tm_mon << ltm->tm_mday ;
@@ -393,8 +394,16 @@ if (1) cout << "-----------------------------------------------------"
         cout << date.str() << endl;
         int32_t min = ltm->tm_min + ltm->tm_hour*60 + 10000; // aggiunto minuto
         outname << path << "mapping_" << date.str() << min << ".txt";
+	filename << path << "map_XY_stiffbackFilename.txt";//Athina
+
  
 	FILE* logf = fopen (outname.str().c_str(),"w+");
+	FILE* saveFileName = fopen (filename.str().c_str(),"w+");//Athina
+	fprintf( saveFileName, " %s \n", outname.str().c_str() );//Athina
+	fflush( saveFileName );//Athina
+	fclose(saveFileName );//Athina
+
+
 	for (uint32_t ny=0; ny < ntoty; ny++)
 	 {
 	  for (uint32_t nx=0; nx < ntotx; nx++)

@@ -69,7 +69,8 @@ int main (int argc, char** argv)
 
     double vlaser = myboard->getPhyVal(laser);
     std::cout << "laser value now " << vlaser << std::endl;
-    usleep(500000);
+    //usleep(500000);
+    usleep(2000000);
    }
   while(1);
 

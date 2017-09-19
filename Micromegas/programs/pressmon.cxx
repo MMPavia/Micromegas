@@ -103,8 +103,8 @@ int main (int argc, char** argv)
 
 	// relevant channels to read 
 
-	uint16_t press_line3_cb(2);
-       	uint16_t press_line4_cb(3);
+	uint16_t press_line3_cb(2); //stiffback
+       	uint16_t press_line4_cb(3); // table
 
 	// getting time info
 	time_t now = time(0);
@@ -122,7 +122,7 @@ int main (int argc, char** argv)
 
 
         #define _MICRO_SLEEP_ 100
-        #define _LONG_SLEEP_ 60
+        #define _LONG_SLEEP_ 1800
 
 	printf ( " sleep times are %d sec %d usec\n", _LONG_SLEEP_, _MICRO_SLEEP_ );
         bool run(true);
@@ -175,8 +175,8 @@ int main (int argc, char** argv)
 
            if( strcmp ( myldate.c_str() , mydate.c_str()) !=  0) return 1; 
 
-           double press_table = myboard->getPhyVal(press_line3_cb);
-           double press_stiffback = myboard->getPhyVal(press_line4_cb);
+           double press_table = myboard->getPhyVal(press_line4_cb);
+           double press_stiffback = myboard->getPhyVal(press_line3_cb);
 
 
            fprintf( logf, " %s \t %f \t  %f  \n", mytime.c_str(), press_table, press_stiffback );

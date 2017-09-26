@@ -6,11 +6,14 @@ PTFE pins positioned
 PCBs checked for defects
 Pin inserts and interconnections checked
 PCBs positioned in ref plates
+
 PCBs associated to the panel: 
 20MNMBSE10019 20MNMBSE20009 20MNMBSE30011 20MNMBSE40012 20MNMBSE50011 1-64
+
 Setup electronics for C-CCD reading
 Running the C-CCD program for the table
 /home/atlas/Micromegas/ProdData/C_CCD/Data/Table/Results20170912092853.txt
+
 Mapping table:
 pillar: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091210581.txt
 int_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091210619.txt
@@ -24,16 +27,17 @@ PTFE pins positioned
 PCBs checked for defects
 Pin inserts and interconnections checked
 PCBs positioned in ref plates
+
 PCBs associated to the panel: 
 20MNMBSE10028 20MNMBSE20014 20MNMBSE30003 20MNMBSE40011 20MNMBSE50009 1-64
+
 Setup electronics for C-CCD reading
 Running the C-CCD program for the stiffback
-Setup electronics for C-CCD reading
-Running the C-CCD program for the stiffback
+
 Read C-CCD
 /home/atlas/Micromegas/ProdData/C_CCD/Data/Stiffback/Results20170913101337.txt
 
-Mapping table:
+Mapping stiffback:
 pillar: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310733.txt
 int_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310849.txt
 int_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310852.txt
@@ -63,57 +67,9 @@ Laser Mapping  Dry run completed
 /home/atlas/Micromegas/ProdData/mapping/mapping_2017091310938.txt
 Stiffback removed from table
 
+Read C-CCD
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Stiffback/Results20170914091958.txt
 
-
-
-
-Thu 14 Sep 2017 09:15:24 AM CEST	 PCB ALIGNMENT Table: 
-10 reference pins positioned
-Vacuum turned on for blocking
-Closing gaps
-Calling pressmon.vi
-Done with pressure monitoring
-Calling readpress.vi
-Done with reading pressure
-Calling Rasnik.vi
-Done with Rasmask reading
-Reference pins removed
-int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310849.txt 
-int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310852.txt 
-ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310855.txt 
-ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310858.txt 
-PCB tested
-
-Thu 14 Sep 2017 09:19:12 AM CEST	 PCB POSITIONING Stiffback: 
-PTFE pins positioned
-PCBs checked for defects
-Pin inserts and interconnections checked
-PCBs positioned in ref plates
-PCBs associated to the panel: 
-20MNMBSE10 20MNMBSE20 20MNMBSE30 20MNMBSE40 20MNMBSE50 1-64
-
-Thu 14 Sep 2017 09:19:25 AM CEST	 PCB ALIGNMENT Stiffback: 
-10 reference pins positioned
-Reference pins removed
-Vacuum turned on for blocking
-Calling Rasnik.vi
-Calling pressmon.vi
-Done with Rasmask reading
-Closing gaps
-Calling readpress.vi
-Stiffback moved over table
-Stiffback lowered on table
-Arch released
-Arch moved away
-Done with pressure monitoring
-Done with reading pressure
-Mapping table:
-pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310733.txt
-int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310849.txt 
-int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310852.txt 
-ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310855.txt 
-ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091310858.txt 
-PCB tested
 
 Thu 14 Sep 2017 10:02:19 AM CEST	 GLUING ON TABLE: 
 Internal parts removed
@@ -166,9 +122,17 @@ Stiffback connected to arch
 Stiffback lifted
 Stiffback moved away
 
-Fri 15 Sep 2017 09:45:08 AM CEST	 QAQC VACUUM ON:
+Fri 15 Sep 2017 09:45:08 AM CEST	 QAQC VACUUM ON SIDE UP:
 Vacuum switched on
 QAQC vacuum on done
+
+Mapping:
+pillar: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091510588.txt
+int_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091510647.txt
+int_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091510649.txt
+ext_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091510653.txt
+ext_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091510655.txt
+
 
 Fri 01 Jan 1904 01:00:00 AM CET	 GLUING ON PIN/INSERT: 
 Vacuum checked
@@ -184,24 +148,43 @@ Glue cured
 Vertical tools removed
 Electroerosion pin removed
 
-Mon 18 Sep 2017 11:07:20 AM CEST	 POSITION INTERNAL STRUCTURE: 
-External frames positioned
-Internal frames positioned
-20 mass grounds screwed in
-Honeycomb sheets positioned
-Cooling bars positioned
-Panel positioned on testing table
 
-Mon 18 Sep 2017 11:42:01 AM CEST	 QAQC VACUUM OFF:
+Mon 18 Sep 2017 11:42:01 AM CEST	 QAQC VACUUM OFF SIDE UP:
 Vacuum switched off
 Tooling removed
 QAQC vacuum off done
 
-Mon 18 Sep 2017 12:12:07 PM CEST	 QAQC VACUUM ON:
+
+Mapping:
+pillar: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810640.txt
+int_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810655.txt
+int_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810658.txt
+ext_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810661.txt
+ext_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810663.txt
+
+
+
+Mon 18 Sep 2017 12:12:07 PM CEST	 QAQC VACUUM OFF SIDE DOWN:
+Vacuum switched off
+QAQC vacuum off done
+
+Mapping:
+pillar: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810704.txt
+int_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810720.txt
+int_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810723.txt
+ext_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810726.txt
+ext_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810728.txt
+
+
+Tue 19 Sep 2017 09:42:46 AM CEST	 QAQC VACUUM ON SIDE DOWN::
 Vacuum switched on
+Tooling removed
 QAQC vacuum on done
 
-Tue 19 Sep 2017 09:42:46 AM CEST	 QAQC VACUUM OFF:
-Vacuum switched off
-Tooling removed
-QAQC vacuum off done
+Mapping:
+pillar: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810734.txt
+int_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810749.txt
+int_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810752.txt
+ext_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810755.txt
+ext_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091810757.txt
+

@@ -73,9 +73,9 @@ void diff_panel_ref (string scan){
    diffpillar->GetYaxis()->SetTitle("Y (mm)");
    diffpillar->GetZaxis()->SetTitle("Z (#mu m)");
 
-   int ndistbin = 100; 
-   float xdistmin =11; 
-   float xdistmax =12; 
+   int ndistbin = 50; 
+   float xdistmin =11.5; 
+   float xdistmax =11.9; 
 
    TH1F *distz_s = new TH1F("distz_s","distz_s", ndistbin,xdistmin, xdistmax  ); 
    distz_s->GetXaxis()->SetTitle("#mu ");

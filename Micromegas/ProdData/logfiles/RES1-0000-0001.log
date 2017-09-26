@@ -17,13 +17,14 @@ Vacuum turned on for blocking
 Calling pressmon.vi
 Done with pressure monitoring
 Calling Rasnik.vi
+
 Rasnik:
-/home/atlas/Micromegas/ProdData/C_CCD/Data/Results20170823085217.txt
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Table/Results20170823085217.txt
 
 Done with Rasmask reading
 Reference pins removed
 
-Mapping:
+Mapping Table:
 pillar: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201708210896.txt
 int_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201708210927.txt 
 int_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201708210930.txt
@@ -41,7 +42,7 @@ PCB: associated to the panel:
 20MNMBSE100024 20MNMBSE200007 20MNMBSE300005 20MNMBSE400014 20MNMBSE500020 1-64
 
 Rasnik:
-/home/atlas/Micromegas/ProdData/C_CCD/Data/Results20170823085343.txt
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Stiffback/Results20170823085343.txt
 Mapping:
 pillar: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201708210616.txt
 int_sx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201708210631.txt 
@@ -105,7 +106,7 @@ Stiffback connected to arch
 Stiffback lifted
 Stiffback moved away
 
-Thu 24 Aug 2017 10:02:06 AM CEST	 QAQC VACUUM ON
+Thu 24 Aug 2017 10:02:06 AM CEST	 QAQC VACUUM ON SIDE UP
 Vacuum switched on
 QAQC vacuum on done
 
@@ -138,7 +139,7 @@ planarity checked
 Glue cured
 Vertical tools removed
 
-Fri 25 Aug 2017 11:10:28 AM CEST         QAQC VACUUM OFF
+Fri 25 Aug 2017 11:10:28 AM CEST         QAQC VACUUM OFF SIDE UP
 Vacuum switched off
 Tooling removed
 Mapping:
@@ -150,7 +151,7 @@ ext_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017082510672.txt
 QAQC vacuum off done
 
 
-Mon 28 Aug 2017 11:10:28 AM CEST         QAQC VACUUM OFF
+Mon 28 Aug 2017 11:10:28 AM CEST         QAQC VACUUM OFF SIDE DOWN
 Vacuum switched off
 Tooling removed
 Mapping:
@@ -162,7 +163,7 @@ ext_dx: /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017082810586.txt
 QAQC vacuum off done
 
 
-Mon 28 Aug 2017 10:02:06 AM CEST         QAQC VACUUM ON
+Mon 28 Aug 2017 10:02:06 AM CEST         QAQC VACUUM ON SIDE DOWN
 Vacuum switched on
 QAQC vacuum on done
 Mapping:

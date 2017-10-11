@@ -76,8 +76,8 @@ rs232::rs232 ( rs232type type, std::string tty )
   m_fp = fdopen(fd, "r");
   switch (type)
    {
-    case rs232type::FIELDPOINT:
-	set_interface_attribs (fd, B57600, CS8, 'N', 1);  // 57600 baud, 8-bit chars, no parity, 1 stop bit
+    case rs232type::CHAUVINARNOUX:
+	set_interface_attribs (fd, B9600, CS8, 'N', 1);  // 9600 baud, 8-bit chars, no parity, 1 stop bit
 	break;
     case rs232type::MOTORS:
 	set_interface_attribs (fd, B19200, CS8, 'N', 1);  // 19200 baud, 8-bit chars, no parity, 1 stop bit

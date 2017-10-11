@@ -7,7 +7,7 @@ LIB := ../lib
 BIN := ../bin
 INC := ../include
 
-MYHEADERS := myrs232.h rs232ard.h mutex_lock.h arduinoX.h gauge.h motors.h optline.h optline3D.h keithley.h keithley2.h picoam.h particlecounter.h rs232laser.h
+MYHEADERS := myrs232.h rs232ard.h mutex_lock.h arduinoX.h gauge.h motors.h optline.h optline3D.h keithley.h keithley2.h picoam.h particlecounter.h rs232laser.h chauvinarnoux.h
 INST_HEADERS := $(patsubst %.h, $(INC)/%.h, $(MYHEADERS))
 LIB_OBJECTS := $(patsubst %.h, $(OBJ)/%.o, $(MYHEADERS))
 

@@ -1,0 +1,67 @@
+Tue 10 Oct 2017 11:23:13 AM CEST	START NEW PANEL:
+Eta Panel added
+
+
+Tue 10 Oct 2017 11:25:34 AM CEST	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts checked
+PCBs positioned in ref plates
+
+Tue 10 Oct 2017 11:52:22 AM CEST	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts checked
+PCBs positioned in ref plates
+
+Tue 10 Oct 2017 11:54:20 AM CEST	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts checked
+PCBs positioned in ref plates
+
+Tue 10 Oct 2017 12:04:28 PM CEST	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts checked
+PCBs positioned in ref plates
+
+Tue 10 Oct 2017 12:13:08 PM CEST	 PCB POSITIONING Table: 
+PCBs checked for defects
+PTFE pins positioned
+Pin inserts checked
+PCBs positioned in ref plates
+PCBs associated to the panel: 
+20MNMBSE10 20MNMBSE20 20MNMBSE30 20MNMBSE40 20MNMBSE50
+
+Tue 10 Oct 2017 12:14:24 PM CEST	 PCB ALIGNMENT Table: 
+10 reference pins positioned
+Vacuum turned on for blocking
+Closing gaps
+Calling pressmon.vi
+Done with pressure monitoring
+Calling readpress.vi
+xcxcDone with reading pressure
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+/
+Done with Rasmask reading
+Reference pins removed
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910707.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910602.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910605.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910608.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910610.txt 
+PCB tested
+Interconnections placed
+PCB tested
+
+Tue 10 Oct 2017 12:16:51 PM CEST	 PCB POSITIONING Stiffback: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts checked
+PCBs positioned in ref plates
+PCBs associated to the panel: 
+20MNMBSE10 20MNMBSE20 20MNMBSE30 20MNMBSE40 20MNMBSE50

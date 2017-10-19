@@ -1,3 +1,0 @@
-NewPanel
-PCBposTab
-PCBposStiff

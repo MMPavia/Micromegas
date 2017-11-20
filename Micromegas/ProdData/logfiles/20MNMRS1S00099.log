@@ -1,0 +1,128 @@
+Thu 16 Nov 2017 04:10:40 PM CET	START NEW PANEL:
+Stereo Panel added
+
+Thu 16 Nov 2017 04:10:57 PM CET	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts checked
+PCBs positioned in ref plates
+PCBs associated to the panel: 
+20MNMBSS1000005 20MNMBSS2000002 20MNMBSS3000009 20MNMBSS4000015 20MNMBSS5000003
+
+Thu 16 Nov 2017 04:17:25 PM CET	 PCB ALIGNMENT Table: 
+10 reference pins positioned
+Vacuum turned on for blocking
+Closing gaps
+Calling pressmon.vi
+Done with pressure monitoring
+Calling readpress.vi
+Done with reading pressure
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Table/Results20171116161741.txt
+Done with Rasmask reading
+Reference pins removed
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910707.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910602.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910605.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910608.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910610.txt 
+PCB tested
+Interconnections placed
+Done all
+
+Thu 16 Nov 2017 04:18:51 PM CET	 PCB POSITIONING Stiffback: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts checked
+PCBs positioned in ref plates
+PCBs associated to the panel: 
+20MNMBSS100100 20MNMBSS200012 20MNMBSS300011 20MNMBSS400002 20MNMBSS500001
+
+Thu 16 Nov 2017 04:19:18 PM CET	 PCB ALIGNMENT Stiffback: 
+10 reference pins positioned
+Vacuum turned on for blocking
+Closing gaps
+Calling pressmon.vi
+Done with pressure monitoring
+Calling readpress.vi
+Done with reading pressure
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Stiffback/Results20171116161933.txt
+Done with Rasmask reading
+Reference pins removed
+Stiffback moved over table
+Stiffback lowered on table
+Arch released
+Arch moved away
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910707.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910602.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910605.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910608.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2017091910610.txt 
+PCB tested
+Interconnections placed
+Done all
+
+Thu 16 Nov 2017 04:21:35 PM CET	 ADD FRAME: 
+External frames positioned
+Internal frames positioned
+
+Thu 16 Nov 2017 04:29:07 PM CET	 ADD FRAME: 
+Internal frames positioned
+External frames positioned
+
+Thu 16 Nov 2017 04:30:59 PM CET	 ADD FRAME: 
+External frames positioned
+Internal frames positioned
+
+Thu 16 Nov 2017 04:37:08 PM CET	 PCB POSITIONING Stiffback: 
+PTFE pins positioned
+
+Thu 16 Nov 2017 04:37:28 PM CET	 ADD FRAME: 
+External frames positioned
+Internal frames positioned
+
+Thu 16 Nov 2017 04:39:00 PM CET	 ADD FRAME: 
+External frames positioned
+Internal frames positioned
+
+Thu 16 Nov 2017 04:41:00 PM CET	 ADD FRAME: 
+
+Thu 16 Nov 2017 04:46:19 PM CET	 ADD FRAME: 
+External frames positioned
+Internal frames positioned
+Frames associated to the panel: \n4 20MNMFRIM00001
+6 20MNMFDIM00003 
+\n INT1:  INT2:  INT3:  INT4:  EXT1:  EXT2:  EXT3 :  EXT4:  EXT5:  EXT6:  
+
+Thu 16 Nov 2017 04:47:31 PM CET	 ADD FRAME: 
+External frames positioned
+Internal frames positioned
+Frames associated to the panel: \n4 20MNMFRIM00001
+6 20MNMFDIM00003 
+\n INT1:  INT2:  INT3:  INT4:  EXT1:  EXT2:  EXT3 :  EXT4:  EXT5:  EXT6:  
+
+Thu 16 Nov 2017 04:52:27 PM CET	 ADD FRAME: 
+External frames positioned
+Internal frames positioned
+Frames associated to the panel: \n4 20MNMFRIM00001
+6 20MNMFDIM00003 
+\n INT1: 3132 INT2: 123 INT3: 64 INT4: 4665 EXT1: 312 EXT2: 321 EXT3 : 5654 EXT4: 555 EXT5: 354 EXT6: 55 
+
+Thu 16 Nov 2017 04:54:14 PM CET	 ADD FRAME: 
+
+Thu 16 Nov 2017 05:19:35 PM CET	 ADD HONEYCOMB: 
+Adding honeycomb part
+Honeycombs associated to the panel: 
+HC5: 1A HC4: 6D HC3: 9E  HC2: 4S HC1: 4E
+
+Thu 16 Nov 2017 05:20:02 PM CET	 ADD COOLING BARS: 
+External cooling bars added
+Cooling bars associated to the panel: 
+COOL1: 20MNMCCS100003 COOL2: 20MNMCCS100015

@@ -1,0 +1,2 @@
+Mean   rms   min   max
+0	0	0	0

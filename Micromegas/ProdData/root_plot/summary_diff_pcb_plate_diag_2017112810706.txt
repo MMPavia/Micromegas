@@ -1,0 +1,4 @@
+Mean   rms   min   max
+0.600735	0.0142533	0	13
+Mean   rms   min   max
+0.600735	0.0142533	0	13

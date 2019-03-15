@@ -296,8 +296,8 @@ void repeatability_and_mean (int p, string scan1, string scan2, string scan3){
   
   if(p==0){
     //    rootfile  << outpath <<"mean_and_rep_plates_laser_ref_tab.root";
-    //rootfile  << outpath <<"mean_and_rep_plates_laser_ref_stif_new.root";
-    rootfile  << outpath <<"mean_and_rep_plates_laser_ref_tab_new.root";
+    rootfile  << outpath <<"mean_and_rep_plates_laser_ref_stif_new.root";
+    //rootfile  << outpath <<"mean_and_rep_plates_laser_ref_tab_new.root";
 
   }
   if(p==1){

@@ -399,7 +399,7 @@ if (1) cout << "-----------------------------------------------------"
  
 	FILE* logf = fopen (outname.str().c_str(),"w+");
 	FILE* saveFileName = fopen (filename.str().c_str(),"w+");//Athina
-	fprintf( saveFileName, " %s \n", outname.str().c_str() );//Athina
+	fprintf( saveFileName, "%s \n", outname.str().c_str() );//Athina
 	fflush( saveFileName );//Athina
 	fclose(saveFileName );//Athina
 

@@ -37,8 +37,7 @@ void diff_panel_ref (string scan){
 // reference files
    ostringstream file2;
    // GG: change for laser/gauge
-   //   file2 << inpath2 << "mean_and_rep_plates_laser_ref_tab.root";
-   //file2 << inpath2 << "mean_and_rep_plates_gauge_noopt.root";
+   // file2 << inpath2 << "mean_and_rep_plates_laser_ref_tab.root";
    file2 << inpath2 << "mean_and_rep_plates_laser_ref_tab_new.root";
         
    

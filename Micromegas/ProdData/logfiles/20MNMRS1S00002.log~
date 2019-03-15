@@ -1,0 +1,30 @@
+Mon 12 Feb 2018 09:11:04 AM CET	START NEW PANEL:
+Stereo Panel added
+
+Mon 12 Feb 2018 03:09:06 PM CET	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts checked
+PCBs positioned on ref plates
+PCBs associated to the panel: 
+20MNMBSS100041 20MNMBSS200030 20MNMBSS300023 20MNMBSS400026 20MNMBSS500047
+
+Mon 12 Feb 2018 03:13:23 PM CET	 PCB ALIGNMENT Table: 
+
+Mon 12 Feb 2018 04:35:41 PM CET	 PCB POSITIONING Stiffback: 
+PTFE pins positioned
+PCBs checked for defects
+Pin inserts checked
+
+Mon 12 Feb 2018 04:52:16 PM CET	 PCB POSITIONING Stiffback: 
+PCBs checked for defects
+Pin inserts checked
+PTFE pins positioned
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018021211015.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018021211031.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018021211034.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018021211039.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018021211042.txt 
+PCBs positioned on ref plates
+20MNMBSS100040 20MNMBSS200021 20MNMBSS300005 20MNMBSS400027 20MNMBSS500046

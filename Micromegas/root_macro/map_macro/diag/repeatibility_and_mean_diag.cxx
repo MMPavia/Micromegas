@@ -327,20 +327,20 @@ void repeatibility_and_mean_diag (int p, string scan1, string scan2, string scan
  // create a root file for the histograms;
   ostringstream rootfile;
      if(p==1){
-       rootfile << outpath << "mean_and_rep_diag_laser_int_sx_ref_T_n.root";
-       //rootfile << outpath << "mean_and_rep_diag_laser_int_sx_ref_S_n.root";
+       //rootfile << outpath << "mean_and_rep_diag_laser_int_sx_ref_T_n.root";
+       rootfile << outpath << "mean_and_rep_diag_laser_int_sx_ref_S_n.root";
      }
      else if(p==2){
-       rootfile << outpath << "mean_and_rep_diag_laser_int_dx_ref_T_n.root";
-       //rootfile << outpath << "mean_and_rep_diag_laser_int_dx_ref_S_n.root";
+       //rootfile << outpath << "mean_and_rep_diag_laser_int_dx_ref_T_n.root";
+       rootfile << outpath << "mean_and_rep_diag_laser_int_dx_ref_S_n.root";
      }
      else if(p==3){
-       rootfile << outpath << "mean_and_rep_diag_laser_ext_sx_ref_T_n.root";
-       //rootfile << outpath << "mean_and_rep_diag_laser_ext_sx_ref_S_n.root";
+       //rootfile << outpath << "mean_and_rep_diag_laser_ext_sx_ref_T_n.root";
+       rootfile << outpath << "mean_and_rep_diag_laser_ext_sx_ref_S_n.root";
      }
      else if(p==4){
-       rootfile << outpath << "mean_and_rep_diag_laser_ext_dx_ref_T_n.root";
-       //rootfile << outpath << "mean_and_rep_diag_laser_ext_dx_ref_S_n.root";
+       //rootfile << outpath << "mean_and_rep_diag_laser_ext_dx_ref_T_n.root";
+       rootfile << outpath << "mean_and_rep_diag_laser_ext_dx_ref_S_n.root";
      }
   TFile myroot(rootfile.str().c_str(), "RECREATE");
   cout << "Root output file: " << endl << rootfile.str() << endl;

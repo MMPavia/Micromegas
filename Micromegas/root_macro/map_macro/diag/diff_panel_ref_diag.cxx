@@ -165,7 +165,7 @@ void diff_panel_ref_diag (int p, string scan1, string scan2){
 	   //scan[0][j]=coord*1000;
 	   //m1 += scan[0][j];
 	   cout << x << " " << y << " " << opt << " "<< laser << " " <<  temp1 << " " << temp2 << "c1=  " << coord << " "  << endl;
-	   distz_s1->Fill(coord);
+	   //distz_s1->Fill(coord);
            map_s1->Fill(x/10,-y, coord);
            map_s1_p->Fill(x/10,-y, coord-11.80); // 11.80 spessore pannello
 	   j++;
@@ -184,7 +184,7 @@ void diff_panel_ref_diag (int p, string scan1, string scan2){
            //scan[1][j]=coord*1000;
 	   //m2 += scan[1][j];
 	   cout << x << " " << y << " " << opt << " "<< laser << " " <<  temp1 << " " << temp2 << "c2=  " << coord << " " <<  endl;
-	   distz_s2->Fill(coord);
+	   //distz_s2->Fill(coord);
            map_s2->Fill(x/10,-y, coord);
            map_s2_p->Fill(x/10,-y, coord-11.80);
 	   j++;
@@ -203,6 +203,7 @@ void diff_panel_ref_diag (int p, string scan1, string scan2){
 	  zmap1 = map_s1->GetBinContent(j,i);
 	  z1 = diff1->GetBinContent(j,i);
 	  if(z1!=0) {
+	     distz_s1->Fill(z1);
 	     distz_diff->Fill(z1);
 	     cout << zref1 << " " << zmap1 << " z1=  " << z1 << endl;
           }
@@ -210,6 +211,7 @@ void diff_panel_ref_diag (int p, string scan1, string scan2){
 	  zmap2 = map_s2->GetBinContent(j,i);
 	  z2 = diff2->GetBinContent(j,i);
 	  if(z2!=0) {
+             distz_s2->Fill(z2); 
 	     distz_diff->Fill(z2);
 	     cout << zref2 << " " << zmap2 << " z2=  " << z2 << endl;
 

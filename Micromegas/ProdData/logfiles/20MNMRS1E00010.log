@@ -1,0 +1,288 @@
+Wed 28 Nov 2018 03:49:05 PM CET	START NEW PANEL:
+Eta Panel added
+
+Wed 28 Nov 2018 03:49:16 PM CET	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+PCBs positioned on ref plates
+PCBs associated to the panel: 
+20MNMBSE100053 20MNMBSE200054 20MNMBSE300063 20MNMBSE400030 20MNMBSE500062
+
+Wed 28 Nov 2018 03:51:51 PM CET	 PCB ALIGNMENT Table: 
+Clean PCBs
+10 reference pins positioned
+Vacuum turned on for blocking
+Closing gaps
+PCB holes covered
+Cut outs closed
+Kapton strips added
+Diagonals covered
+Calling pressmon.vi
+Done with pressure monitoring
+Calling readpress.vi
+Done with reading pressure
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Driver disconnected
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Table/Results20181128171020.txt
+Done with Rasmask reading
+Reference pins removed
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112811041.txt
+PCB tested
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112811056.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112811058.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112811063.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112811065.txt 
+Reference pins re-positioned
+Vacuum removed
+Cleanliness checked
+Interconnections glued
+Glue cured
+Vacuum switched on
+Reference pins removed (2nd time)
+Done all
+
+Thu 29 Nov 2018 09:46:51 AM CET	 PCB POSITIONING Stiffback: 
+PCBs checked for defects
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112910625.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112910639.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112910642.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112910645.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112910647.txt 
+PCBs positioned on ref plates
+20MNMBSE100042 20MNMBSE200072 20MNMBSE300065 20MNMBSE400059 20MNMBSE500074
+
+
+Thu 29 Nov 2018 12:18:35 PM CET	 PCB ALIGNMENT Stiffback: 
+Clean PCBs
+10 reference pins positioned
+Vacuum turned on for blocking
+Closing gaps
+PCB holes covered
+Cut outs closed
+Kapton strips added
+Green disks added
+Calling pressmon.vi
+Done with pressure monitoring
+Calling readpress.vi
+Done with reading pressure
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Driver disconnected
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Stiffback/Results20181129144819.txt
+Done with Rasmask reading
+Reference pins removed
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112910893.txt
+PCB tested
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112910911.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112910914.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112910920.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2018112910924.txt 
+Done all
+
+Mon 03 Dec 2018 09:35:05 AM CET	 ADD FRAME: 
+External frames positioned
+Internal frames positioned
+Frames: 
+4 20MNMFRIM00001
+6 20MNMFDIM00003 
+INT1: 17
+INT2: 94
+INT3: 170
+INT4: 232
+EXT1: 120
+EXT2: 3xx
+EXT3: 178
+EXT4: 54
+EXT5: 354
+EXT6: 155
+
+
+Mon 03 Dec 2018 09:47:21 AM CET	 ADD HONEYCOMB: 
+Adding honeycomb part
+Honeycomb: 
+HC5:	22D	20MNMHOCS00290_22D	20MNMHCS500115
+HC4:	11I	20MNMHOCS00279_11I	20MNMHCS400115
+HC3:	25AN	20MNMHOCS00293_25AN	20MNMHCS300115
+HC2:	24C	20MNMHOCS00292_24C	20MNMHCS200115
+HC1:	18I	20MNMHOCS00286_18I	20MNMHCS100115
+
+
+Mon 03 Dec 2018 09:50:06 AM CET	 ADD COOLING BARS: 
+Cooling bars pins placed
+Cooling bar pins checked
+Cooling bars placed
+Cooling bars: 
+COOL1: 20MNMCCS100050
+COOL2: 20MNMCCS100049
+
+Mon 03 Dec 2018 09:57:05 AM CET	 DRY RUN: 
+FEB pins checked
+FEB pins positioned
+cleanliness checked
+stiffback rotated
+stiffback released
+weights positioned
+Micrometer Dry Run Completed
+/home/atlas/Micromegas/ProdData/Micrometer/micrometerDryRun_1812031015.txt
+Laser Dry run completed
+/home/atlas/Micromegas/ProdData/mapping/mapping_201812310619.txt 
+Weights and stiffback removed
+Components removed
+Pins added
+Vacuum off
+Parchment covers added
+
+Mon 03 Dec 2018 10:26:03 AM CET	 GLUING ON TABLE: 
+Vacuum on
+Pins added
+Dispenser mounted on cartridge
+Dispenser positioned in glue machine housing
+
+Mon 03 Dec 2018 10:33:46 AM CET	 GLUING ON TABLE: 
+Vacuum on
+Dispenser mounted on cartridge
+Pins added
+Dispenser positioned in glue machine housing
+Calling Rasnik.vi
+ults20181203103402.txt
+
+Mon 03 Dec 2018 10:35:27 AM CET	 GLUING ON TABLE: 
+Vacuum on
+Dispenser mounted on cartridge
+Pins added
+Dispenser positioned in glue machine housing
+Calling Rasnik.vi
+FEB pin inserts glued
+Glue distributed manually
+Parchments removed
+Gluing done
+All done
+
+Mon 03 Dec 2018 11:33:38 AM CET	 POSITION INTERNAL STRUCTURE: 
+Cooling bar pins placed
+Cooling bars positioned
+External frames positioned
+Internal frames positioned
+Honeycomb sheets positioned
+Grounding jumpers screwed in
+Polystyrol pieces placed
+Glue on FEB inserts
+FEB pins placed
+Glue distributed on int frames
+
+Mon 03 Dec 2018 11:52:37 AM CET	 STIFFBACK GLUING: 
+Stiffback positioned face up
+Stiffback released  and arch moved away
+Parchment covers positioned
+Dispenser mounted
+Cartridge positioned
+Gluing done
+FEB pins glued
+Parchment protections removed
+Glue manually distributed
+Done
+
+Mon 03 Dec 2018 12:26:46 PM CET	 PANEL CLOSURE:
+Stiffback moved outside the table
+Cleanliness of supports checked
+Stiffback rotated upside down
+Stiffback moved over the ref plates
+Stiffback lowered on ref plates
+Stiffback released from movement arch
+Movement arch moved away from the table
+Weights positioned on stiffback
+Micrometer Closure Completed
+/home/atlas/Micromegas/ProdData/Micrometer/micrometerGluing_1812031244.txt
+/home/atlas/Micromegas/ProdData/mapping/mapping_201812310619.txt 
+Back of stiffback mapped
+Glue cured
+
+Tue 04 Dec 2018 09:44:16 AM CET	 STIFFBACK REMOVAL:
+Vacuum removed
+Weights removed
+Stiffback connected to arch
+Stiffback lifted
+Stiffback moved away
+
+Tue 04 Dec 2018 09:44:30 AM CET	 QAQC VACUUM ON:
+Vacuum switched on
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812410586.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812410606.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812410610.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812410613.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812410616.txt 
+QAQC vacuum on done
+
+Fri 01 Jan 1904 01:00:00 AM CET	 GLUING ON PIN/INSERT: 
+Vacuum checked
+electroerosion pin inserted
+glue deposited in slotted and circ. insert
+Two inserts positioned
+vertical tool positioned
+pins pushed down
+three screws tightened
+Blocking plate positioned and screwed
+Planarity checked
+Glue cured
+Vertical tools removed
+Electroerosion pin removed
+
+Wed 05 Dec 2018 09:23:58 AM CET	 QAQC VACUUM OFF:
+Vacuum switched off
+Tooling removed
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510565.txt
+
+Wed 05 Dec 2018 09:45:58 AM CET	 QAQC VACUUM OFF:
+Tooling removed
+Vacuum switched off
+
+Wed 05 Dec 2018 09:46:09 AM CET	 QAQC VACUUM OFF:
+Tooling removed
+Vacuum switched off
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510565.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510589.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510592.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510597.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510599.txt 
+QAQC vacuum off done
+
+Wed 05 Dec 2018 10:14:32 AM CET	 QAQC VACUUM ON:
+Vacuum switched on
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510631.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510647.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510650.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510654.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510656.txt 
+QAQC vacuum on done
+
+Wed 05 Dec 2018 10:59:00 AM CET	 QAQC VACUUM OFF:
+Vacuum switched off
+Tooling removed
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510661.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510676.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510678.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510681.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201812510684.txt 
+QAQC vacuum off done
+
+Wed 05 Dec 2018 04:38:26 PM CET	 CONSTRUCTION FINALIZATION: 
+Rotating machine moved on top of panel
+Machine lowered
+Vacuum switched on
+Machine lifted
+Panel moved away
+Panel positioned on testing table

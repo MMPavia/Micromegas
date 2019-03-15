@@ -135,6 +135,8 @@ void diff_pcb_ref_diag (int p,int q, string scan1, string scan2){
    float xdistmin =0.200; 
    float xdistmax =0.850; 
 
+ //float xdistmin =-0.200;
+ //float xdistmax =0.200; 
 
    TH1F *distz_s1 = new TH1F("distz_s1","distz_s1", ndistbin,xdistmin, xdistmax  ); 
    distz_s1->GetXaxis()->SetTitle("#mu ");
@@ -196,8 +198,10 @@ void diff_pcb_ref_diag (int p,int q, string scan1, string scan2){
 	   j++;
 	   
     }
-    
+   
+    cout <<" diff SX " << endl; 
     diff1->Add(ave_s1,map_s1,-1,+1);
+    cout <<" diff DX " << endl; 
     diff2->Add(ave_s2,map_s2,-1,+1);
 
 

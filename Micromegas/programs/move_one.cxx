@@ -81,7 +81,7 @@ int main (int argc, char** argv)
 	-- argc; ++ argv;
 	uint64_t aspd = (argc) ? strtol(*argv, NULL, 10) : 999999;
 	// gg> cambiata velocita' motore 5 da 30 a 10
-	speed = (aspd<100) ? aspd : (mot<3) ? 5 : (mot==6) ? 10 : (mot==5) ? 10 : (mot==4) ? 60 : 0;
+	speed = (aspd<100) ? aspd : (mot<3) ? 20 : (mot==6) ? 10 : (mot==5) ? 10 : (mot==4) ? 60 : 0;
 
 	if ((steps > 99999) || (steps == 0))
 	 {

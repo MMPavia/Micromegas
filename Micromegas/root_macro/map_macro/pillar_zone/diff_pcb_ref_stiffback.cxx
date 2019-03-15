@@ -88,7 +88,7 @@ void diff_pcb_ref_stiffback (string scan){
    Int_t j=0; 
 
    Float_t x,y, opt, laser, temp1, temp2, coord;
-   Double_t media,stdev;
+   Double_t media,stdev, RMS;
    Int_t q=0, n=146;
    Float_t array[n];
    Double_t minimo=14000;

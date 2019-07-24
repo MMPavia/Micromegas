@@ -123,7 +123,8 @@ int main (int argc, char** argv)
 
 
         #define _MICRO_SLEEP_ 100
-        #define _LONG_SLEEP_ 1800
+	#define _LONG_SLEEP_ 1800
+        //#define _LONG_SLEEP_ 120
 
 	printf ( " sleep times are %d sec %d usec\n", _LONG_SLEEP_, _MICRO_SLEEP_ );
         bool run(true);

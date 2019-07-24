@@ -1,0 +1,4 @@
+  time  	  press_table  	 press_stiffback  
+ 16:30:41 	 -0.342773 	  -0.410156  
+  time  	  press_table  	 press_stiffback  
+ 16:30:43 	 -0.343750 	  -0.413086  

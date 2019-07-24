@@ -1,0 +1,72 @@
+Stiffback (DRY RUN e GLUEING)
+
+---> GLUE_planarity_stiffback.cxx
+     macro che plotta la planarità dello stiffback chiuso
+     - un parametro (nome del mapping file)
+     
+---> GLUE_diff_stiffback.cxx
+     macro che calcola la differenza di due scan su stiffback chiuso
+     - due parametri: nome dei due root file generati dal mapping)      
+
+
+
+Pillar_zone
+
+
+---> PILLAR_reference_stiffback.cxx
+     crea file di reference per mappature su stiffback
+     - un parametro (nome del mapping file)
+
+---> PILLAR_diff_pcb_ref_stiffback.cxx
+     plot di mappatura dei PCB, con sottrazione del reference.
+     - un parametro (nome del mapping file)
+
+---> PILLAR_reference_table.cxx
+     macro che calcola media e ripetibilità su tre scan
+     - tre parametri (nome dei tre scan)
+
+
+---> PILLAR_diff_mapping_ref_tavolo.cxx
+     plot di mappatura di piastre, pcb o pannello, con sottrazione reference
+     - due parametri:
+     p=0 (piastre) p=1 (PCB) p=2 (pannello)
+     nome dello scan
+
+
+
+DIAG
+
+---> DIAG_reference_stiffback.cxx
+     crea file di reference per mappature diagonali su stiffback
+     2 parametri:
+       - p = 1,2,3,4 -> int sx, int dx, ext sx, ext dx
+       - nome dello scan 
+
+---> DIAG_diff_pcb_ref_stiffback.cxx
+     crea file di reference per mappature diagonali su stiffback
+     2 parametri:
+       - p = 1,2,3,4 -> int sx, int dx, ext sx, ext dx
+       - nome dello scan 
+
+
+
+
+---> diff_panel_ref_diag.cxx
+     macro che calcola la differenza z pannello e z reference sulle diagonali,
+     ha nel codice i root file prodotti dalla macro "repeatability_and_mean_diag.cxx",
+     utilizza due root file alla volta relativi o alle diagonali interne o a quelle esterne.
+     vuole in input:
+     -un parametro:
+     	 p = 1,2 -> int, ext
+     -due scan.txt:
+     	  in ordine diag int/ext sx, int/ext dx
+
+---> diff_pcb_ref_diag.cxx
+     macro che calcola la differenza z pcb e z reference sulle diagonali,
+     ha nel codice i root file prodotti dalla macro "repeatability_and_mean_diag.cxx",
+     utilizza due root file alla volta relativi o alle diagonali interne o a quelle esterne.
+     vuole in input:
+     -un parametro:
+     	 p = 1,2 -> int, ext
+     -due scan.txt:
+     	  in ordine diag int/ext sx, int/ext dx

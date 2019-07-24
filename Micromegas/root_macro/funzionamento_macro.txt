@@ -1,0 +1,68 @@
+Stiffback (DRY RUN e GLUEING)
+
+---> GLUE_planarity_stiffback.cxx
+     macro che plotta la planarità dello stiffback chiuso
+     - un parametro (nome del mapping file)
+     
+---> GLUE_diff_stiffback.cxx
+     macro che calcola la differenza di due scan su stiffback chiuso
+     - due parametri: nome dei due root file generati dal mapping)      
+
+
+
+Pillar_zone
+
+
+---> PILLAR_reference_stiffback.cxx
+     crea file di reference per mappature su stiffback
+     - un parametro (nome del mapping file)
+
+---> PILLAR_diff_pcb_ref_stiffback.cxx
+     plot di mappatura dei PCB, con sottrazione del reference.
+     - un parametro (nome del mapping file)
+
+---> PILLAR_reference_table.cxx
+     macro che calcola media e ripetibilità su tre scan
+     - tre parametri (nome dei tre scan)
+
+---> PILLAR_diff_mapping_ref_tavolo.cxx
+     plot di mappatura di piastre, pcb o pannello, con sottrazione reference
+     - due parametri:
+     p=0 (piastre) p=1 (PCB) p=2 (pannello)
+     nome dello scan
+
+
+
+DIAG
+
+---> DIAG_reference_stiffback.cxx
+     crea file di reference per mappature diagonali su stiffback
+     2 parametri:
+       - p = 1,2,3,4 -> int sx, int dx, ext sx, ext dx
+       - nome dello scan 
+
+---> DIAG_diff_pcb_ref_stiffback.cxx
+     crea file di reference per mappature diagonali su stiffback
+     2 parametri:
+       - p = 1,2,3,4 -> int sx, int dx, ext sx, ext dx
+       - nome dello scan 
+
+---> DIAG_reference_table.cxx
+     crea file di reference per mappature diagonali su tavolo
+     2 parametri:
+       - p = 1,2,3,4 -> int sx, int dx, ext sx, ext dx
+       - nome dei 3 scan
+ 
+---> DIAG_diff_pcb_ref_tavolo.cxx
+     crea file di reference per mappature diagonali su tavolo per PCB
+     2 parametri:
+       - p = 1,2,3,4 -> int sx, int dx, ext sx, ext dx
+       - nome dello scan
+
+---> DIAG_diff_panel_ref_tavolo.cxx
+     crea file di reference per mappature diagonali su tavolo  per pannello
+     2 parametri:
+       - p = 1,2,3,4 -> int sx, int dx, ext sx, ext dx
+       - nome dello scan
+
+

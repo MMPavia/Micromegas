@@ -4,7 +4,7 @@
 //#include "AtlasStyle.C"
 
 #define inpath "/home/atlas/Micromegas/M05Data/mapping/"
-#define outpath "/home/atlas/Micromegas/M05Data/root_plot/"
+#define outpath "/home/atlas/Micromegas/M05Data/root_plot/modulo0/"
 
 void planarity_coverlay (string scan){
 

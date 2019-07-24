@@ -1,0 +1,428 @@
+Mon 25 Feb 2019 02:57:53 PM CET	START NEW PANEL:
+Stereo Panel added
+
+Mon 25 Feb 2019 02:58:03 PM CET	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+PCBs positioned on ref plates
+PCBs associated to the panel: 
+20MNMBSS100057 20MNMBSS200022 20MNMBSS300019 20MNMBSS400053 20MNMBSS500075
+
+Mon 25 Feb 2019 02:58:47 PM CET	 PCB ALIGNMENT Table: 
+10 reference pins positioned
+Calling pressmon.vi
+Done with pressure monitoring
+Calling readpress.vi
+Done with reading pressure
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Driver disconnected
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Table/Results20190225163254.txt
+Clean PCBs
+Vacuum turned on for blocking
+Closing gaps
+PCB holes covered
+Cut outs closed
+Kapton strips added
+Diagonals covered
+Done with Rasmask reading
+Reference pins removed
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022510999.txt
+PCB tested
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022511014.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022511017.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022511020.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022511022.txt 
+Reference pins re-positioned
+Vacuum removed
+Cleanliness checked
+Interconnections glued
+Glue cured
+Vacuum switched on
+Reference pins removed (2nd time)
+Done all
+
+Tue 26 Feb 2019 09:31:13 AM CET	 PCB POSITIONING Stiffback: 
+PCBs checked for defects
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022610587.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022610602.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022610607.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022610610.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022610613.txt 
+PCBs positioned on ref plates
+20MNMBSS100060 20MNMBSS200024 20MNMBSS300024 20MNMBSS400045 20MNMBSS500076
+
+
+Tue 26 Feb 2019 10:20:13 AM CET	 PCB ALIGNMENT Stiffback: 
+10 reference pins positioned
+Vacuum turned on for blocking
+Calling pressmon.vi
+Done with pressure monitoring
+Calling readpress.vi
+Done with reading pressure
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Driver disconnected
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Stiffback/Results20190226115714.txt
+Closing gaps
+PCB holes covered
+Cut outs closed
+Green disks added
+Clean PCBs
+Done with Rasmask reading
+Reference pins removed
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022610880.txt
+PCB tested
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022610901.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022610904.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022610911.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022610916.txt 
+Done all
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+
+Thu 28 Feb 2019 09:46:12 AM CET	 ADD FRAME: 
+External frames positioned
+Internal frames positioned
+Frames: 
+4 20MNMFRIM00001
+6 20MNMFDIM00003 
+INT1: 19
+INT2: xxx
+INT3: 164
+INT4: 211
+EXT1: 105
+EXT2: 397
+EXT3: 154
+EXT4: 81
+EXT5: 371
+EXT6: 186
+
+
+Thu 28 Feb 2019 09:49:06 AM CET	 ADD HONEYCOMB: 
+Adding honeycomb part
+Honeycomb: 
+HC5:	3A	20MNMHOCS00271_3A	20MNMHCS5124
+HC4:	21C	20MNMHOCS00289_21C	20MNMHCS4124
+HC3:	20N	20MNMHOCS00288_20N	20MNMHCS3124
+HC2:	14A	20MNMHOCS00282_14A	20MNMHCS2124
+HC1:	4D	20MNMHOCS00272_4D	20MNMHCS1124
+
+
+Thu 28 Feb 2019 09:50:17 AM CET	 ADD COOLING BARS: 
+Cooling bars pins placed
+Cooling bar pins checked
+Cooling bars placed
+Cooling bars: 
+COOL1: 20MNMCCS100037
+COOL2: 20MNMCCS100038
+
+Thu 28 Feb 2019 09:50:33 AM CET	 DRY RUN: 
+FEB pins checked
+FEB pins positioned
+cleanliness checked
+stiffback rotated
+stiffback released
+weights positioned
+Micrometer Dry Run Completed
+/home/atlas/Micromegas/ProdData/Micrometer/micrometerDryRun_1902281000.txt
+Laser Dry run completed
+/home/atlas/Micromegas/ProdData/mapping/mapping_2019022810603.txt 
+Weights and stiffback removed
+Components removed
+Pins added
+Vacuum off
+Parchment covers added
+
+Thu 28 Feb 2019 10:09:34 AM CET	 GLUING ON TABLE: 
+Vacuum on
+Pins added
+Dispenser mounted on cartridge
+Dispenser positioned in glue machine housing
+
+Thu 28 Feb 2019 10:10:31 AM CET	 GLUING ON TABLE: 
+Vacuum on
+Dispenser mounted on cartridge
+Dispenser positioned in glue machine housing
+Pins added
+Calling Rasnik.vi
+
+Thu 28 Feb 2019 10:15:02 AM CET	 GLUING ON TABLE: 
+Vacuum on
+Dispenser mounted on cartridge
+Dispenser positioned in glue machine housing
+Pins added
+Calling Rasnik.vi
+ C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+
+Thu 28 Feb 2019 10:28:37 AM CET	 GLUING ON TABLE: 
+Vacuum on
+Dispenser mounted on cartridge
+Dispenser positioned in glue machine housing
+Pins added
+Calling Rasnik.vi
+FEB pin inserts glued
+Glue distributed manually
+Parchments removed
+Gluing done
+All done
+C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+
+Thu 28 Feb 2019 11:02:09 AM CET	 POSITION INTERNAL STRUCTURE: 
+Cooling bar pins placed
+Cooling bars positioned
+External frames positioned
+Internal frames positioned
+Honeycomb sheets positioned
+Grounding jumpers screwed in
+Polystyrol pieces placed
+Glue on FEB inserts
+FEB pins placed
+Glue distributed on int frames
+
+Thu 28 Feb 2019 11:22:46 AM CET	 STIFFBACK GLUING: 
+Stiffback positioned face up
+Stiffback released  and arch moved away
+Parchment covers positioned
+Dispenser mounted
+Cartridge positioned
+Gluing done
+FEB pins glued
+Parchment protections removed
+Glue manually distributed
+Done
+
+Thu 28 Feb 2019 11:48:29 AM CET	 PANEL CLOSURE:
+Stiffback moved outside the table
+Cleanliness of supports checked
+Stiffback rotated upside down
+Stiffback moved over the ref plates
+Stiffback lowered on ref plates
+Stiffback released from movement arch
+Movement arch moved away from the table
+Weights positioned on stiffback
+Micrometer Closure Completed
+/home/atlas/Micromegas/ProdData/Micrometer/micrometerGluing_1902281216.txt
+/home/atlas/Micromegas/ProdData/mapping/mapping_2019022810603.txt 
+Back of stiffback mapped
+Glue cured
+
+Fri 01 Mar 2019 09:29:43 AM CET	 STIFFBACK REMOVAL:
+Vacuum removed
+Weights removed
+Stiffback connected to arch
+Stiffback lifted
+Stiffback moved away
+
+Fri 01 Mar 2019 09:30:21 AM CET	 QAQC VACUUM ON:
+Vacuum switched on
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019022610880.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201903110593.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201903110596.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201903110599.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201903110605.txt 
+QAQC vacuum on done
+
+Fri 01 Mar 2019 10:25:38 AM CET	 GLUING ON PIN/INSERT: 
+glue deposited on alignment pin grooves
+alignment pin positioned
+Vertical positioning tool placed
+Manually push down pins
+three screws tightened
+blocking plate positioned
+planarity checked
+second pin positioned
+electroerosion pin inserted in slotted insert
+glue deposited on slotted insert
+insert positioned in hole
+vertical positioning tool positioned
+Manually push down pins
+three screws tightened
+blocking plate screwed
+planarity checked
+Glue cured
+Vertical tools removed
+Electroerosion pin removed
+Vacuum checked
+
+Mon 04 Mar 2019 09:50:14 AM CET	 QAQC VACUUM OFF:
+Vacuum switched off
+Tooling removed
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201903410597.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201903410613.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201903410616.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201903410620.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_201903410622.txt 
+QAQC vacuum off done
+
+Mon 04 Mar 2019 10:29:10 AM CET	 CONSTRUCTION FINALIZATION: 
+Rotating machine moved on top of panel
+Machine lowered
+Vacuum switched on
+Machine lifted
+Panel moved away
+Panel positioned on testing table

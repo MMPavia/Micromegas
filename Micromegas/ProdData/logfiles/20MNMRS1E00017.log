@@ -1,0 +1,576 @@
+Thu 11 Jul 2019 04:53:46 PM CEST	START NEW PANEL:
+Eta Panel added
+
+Thu 11 Jul 2019 04:54:10 PM CEST	 PCB POSITIONING Table: 
+PTFE pins positioned
+PCBs checked for defects
+PCBs positioned on ref plates
+20MNMBSE100057 20MNMBSE200051 20MNMBSE300015 20MNMBSE400021 20MNMBSE500093
+
+
+Thu 11 Jul 2019 04:56:08 PM CEST	 PCB ALIGNMENT Table: 
+Clean PCBs
+10 reference pins positioned
+Vacuum removed
+Cleanliness checked
+Interconnections glued
+
+Mon 15 Jul 2019 03:20:41 PM CEST	 PCB POSITIONING Stiffback: 
+PCBs checked for defects
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071610600.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071610615.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071610619.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071610621.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071610624.txt 
+PCBs positioned on ref plates
+PCBs associated to the panel: 
+20MNMBSE100090 20MNMBSE200052 20MNMBSE300035 20MNMBSE400044 20MNMBSE500079
+
+Tue 16 Jul 2019 10:46:13 AM CEST	 PCB ALIGNMENT Stiffback: 
+Clean PCBs
+10 reference pins positioned
+PCB holes covered
+Vacuum turned on for blocking
+Green disks added
+Calling Rasnik.vi
+Done with Rasmask reading
+Closing gaps
+Cut outs closed
+Reference pins removed
+Calling pressmon.vi
+Done with pressure monitoring
+Calling readpress.vi
+Done with reading pressure
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071610710.txt
+PCB tested
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071610731.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071610735.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071610738.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071610740.txt 
+Done all
+
+Tue 16 Jul 2019 02:45:03 PM CEST	 PCB ALIGNMENT Stiffback: 
+
+Wed 17 Jul 2019 10:03:05 AM CEST	 PCB ALIGNMENT Stiffback: 
+Clean PCBs
+10 reference pins positioned
+PCB holes covered
+Vacuum turned on for blocking
+Green disks added
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Read C-CCD
+Driver disconnected
+Stiffback: /home/atlas/Micromegas/ProdData/C_CCD/Data/Stiffback/Results20190717112932.txt
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Stiffback/Results20190717112932.txt
+Done with Rasmask reading
+Closing gaps
+Cut outs closed
+Calling pressmon.vi
+Done with pressure monitoring
+Calling readpress.vi
+Done with reading pressure
+Reference pins removed
+Done all
+
+Wed 17 Jul 2019 11:35:02 AM CEST	 PCB ALIGNMENT Stiffback: 
+Clean PCBs
+10 reference pins positioned
+PCB holes covered
+
+Wed 17 Jul 2019 12:01:22 PM CEST	 PCB ALIGNMENT Table: 
+PCB holes covered
+Clean PCBs
+10 reference pins positioned
+Vacuum turned on for blocking
+Vacuum removed
+Cleanliness checked
+Interconnections glued
+Glue cured
+Vacuum switched on
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Running the C-CCD program for the table
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Running the C-CCD program for the table
+Driver disconnected
+Table: /home/atlas/Micromegas/ProdData/C_CCD/Data/Table/OneResults20190717154902.txt
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Table/OneResults20190717154902.txt
+Closing gaps
+Cut outs closed
+Kapton strips added
+Done with Rasmask reading
+
+Wed 17 Jul 2019 04:45:46 PM CEST	 PCB ALIGNMENT Table: 
+Vacuum switched on
+Closing gaps
+Done with Rasmask reading
+PCB holes covered
+Cut outs closed
+Kapton strips added
+10 reference pins positioned
+Vacuum turned on for blocking
+Calling Rasnik.vi
+Clean PCBs
+Vacuum removed
+Cleanliness checked
+Interconnections glued
+Glue cured
+
+Wed 17 Jul 2019 04:46:31 PM CEST	 PCB ALIGNMENT Table: 
+PCB holes covered
+Closing gaps
+Vacuum switched on
+Cut outs closed
+Kapton strips added
+10 reference pins positioned
+Vacuum turned on for blocking
+Clean PCBs
+Cleanliness checked
+Vacuum removed
+Interconnections glued
+Glue cured
+Calling Rasnik.vi
+Done with Rasmask reading
+
+Wed 17 Jul 2019 04:53:00 PM CEST	 PCB ALIGNMENT Table: 
+Vacuum switched on
+Closing gaps
+Done with Rasmask reading
+PCB holes covered
+Cut outs closed
+Kapton strips added
+10 reference pins positioned
+Vacuum turned on for blocking
+Calling Rasnik.vi
+Clean PCBs
+Vacuum removed
+Cleanliness checked
+Interconnections glued
+Glue cured
+Diagonals covered
+Reference pins removed
+Calling pressmon.vi
+Done with pressure monitoring
+Calling readpress.vi
+Done with reading pressure
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071710964.txt
+PCB tested
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071710982.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071710985.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071710988.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071710991.txt 
+Done all
+
+Wed 17 Jul 2019 04:53:36 PM CEST	 PCB DRY RUN PREPARATION : 
+vacuum on check
+scotch on PCB grooves
+Scoth along perimeter
+Check pressure
+Setup electronics for C-CCD reading
+i
+Running the C-CCD program for the table
+Read C-CCD
+Running the C-CCD program for the table
+Setup electronics for C-CCD reading
+Running the C-CCD program for the table
+Read C-CCD
+Setup electronics for C-CCD reading
+Running the C-CCD program for the stiffback
+Read C-CCD
+Driver disconnected
+Stiffback: /home/atlas/Micromegas/ProdData/C_CCD/Data/Stiffback/Results20190718090449.txt
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Stiffback/Results20190718090449.txt
+Check interconnection glue
+Cut outs added
+check components
+Cehck frame grounding and screws
+Done all
+
+Thu 18 Jul 2019 09:06:33 AM CEST	 ADD FRAME: 
+External frames positioned
+Internal frames positioned
+Frames: 
+4 20MNMFRIM00001
+6 20MNMFDIM00003 
+INT1: 38
+INT2: 81
+INT3: 155
+INT4: 255
+EXT1: 75
+EXT2: 279
+EXT3: 239
+EXT4: 29
+EXT5: 343
+EXT6: 126
+
+
+Thu 18 Jul 2019 09:12:00 AM CEST	 ADD HONEYCOMB: 
+Adding honeycomb part
+Honeycomb: 
+HC5:	7I	20MNMHOCS00275_7I	20MNMHCS500132
+HC4:	21B	20MNMHOCS00289_21B	20MNMHCS400132
+HC3:	25AN	20MNMHOCS00293_25AN	20MNMHCS300132
+HC2:	16C	20MNMHOCS00284_16C	20MNMHCS200132
+HC1:	10C	20MNMHOCS00278_10C	20MNMHCS100132
+
+
+Thu 18 Jul 2019 09:13:28 AM CEST	 ADD COOLING BARS: 
+Cooling bars pins placed
+Cooling bar pins checked
+Cooling bars placed
+Cooling bars: 
+COOL1: 20MNMCCS100120
+COOL2: 20MNMCCS100076
+
+Thu 18 Jul 2019 09:15:40 AM CEST	 DRY RUN: 
+FEB pins checked
+FEB pins positioned
+cleanliness checked
+stiffback rotated
+stiffback released
+weights positioned
+Micrometer Dry Run Completed
+/home/atlas/Micromegas/ProdData/Micrometer/micrometerDryRun_1907180925.txt
+Laser Dry run completed
+/home/atlas/Micromegas/ProdData/mapping/mapping_2019071810567.txt 
+Weights and stiffback removed
+Components removed
+Parchment covers added
+
+Thu 18 Jul 2019 09:33:25 AM CEST	 GLUING ON TABLE: 
+Internal frame protection
+Internal grounding done
+Dispenser mounted on cartridge
+Dispenser positioned in glue machine housing
+
+Thu 18 Jul 2019 09:45:14 AM CEST	 GLUING ON TABLE: 
+Internal grounding done
+Dispenser mounted on cartridge
+Internal frame protection
+Dispenser positioned in glue machine housing
+FEB pin inserts glued
+Glue distributed manually
+Parchments removed
+Gluing done
+All done
+
+Thu 18 Jul 2019 10:20:36 AM CEST	 POSITION INTERNAL STRUCTURE: 
+Double jumpers scrrewed on HC
+Cooling bars positioned
+External frames positioned
+Internal frames positioned
+Honeycomb sheets positioned
+Glue on FEB inserts
+FEB pins placed
+Polystyrol pieces placed
+Glue distributed on int frame junctions
+
+Thu 18 Jul 2019 10:39:30 AM CEST	 STIFFBACK GLUING: 
+Stiffback positioned face up
+Stiffback released  and arch moved away
+Parchment covers positioned
+Dispenser mounted
+Cartridge positioned
+Gluing done
+Parchment protections removed
+Glue manually distributed
+Done
+
+Thu 18 Jul 2019 11:03:04 AM CEST	 PANEL CLOSURE:
+Stiffback moved outside the table
+Cleanliness of supports checked
+Stiffback rotated and on table
+Weights positioned on stiffback
+Micrometer Closure Completed
+/home/atlas/Micromegas/ProdData/Micrometer/micrometerGluing_1907181122.txt
+/home/atlas/Micromegas/ProdData/mapping/mapping_2019071810567.txt 
+Back of stiffback mapped
+Glue cured
+
+Fri 19 Jul 2019 09:29:53 AM CEST	 STIFFBACK REMOVAL:
+Vacuum removed
+Weights removed
+Stiffback connected to arch
+Stiffback lifted
+Stiffback moved away
+
+Fri 19 Jul 2019 09:30:07 AM CEST	 QAQC VACUUM ON:
+Vacuum switched on
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071910572.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071910590.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071910593.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071910596.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019071910599.txt 
+QAQC vacuum on done
+
+Fri 01 Jan 1904 01:00:00 AM CET	 GLUING ON PIN/INSERT: 
+Vacuum checked
+electroerosion pin inserted
+glue deposited in slotted and circ. insert
+Two inserts positioned
+vertical tool positioned
+pins pushed down
+three screws tightened
+Blocking plate positioned and screwed
+Planarity checked
+Glue cured
+Vertical tools removed
+Electroerosion pin removed
+
+Mon 22 Jul 2019 09:45:44 AM CEST	 QAQC VACUUM OFF:
+Vacuum switched off
+Tooling removed
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210596.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210625.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210627.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210631.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210639.txt 
+QAQC vacuum off done
+
+Mon 22 Jul 2019 10:57:59 AM CEST	 QAQC VACUUM ON:
+Vacuum switched on
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210671.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210687.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210692.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210695.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210697.txt 
+QAQC vacuum on done
+
+Mon 22 Jul 2019 11:40:21 AM CEST	 QAQC VACUUM OFF:
+Vacuum switched off
+Tooling removed
+Mapping table:
+pillar:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210707.txt
+int_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210723.txt 
+int_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210736.txt 
+ext_sx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210740.txt 
+ext_dx:   /home/atlas/Micromegas/ProdData/mapping/mapping_trap_2019072210743.txt 
+QAQC vacuum off done
+
+Mon 22 Jul 2019 12:35:56 PM CEST	 CONSTRUCTION FINALIZATION: 
+Driver connected
+Tooling prepared
+Rasfork supports added
+
+Mon 22 Jul 2019 02:44:55 PM CEST	 CONSTRUCTION FINALIZATION: 
+Driver connected
+Rasfork supports added
+Tooling prepared
+
+Mon 22 Jul 2019 02:46:58 PM CEST	 CONSTRUCTION FINALIZATION: 
+Driver connected
+Rasfork supports added
+Tooling prepared
+
+Mon 22 Jul 2019 02:48:26 PM CEST	 CONSTRUCTION FINALIZATION: 
+Driver connected
+Rasfork supports added
+Tooling prepared
+
+Mon 22 Jul 2019 02:49:58 PM CEST	 CONSTRUCTION FINALIZATION: 
+Driver connected
+Tooling prepared
+Rasfork supports added
+
+Mon 22 Jul 2019 03:16:52 PM CEST	 CONSTRUCTION FINALIZATION: 
+Driver connected
+Tooling prepared
+Rasfork supports added
+
+Mon 22 Jul 2019 04:22:09 PM CEST	 CONSTRUCTION FINALIZATION: 
+Driver connected
+Tooling prepared
+Rasfork supports added

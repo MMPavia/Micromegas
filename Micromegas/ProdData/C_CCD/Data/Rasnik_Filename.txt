@@ -1,1 +1,1 @@
-/home/atlas/Micromegas/ProdData/C_CCD/Data/Stiffback/Results20190312115005.txt
+/home/atlas/Micromegas/ProdData/C_CCD/Data/Table/Results20190724092127.txt.txttxt

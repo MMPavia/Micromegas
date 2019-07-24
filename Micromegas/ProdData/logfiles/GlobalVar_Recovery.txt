@@ -2,6 +2,8 @@ NewPanel
 PCBposTab
 PCBalignTab
 PCBposStiff
+PCBalignStiff
+pcbPrepDryRun
 AddFrame
 AddHoneycomb
 AllCoolBar
@@ -9,7 +11,3 @@ DryRunFull
 tablePCBglue
 innerStucture
 stbackPCBglue
-closePanel
-StiffRemoval
-QAQCvacon
-PinInsertGlue
